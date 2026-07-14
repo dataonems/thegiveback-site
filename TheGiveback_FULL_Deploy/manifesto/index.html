@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="es" id="html-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="description" content="El Manifiesto de TheGiveback — Lo que creemos sobre el comercio, Colombia, y la infraestructura para la generosidad.">
+<meta property="og:title" content="Lo Que el Comercio le Debe a las Comunidades de Donde Vino">
+<meta property="og:description" content="La diáspora colombiana envía más de cuarenta millones de dólares al día desde Estados Unidos a Colombia. Esta plataforma está construida sobre esa misma corriente.">
+<meta property="og:type" content="article">
+<title id="doc-title">El Manifiesto — TheGiveback</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────── */
+:root {
+  --ink:       #0A0A0A;
+  --ink-mid:   #2C2C2C;
+  --ink-soft:  #4A4A4A;
+  --muted:     #7A7A7A;
+  --rule:      #E0DDD8;
+  --bg:        #FAF9F6;
+  --bg-warm:   #F3F1EC;
+  --green:     #1A3A2A;
+  --green-lt:  #4A9B6F;
+  --gold:      #C4872A;
+  --gold-lt:   #E8A94A;
+  --terra:     #C4541A;
+  --terra-lt:  #E8713A;
+  --terra-pale:#FDF0E8;
+  --gold-pale: #FBF2E3;
+  --serif:     'Lora', Georgia, serif;
+  --sans:      'Inter', system-ui, sans-serif;
+}
+
+/* ── RESET ──────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; color-scheme: light only; }
+body {
+  font-family: var(--serif);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+/* ── NAV BAR ────────────────────────────────── */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(250,249,246,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+  height: 54px; display: flex; align-items: center;
+}
+.topbar-inner {
+  max-width: 900px; margin: 0 auto; padding: 0 24px;
+  width: 100%; display: flex; align-items: center;
+  justify-content: space-between;
+}
+.topbar-logo {
+  font-family: var(--serif); font-size: 16px; font-weight: 700;
+  color: var(--green); text-decoration: none;
+  display: flex; align-items: center; gap: 6px;
+}
+.topbar-logo .accent { color: var(--gold); }
+.topbar-actions { display: flex; align-items: center; gap: 10px; }
+.lang-toggle {
+  display: flex; gap: 0; background: #EEECEA;
+  border-radius: 20px; padding: 2px;
+  border: 1px solid var(--rule);
+}
+.lang-btn {
+  font-family: var(--sans); font-size: 11px; font-weight: 700;
+  padding: 4px 10px; border-radius: 16px; border: none;
+  cursor: pointer; background: transparent; color: var(--muted);
+  transition: all .15s; letter-spacing: .04em;
+}
+.lang-btn.active { background: var(--green); color: #fff; }
+.topbar-back {
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  color: var(--muted); text-decoration: none;
+  display: flex; align-items: center; gap: 4px;
+  transition: color .15s;
+}
+.topbar-back:hover { color: var(--green); }
+
+/* ── READING PROGRESS ───────────────────────── */
+.progress-bar {
+  position: fixed; top: 54px; left: 0; right: 0;
+  height: 2px; background: transparent; z-index: 99;
+}
+.progress-fill {
+  height: 100%; width: 0%;
+  background: var(--gold);
+  transition: width .08s linear;
+}
+
+/* ── DOCUMENT LAYOUT ────────────────────────── */
+.doc {
+  max-width: 640px; margin: 0 auto;
+  padding: 96px 24px 80px;
+}
+
+/* ── MASTHEAD ───────────────────────────────── */
+.masthead {
+  margin-bottom: 56px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--rule);
+}
+.masthead-flag {
+  font-size: 32px; margin-bottom: 20px; display: block;
+}
+.masthead-eyebrow {
+  font-family: var(--sans); font-size: 10px; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 18px; display: block;
+}
+.masthead-title {
+  font-family: var(--serif); font-size: clamp(26px, 4vw, 40px);
+  font-weight: 700; line-height: 1.2; color: var(--ink);
+  margin-bottom: 28px; letter-spacing: -.02em;
+}
+.masthead-title em {
+  font-style: italic; color: var(--green);
+}
+.masthead-opening {
+  font-family: var(--serif); font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.85; color: var(--ink-soft);
+  margin-bottom: 0;
+}
+.masthead-opening strong {
+  color: var(--ink); font-weight: 600;
+}
+
+/* ── SECTIONS ───────────────────────────────── */
+.manifesto-section {
+  padding: 44px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.manifesto-section:last-of-type {
+  border-bottom: none;
+}
+.section-label {
+  font-family: var(--sans); font-size: 9px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--green); display: block; margin-bottom: 20px;
+}
+
+/* ── THE BELIEF — featured treatment ───────── */
+.belief-section {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.belief-rule {
+  width: 32px; height: 2px; background: var(--gold);
+  margin-bottom: 24px;
+}
+.belief-text {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 600; line-height: 1.35;
+  color: var(--gold); letter-spacing: -.02em;
+  font-style: italic;
+}
+
+/* ── BODY PROSE ─────────────────────────────── */
+.prose {
+  font-family: var(--serif);
+  font-size: clamp(16px, 1.8vw, 19px);
+  line-height: 1.88; color: var(--ink-mid);
+}
+.prose + .prose { margin-top: 22px; }
+.prose em { font-style: italic; color: var(--ink); }
+.prose strong { font-weight: 600; color: var(--ink); }
+
+/* ── PULL ───────────────────────────────────── */
+.pull {
+  margin: 32px 0;
+  padding: 28px 32px;
+  border-left: 3px solid var(--gold);
+  background: var(--gold-pale);
+  border-radius: 0 6px 6px 0;
+}
+.pull p {
+  font-family: var(--serif);
+  font-size: clamp(17px, 2.2vw, 22px);
+  font-style: italic; color: var(--green);
+  line-height: 1.6; margin: 0;
+}
+
+/* ── NOT FOR — different visual weight ──────── */
+.not-for-section {
+  padding: 44px 0;
+  border-bottom: 1px solid var(--rule);
+  background: transparent;
+}
+.not-for-section .prose {
+  color: var(--ink-soft);
+}
+
+/* ── COVENANT ───────────────────────────────── */
+.covenant-section {
+  padding: 44px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.covenant-block {
+  background: var(--green);
+  border-radius: 10px;
+  padding: 36px 40px;
+  margin-top: 4px;
+}
+.covenant-label {
+  font-family: var(--sans); font-size: 9px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.45); display: block; margin-bottom: 18px;
+}
+.covenant-text {
+  font-family: var(--serif);
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.85; color: rgba(255,255,255,.88);
+}
+.covenant-text em { font-style: italic; color: rgba(255,255,255,.95); }
+.covenant-text strong { font-weight: 600; color: #fff; }
+
+/* ── THE ASK ─────────────────────────────────── */
+.ask-section {
+  padding: 56px 0 20px;
+}
+.ask-text {
+  font-family: var(--serif);
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 600; line-height: 1.4;
+  color: var(--ink); letter-spacing: -.02em;
+  margin-bottom: 36px;
+}
+.ask-text em { font-style: italic; color: var(--green); }
+.ask-cta {
+  display: inline-block;
+  background: var(--green); color: #fff;
+  padding: 15px 32px; border-radius: 8px;
+  font-family: var(--sans); font-size: 14px; font-weight: 700;
+  text-decoration: none; transition: all .2s;
+  box-shadow: 0 4px 16px rgba(27,67,50,.25);
+}
+.ask-cta:hover {
+  background: #2E6B4A; transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(27,67,50,.32);
+}
+
+/* ── SIGNATURE ───────────────────────────────── */
+.signature-section {
+  margin-top: 56px; padding-top: 40px;
+  border-top: 1px solid var(--rule);
+}
+.signature-name {
+  font-family: var(--serif); font-size: clamp(22px, 2.8vw, 30px);
+  font-style: italic; color: var(--green);
+  margin-bottom: 6px; font-weight: 600;
+}
+.signature-title {
+  font-family: var(--sans); font-size: 12px;
+  color: var(--muted); line-height: 1.7;
+}
+.signature-date {
+  font-family: var(--sans); font-size: 11px;
+  color: var(--muted); margin-top: 12px;
+  letter-spacing: .04em;
+}
+
+/* ── SHARE BLOCK ─────────────────────────────── */
+.share-block {
+  margin-top: 56px; padding: 32px 36px;
+  background: var(--bg-warm);
+  border-radius: 10px;
+  border: 1px solid var(--rule);
+  text-align: center;
+}
+.share-label {
+  font-family: var(--sans); font-size: 10px; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 12px; display: block;
+}
+.share-desc {
+  font-family: var(--serif); font-size: 15px;
+  font-style: italic; color: var(--ink-soft);
+  line-height: 1.65; margin-bottom: 24px;
+  max-width: 440px; margin-left: auto; margin-right: auto;
+}
+.share-desc { margin-bottom: 24px; }
+.share-buttons {
+  display: flex; gap: 10px; justify-content: center;
+  flex-wrap: wrap;
+}
+.share-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 11px 20px; border-radius: 7px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  border: none; cursor: pointer; transition: all .15s;
+  text-decoration: none;
+}
+.share-btn-link {
+  background: var(--green); color: #fff;
+}
+.share-btn-link:hover { background: #2E6B4A; }
+.share-btn-wa {
+  background: #25D366; color: #fff;
+}
+.share-btn-wa:hover { background: #1ebe5d; }
+.share-btn-copy {
+  background: var(--bg); color: var(--ink-mid);
+  border: 1px solid var(--rule);
+}
+.share-btn-copy:hover { background: #EEECEA; }
+.copy-feedback {
+  font-family: var(--sans); font-size: 11px;
+  color: var(--green-lt); margin-top: 10px;
+  display: none;
+}
+
+/* ── FOOTER ──────────────────────────────────── */
+.doc-footer {
+  margin-top: 48px; padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 10px;
+}
+.doc-footer-legal {
+  font-family: var(--sans); font-size: 10px; color: var(--muted);
+}
+.doc-footer-mission {
+  font-family: var(--serif); font-size: 12px;
+  font-style: italic; color: var(--muted);
+}
+
+/* ── DARK MODE OVERRIDE ──────────────────────── */
+@media (prefers-color-scheme: dark) {
+  html, body { background: var(--bg) !important; color: var(--ink) !important; }
+  .doc { background: var(--bg) !important; }
+  .topbar { background: rgba(250,249,246,.97) !important; }
+  .prose { color: var(--ink-mid) !important; }
+}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 600px) {
+  .doc { padding: 84px 20px 60px; }
+  .covenant-block { padding: 26px 24px; }
+  .pull { padding: 22px 24px; }
+  .share-block { padding: 24px 20px; }
+  .topbar-back span { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-logo" href="TheGiveback_Site_V4.html" style="flex-direction:column;align-items:flex-start;gap:1px">
+      <span style="display:flex;align-items:center;gap:5px">🇨🇴 The<span class="accent">Giveback</span></span>
+      <span style="font-family:var(--sans);font-size:9px;font-weight:500;color:var(--muted);letter-spacing:.06em;text-transform:uppercase">Commerce that gives back.</span>
+    </a>
+    <div class="topbar-actions">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <a class="topbar-back" href="TheGiveback_Site_V4.html">
+        ← <span id="back-label">Volver al sitio</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar">
+  <div class="progress-fill" id="progress"></div>
+</div>
+
+<!-- DOCUMENT -->
+<div class="doc">
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <span class="masthead-flag">🇨🇴</span>
+    <div style="display:flex;flex-direction:column;gap:3px;margin-bottom:20px">
+      <span style="font-family:var(--sans);font-size:12px;font-weight:700;color:var(--green);letter-spacing:.08em;text-transform:uppercase">Commerce that gives back.</span>
+      <span style="font-family:var(--serif);font-size:12px;font-style:italic;color:var(--muted)">Dignity through Opportunity.</span>
+    </div>
+    <span class="masthead-eyebrow" id="eyebrow">El Manifiesto de TheGiveback</span>
+    <h1 class="masthead-title" id="title">
+      Lo Que el Comercio le Debe<br>a las <em>Comunidades de Donde Vino</em>
+    </h1>
+    <p class="masthead-opening" id="opening">
+      La diáspora colombiana envía más de <strong>cuarenta millones de dólares al día</strong> desde Estados Unidos a Colombia. Cada transferencia bancaria. Cada remesa. Cada dólar ganado con esfuerzo moviéndose hacia el sur, cruzando una frontera que el remitente cruzó hace años y nunca dejó completamente atrás. Esta plataforma está construida sobre esa misma corriente — la corriente que fluye entre cada diáspora y la comunidad de la que vino. Corre a través del comercio en lugar de transferencias bancarias. Y nunca se detiene.
+    </p>
+  </div>
+
+  <!-- THE BELIEF -->
+  <div class="belief-section">
+    <span class="section-label" id="label-belief">Lo Que Creemos</span>
+    <div class="belief-rule"></div>
+    <p class="belief-text" id="belief">
+      "La infraestructura para la generosidad debería ser tan automática como la infraestructura para el comercio."
+    </p>
+  </div>
+
+  <!-- THE COST -->
+  <div class="manifesto-section">
+    <span class="section-label" id="label-cost">Lo Que Nos Ha Costado</span>
+    <p class="prose" id="cost">
+      La pregunta "¿qué hay en esto para mí?" no solo ha moldeado cómo hacemos negocios. Ha moldeado lo que creemos que se nos permite querer de los negocios. Toda una generación de empresarios construyó empresas y en silencio sospechó que las ganancias sin propósito se sentían vacías — pero no tenían lenguaje para ello y no tenían infraestructura para cambiarlo. Así que siguieron adelante. El margen siguió fluyendo en la misma dirección. Y los barrios alrededor de sus fundaciones siguieron esperando.
+    </p>
+  </div>
+
+  <!-- WHAT WE'RE BUILDING -->
+  <div class="manifesto-section">
+    <span class="section-label" id="label-building">Lo Que Estamos Construyendo</span>
+    <p class="prose" id="building">
+      TheGiveback es el primer motor de donación de la diáspora latinoamericana construido sobre infraestructura de procesamiento de pagos. Los negocios en EE.UU. procesan pagos a través de DATAONE. El treinta por ciento de nuestro margen retenido se dirige automáticamente a fundaciones colombianas verificadas cada mes. No cuando tengamos ganas. No en un buen trimestre. Cada mes. El primero. Independientemente del ciclo de noticias, nuestro estado de ánimo, o si alguien está prestando atención. El pacto es permanente. La donación es estructural. El libro mayor es público — cada fundación, cada desembolso, cada dólar verificable. Los comercios aparecen por ID anónimo a menos que elijan ser identificados.
+    </p>
+  </div>
+
+  <!-- WHO THIS IS FOR -->
+  <div class="manifesto-section">
+    <span class="section-label" id="label-for">Para Quién Es Esto</span>
+    <p class="prose" id="for-1">
+      Esto es para el dueño de negocio colombiano en Houston que envía dinero a casa cada mes y siempre se ha preguntado si había una manera de hacer que su negocio hiciera lo mismo que su corazón ya hace.
+    </p>
+    <p class="prose" id="for-2">
+      Esto es para el dueño de negocio en cualquier parte de Estados Unidos que procesa pagos cada día y en silencio ha empezado a sentir que las ganancias sin propósito son una oración sin fin — independientemente de dónde nació o dónde corren sus raíces.
+    </p>
+    <p class="prose" id="for-3">
+      Esto es para el empresario que leyó la frase de creencia en la parte superior de esta página y sintió algo apretarse en su pecho — no culpa, sino reconocimiento.
+    </p>
+    <p class="prose" id="for-4">
+      Esto es para cualquiera que crea que lo que haces con lo que se te ha dado es la pregunta más importante en los negocios y en la vida.
+    </p>
+  </div>
+
+  <!-- WHO THIS IS NOT FOR -->
+  <div class="not-for-section">
+    <span class="section-label" id="label-not">Para Quién No Es Esto</span>
+    <p class="prose" id="not-1">
+      Esto no es para la persona que ve a Colombia como un telón de fondo en lugar de una comunidad. Que le gusta la historia pero no siente el peso de ella.
+    </p>
+    <p class="prose" id="not-2">
+      Esta plataforma fue construida por alguien que vive aquí, cuya hija nació aquí, que se ha sentado con las personas a las que sirven estas fundaciones. La misión no es estética. Es personal. Y las personas que se unen a ella deberían sentirlo también.
+    </p>
+  </div>
+
+  <!-- THE COVENANT -->
+  <div class="covenant-section">
+    <span class="section-label" id="label-covenant">El Pacto</span>
+    <div class="covenant-block">
+      <span class="covenant-label" id="covenant-inner-label">Escrito antes de que se moviera el primer dólar</span>
+      <p class="covenant-text" id="covenant">
+        Hemos escrito el 30% en la estructura de TheGiveback. No como una política que puede cambiarse en una reunión de junta directiva. Como un pacto — el tipo de compromiso que vive en la arquitectura de la cosa en lugar de en la buena voluntad del momento.<br><br>Los procesadores de pagos habitualmente pagan el 50–80% de su margen a los agentes de ventas. Nosotros pagamos el 20% a los socios referentes. La diferencia es lo que hace posible un pacto permanente del 30% a fundaciones colombianas. Esta matemática fue diseñada por alguien que ha pasado quince años dentro de la industria de servicios financieros. Los números siempre estuvieron ahí. Nadie los había apuntado hacia Colombia antes.<br><br><em>Dios multiplica lo que das.</em> Creemos eso. Construimos este programa sobre eso.
+      </p>
+    </div>
+  </div>
+
+  <!-- THE ASK -->
+  <div class="ask-section">
+    <span class="section-label" id="label-ask">Lo Que Pedimos</span>
+    <p class="ask-text" id="ask">
+      El pacto está escrito. Las fundaciones están esperando. La tubería está construida. <em>Lo único que falta eres tú.</em>
+    </p>
+    <a href="TheGiveback_Site_V4.html" class="ask-cta" id="ask-cta">
+      Certifícate en TheGiveback.org →
+    </a>
+  </div>
+
+  <!-- SIGNATURE -->
+  <div class="signature-section">
+    <div class="signature-name">Chris Humphrey</div>
+    <p class="signature-title" id="sig-title">
+      Fundador — DATAONE & TheGiveback.org<br>
+      Medellín, Colombia · 2026
+    </p>
+    <p class="signature-date" id="sig-date">
+      Escrito en Medellín, Colombia — donde el autor ha vivido siete años,<br>
+      donde nació su hija Mia, donde las fundaciones que financia esta plataforma hacen su trabajo cada día.
+    </p>
+  </div>
+
+  <!-- SHARE BLOCK -->
+  <div class="share-block">
+    <span class="share-label" id="share-label">Comparte Este Manifiesto</span>
+    <p class="share-desc" id="share-desc">
+      Godin dijo: publica un manifiesto, dalo a conocer y facilita su difusión. Si esto resonó contigo — envíalo a alguien cuyo negocio debería ser parte de esto.
+    </p>
+    <div class="share-buttons">
+      <button class="share-btn share-btn-link" onclick="copyLink()" id="copy-btn">
+        🔗 <span id="copy-label">Copiar enlace</span>
+      </button>
+      <a class="share-btn share-btn-wa" id="wa-share" href="#" target="_blank" rel="noopener">
+        💬 <span id="wa-label">Compartir en WhatsApp</span>
+      </a>
+      <button class="share-btn share-btn-copy" onclick="window.print()" id="print-btn">
+        🖨️ <span id="print-label">Imprimir / PDF</span>
+      </button>
+    </div>
+    <p class="copy-feedback" id="copy-feedback">✓ Enlace copiado al portapapeles</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span class="doc-footer-legal" id="footer-legal">© 2026 TheGiveback · DATAONE</span>
+    <span class="doc-footer-mission" id="footer-mission">"Cada pago, algo sagrado."</span>
+  </div>
+
+</div><!-- /doc -->
+
+<script>
+/* ── TRANSLATIONS ─────────────────────────── */
+const T = {
+es: {
+  htmlLang: 'es',
+  docTitle: 'El Manifiesto — TheGiveback',
+  backLabel: 'Volver al sitio',
+  eyebrow: 'El Manifiesto de TheGiveback',
+  title: 'Lo Que el Comercio le Debe<br>a las <em>Comunidades de Donde Vino</em>',
+  opening: 'La diáspora colombiana envía más de <strong>cuarenta millones de dólares al día</strong> desde Estados Unidos a Colombia. Cada transferencia bancaria. Cada remesa. Cada dólar ganado con esfuerzo moviéndose hacia el sur, cruzando una frontera que el remitente cruzó hace años y nunca dejó completamente atrás. Esta plataforma está construida sobre esa misma corriente — la corriente que fluye entre cada diáspora y la comunidad de la que vino. Corre a través del comercio en lugar de transferencias bancarias. Y nunca se detiene.',
+  labelBelief: 'Lo Que Creemos',
+  belief: '"La infraestructura para la generosidad debería ser tan automática como la infraestructura para el comercio."',
+  labelCost: 'Lo Que Nos Ha Costado',
+  cost: 'La pregunta "¿qué hay en esto para mí?" no solo ha moldeado cómo hacemos negocios. Ha moldeado lo que creemos que se nos permite querer de los negocios. Toda una generación de empresarios construyó empresas y en silencio sospechó que las ganancias sin propósito se sentían vacías — pero no tenían lenguaje para ello y no tenían infraestructura para cambiarlo. Así que siguieron adelante. El margen siguió fluyendo en la misma dirección. Y los barrios alrededor de sus fundaciones siguieron esperando.',
+  labelBuilding: 'Lo Que Estamos Construyendo',
+  building: 'TheGiveback es el primer motor de donación de la diáspora latinoamericana latinoamericana construido sobre infraestructura de procesamiento de pagos. Los negocios en EE.UU. procesan pagos a través de DATAONE. El treinta por ciento de nuestro margen retenido se dirige automáticamente a fundaciones colombianas verificadas cada mes. No cuando tengamos ganas. No en un buen trimestre. Cada mes. El primero. Independientemente del ciclo de noticias, nuestro estado de ánimo, o si alguien está prestando atención. El pacto es permanente. La donación es estructural. El libro mayor es público — cada fundación, cada desembolso, cada dólar verificable. Los comercios aparecen por ID anónimo a menos que elijan ser identificados.',
+  labelFor: 'Para Quién Es Esto',
+  for1: 'Esto es para el dueño de negocio colombiano en Houston que envía dinero a casa cada mes y siempre se ha preguntado si había una manera de hacer que su negocio hiciera lo mismo que su corazón ya hace.',
+  for2: 'Esto es para el dueño de negocio en cualquier parte de Estados Unidos que procesa pagos cada día y en silencio ha empezado a sentir que las ganancias sin propósito son una oración sin fin — independientemente de dónde nació o dónde corren sus raíces.',
+  for3: 'Esto es para el empresario que leyó la frase de creencia en la parte superior de esta página y sintió algo apretarse en su pecho — no culpa, sino reconocimiento.',
+  for4: 'Esto es para cualquiera que crea que lo que haces con lo que se te ha dado es la pregunta más importante en los negocios y en la vida.',
+  labelNot: 'Para Quién No Es Esto',
+  not1: 'Esto no es para la persona que ve a Colombia como un telón de fondo en lugar de una comunidad. Que le gusta la historia pero no siente el peso de ella.',
+  not2: 'Esta plataforma fue construida por alguien que vive aquí, cuya hija nació aquí, que se ha sentado con las personas a las que sirven estas fundaciones. La misión no es estética. Es personal. Y las personas que se unen a ella deberían sentirlo también.',
+  labelCovenant: 'El Pacto',
+  covenantInnerLabel: 'Escrito antes de que se moviera el primer dólar',
+  covenant: 'Hemos escrito el 30% en la estructura de TheGiveback. No como una política que puede cambiarse en una reunión de junta directiva. Como un pacto — el tipo de compromiso que vive en la arquitectura de la cosa en lugar de en la buena voluntad del momento. Los procesadores de pagos habitualmente pagan el 50–80% de su margen a los agentes de ventas. Nosotros pagamos el 20% a los socios referentes. La diferencia es lo que hace posible un pacto permanente del 30% a fundaciones colombianas. Esta matemática fue diseñada por alguien que ha pasado quince años dentro de la industria de servicios financieros. Los números siempre estuvieron ahí. Nadie los había apuntado hacia Colombia antes. Dios multiplica lo que das. Creemos eso. Construimos este programa sobre eso.',
+  labelAsk: 'Lo Que Pedimos',
+  ask: 'El pacto está escrito. Las fundaciones están esperando. La tubería está construida. <em>Lo único que falta eres tú.</em>',
+  askCta: 'Certifícate en TheGiveback.org →',
+  sigTitle: 'Fundador — DATAONE & TheGiveback.org<br>Medellín, Colombia · 2026',
+  sigDate: 'Escrito en Medellín, Colombia — donde el autor ha vivido siete años,<br>donde nació su hija Mia, donde las fundaciones que financia esta plataforma hacen su trabajo cada día.',
+  shareLabel: 'Comparte Este Manifiesto',
+  shareDesc: 'Godin dijo: publica un manifiesto, dalo a conocer y facilita su difusión. Si esto resonó contigo — envíalo a alguien cuyo negocio debería ser parte de esto.',
+  copyLabel: 'Copiar enlace',
+  waLabel: 'Compartir en WhatsApp',
+  printLabel: 'Imprimir / PDF',
+  copyFeedback: '✓ Enlace copiado al portapapeles',
+  footerLegal: '© 2026 TheGiveback · DATAONE',
+  footerMission: '"Cada pago, algo sagrado."',
+  waText: 'Leí el manifiesto de TheGiveback — creo que deberías leerlo también: '
+},
+en: {
+  htmlLang: 'en',
+  docTitle: 'The Manifesto — TheGiveback',
+  backLabel: 'Back to site',
+  eyebrow: 'The TheGiveback Manifesto',
+  title: 'What Commerce Owes<br>the <em>Communities It Came From</em>',
+  opening: 'The Colombian diaspora sends more than <strong>forty million dollars a day</strong> from the United States back to Colombia. Every wire transfer. Every remittance. Every hard-earned dollar moving south across a border that the sender crossed years ago and never fully left behind. This platform is built on that same current — the current that flows between every diaspora and the community it came from. It runs through commerce instead of wire transfers. And it never stops.',
+  labelBelief: 'What We Believe',
+  belief: '"The infrastructure for generosity should be as automatic as the infrastructure for commerce."',
+  labelCost: 'What It Has Cost Us',
+  cost: 'The question "what\'s in it for me?" hasn\'t just shaped how we do business. It has shaped what we think we\'re allowed to want from business. An entire generation of entrepreneurs built companies and quietly suspected that profit without purpose felt empty — but had no language for it and no infrastructure to change it. So they kept going. The margin kept flowing the same direction. And the neighborhoods around their foundations kept waiting.',
+  labelBuilding: 'What We\'re Building',
+  building: 'TheGiveback is the first Latin American diaspora giving engine built on payment processing infrastructure. US businesses process payments through DATAONE. Thirty percent of our retained margin routes automatically to vetted Colombian foundations every month. Not when we feel like it. Not in a good quarter. Every month. On the first. Regardless of the news cycle or our mood or whether anyone is paying attention. The covenant is permanent. The giving is structural. The ledger is public — every foundation, every disbursement, every dollar verifiable. Merchants appear by anonymous ID unless they choose to be identified.',
+  labelFor: 'Who This Is For',
+  for1: 'This is for the Colombian business owner in Houston who sends money home every month and has always wondered if there was a way to make their business do the same thing their heart already does.',
+  for2: 'This is for the business owner anywhere in the United States who processes payments every day and has quietly started to feel that profit without purpose is a sentence with no ending — regardless of where they were born or where their roots run.',
+  for3: 'This is for the entrepreneur who read the belief sentence at the top of this page and felt something tighten in their chest — not guilt, but recognition.',
+  for4: 'This is for anyone who believes that what you do with what you\'ve been given is the most important question in business and in life.',
+  labelNot: 'Who This Is Not For',
+  not1: 'This is not for the person who sees Colombia as a backdrop rather than a community. Who likes the story but doesn\'t feel the weight of it.',
+  not2: 'This platform was built by someone who lives here, whose daughter was born here, who has sat with the people these foundations serve. The mission is not aesthetic. It is personal. And the people who join it should feel that too.',
+  labelCovenant: 'The Covenant',
+  covenantInnerLabel: 'Written before the first dollar moved',
+  covenant: 'We have written 30% into the structure of TheGiveback. Not as a policy that can be changed in a board meeting. As a covenant — the kind of commitment that lives in the architecture of the thing rather than in the goodwill of the moment. Payment processors routinely pay 50–80% of margin to sales agents. We pay referral partners 20%. The difference is what makes a permanent 30% covenant to Colombian foundations not just possible but straightforward. This model was designed by someone who has spent fifteen years inside financial services. The math was always there. Nobody had pointed it at Colombia before. God multiplies what you give. We believe that. We built this program on top of it.',
+  labelAsk: 'The Ask',
+  ask: 'The covenant is written. The foundations are waiting. The pipe is built. <em>The only thing missing is you.</em>',
+  askCta: 'Join at TheGiveback.org →',
+  sigTitle: 'Founder — DATAONE & TheGiveback.org<br>Medellín, Colombia · 2026',
+  sigDate: 'Written in Medellín, Colombia — where the author has lived for seven years,<br>where his daughter Mia was born, where the foundations this platform funds do their work every day.',
+  shareLabel: 'Share This Manifesto',
+  shareDesc: 'Godin said: publish a manifesto, give it away, and make it easy to spread. If this resonated — send it to someone whose business should be part of this.',
+  copyLabel: 'Copy link',
+  waLabel: 'Share on WhatsApp',
+  printLabel: 'Print / PDF',
+  copyFeedback: '✓ Link copied to clipboard',
+  footerLegal: '© 2026 TheGiveback · DATAONE',
+  footerMission: '"Every swipe, somewhere sacred."',
+  waText: 'I read the TheGiveback manifesto — I think you should too: '
+}
+};
+
+let currentLang = 'es';
+
+function setLang(code) {
+  currentLang = code;
+  const d = T[code];
+  document.getElementById('html-root').lang = d.htmlLang;
+  document.title = d.docTitle;
+
+  const setHTML = (id, val) => {
+    const el = document.getElementById(id);
+    if (el && val !== undefined) el.innerHTML = val;
+  };
+  const setText = (id, val) => {
+    const el = document.getElementById(id);
+    if (el && val !== undefined) el.textContent = val;
+  };
+
+  setHTML('back-label', d.backLabel);
+  setText('eyebrow', d.eyebrow);
+  setHTML('title', d.title);
+  setHTML('opening', d.opening);
+  setText('label-belief', d.labelBelief);
+  setText('belief', d.belief);
+  setText('label-cost', d.labelCost);
+  setText('cost', d.cost);
+  setText('label-building', d.labelBuilding);
+  setText('building', d.building);
+  setText('label-for', d.labelFor);
+  setText('for-1', d.for1);
+  setText('for-2', d.for2);
+  setText('for-3', d.for3);
+  setText('for-4', d.for4);
+  setText('label-not', d.labelNot);
+  setText('not-1', d.not1);
+  setText('not-2', d.not2);
+  setText('label-covenant', d.labelCovenant);
+  setText('covenant-inner-label', d.covenantInnerLabel);
+  setHTML('covenant', d.covenant);
+  setText('label-ask', d.labelAsk);
+  setHTML('ask', d.ask);
+  setText('ask-cta', d.askCta);
+  setHTML('sig-title', d.sigTitle);
+  setHTML('sig-date', d.sigDate);
+  setText('share-label', d.shareLabel);
+  setText('share-desc', d.shareDesc);
+  setText('copy-label', d.copyLabel);
+  setText('wa-label', d.waLabel);
+  setText('print-label', d.printLabel);
+  setText('copy-feedback', d.copyFeedback);
+  setText('footer-legal', d.footerLegal);
+  setText('footer-mission', d.footerMission);
+
+  // WhatsApp share URL
+  const waUrl = d.waText + encodeURIComponent(window.location.href);
+  document.getElementById('wa-share').href =
+    'https://wa.me/?text=' + encodeURIComponent(d.waText + window.location.href);
+
+  // Lang buttons
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === code);
+  });
+
+  try { localStorage.setItem('tg_manifesto_lang', code); } catch(e){}
+}
+
+/* ── COPY LINK ─────────────────────────── */
+function copyLink() {
+  const url = window.location.href;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => showCopyFeedback());
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = url; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta);
+    showCopyFeedback();
+  }
+}
+function showCopyFeedback() {
+  const el = document.getElementById('copy-feedback');
+  el.style.display = 'block';
+  setTimeout(() => el.style.display = 'none', 2500);
+}
+
+/* ── READING PROGRESS ──────────────────── */
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+  document.getElementById('progress').style.width = Math.min(pct, 100) + '%';
+});
+
+/* ── INIT ──────────────────────────────── */
+(function() {
+  let saved = 'es';
+  try { saved = localStorage.getItem('tg_manifesto_lang') || 'es'; } catch(e){}
+  setLang(saved);
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TheGiveback — Merchant Certification</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --forest: #1B4332;
+    --forest-mid: #2D6A4F;
+    --forest-lt: #40916C;
+    --gold: #B5821A;
+    --gold-lt: #D4A547;
+    --cream: #F8F4EE;
+    --slate: #2C3E50;
+    --muted: #6B7280;
+    --light-green: #E8F5E9;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--slate);
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 48px 32px;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1.5px solid var(--forest-mid);
+  }
+
+  .brand-name {
+    font-family: 'Lora', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--forest);
+    letter-spacing: -0.5px;
+  }
+
+  .brand-sub {
+    font-size: 12px;
+    color: var(--forest-lt);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .badge-preview {
+    background: var(--forest);
+    color: var(--white);
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .badge-preview span {
+    display: block;
+    font-size: 9px;
+    color: var(--gold-lt);
+    margin-top: 2px;
+    letter-spacing: 0.1em;
+  }
+
+  /* Hero */
+  .hero {
+    margin-bottom: 40px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--forest);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .hero p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 600px;
+  }
+
+  /* What you get */
+  .section-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .benefit-card {
+    background: var(--white);
+    border: 1px solid #D1E8D8;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .benefit-icon {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .benefit-title {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 6px;
+  }
+
+  .benefit-body {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* How it works */
+  .how-section {
+    background: var(--forest);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 32px;
+    color: var(--white);
+  }
+
+  .how-section .section-title {
+    color: var(--gold-lt);
+  }
+
+  .waterfall {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .wf-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .wf-label {
+    font-size: 13px;
+    color: #A8D5B5;
+    width: 180px;
+    flex-shrink: 0;
+  }
+
+  .wf-bar {
+    height: 28px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .wf-note {
+    font-size: 11px;
+    color: #6B9E7F;
+    flex: 1;
+  }
+
+  .covenant-note {
+    margin-top: 20px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 8px;
+    font-size: 13px;
+    color: #C8E6D0;
+    line-height: 1.6;
+  }
+
+  .covenant-note strong {
+    color: var(--gold-lt);
+  }
+
+  /* Pledge */
+  .pledge {
+    background: var(--light-green);
+    border: 1px solid #C8E6C9;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+
+  .pledge-title {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 14px;
+  }
+
+  .pledge-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pledge-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--slate);
+    line-height: 1.5;
+  }
+
+  .pledge-list li::before {
+    content: "✓";
+    color: var(--forest-lt);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* CTA */
+  .cta-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 28px;
+    background: var(--white);
+    border: 1px solid #D1E8D8;
+    border-radius: 10px;
+    margin-bottom: 32px;
+  }
+
+  .cta-text h3 {
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    color: var(--forest);
+    margin-bottom: 4px;
+  }
+
+  .cta-text p {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .cta-btn {
+    background: var(--forest);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Scripture footer */
+  .scripture {
+    text-align: center;
+    padding-top: 24px;
+    border-top: 1px solid #D1E8D8;
+  }
+
+  .scripture p {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--forest-mid);
+  }
+
+  .scripture cite {
+    display: block;
+    font-size: 11px;
+    font-style: normal;
+    color: var(--muted);
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 600px) {
+    .benefits-grid { grid-template-columns: 1fr; }
+    .cta-section { flex-direction: column; gap: 16px; }
+    .hero h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div>
+      <div class="brand-name">TheGiveback.org</div>
+      <div class="brand-sub">Powered by DataOne</div>
+    </div>
+    <div class="badge-preview">
+      ✦ Giveback Certified
+      <span>thegiveback.org</span>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">For Business Owners</div>
+    <h1>Your transactions already create margin.<br>We turn part of it into something more.</h1>
+    <p>Every card swipe at your business generates processing revenue. TheGiveback routes a covenant share of our own earnings — not yours, not your customers' — to vetted local foundations doing real good in your community. At zero cost to you. Automatically. Every month.</p>
+  </div>
+
+  <div class="section-title">What you receive as a Giveback Certified business</div>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon">📊</div>
+      <div class="benefit-title">Live impact dashboard</div>
+      <div class="benefit-body">See exactly how much your transactions gave back this month, where it went, and the specific good it caused — traceable to the dollar.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">✨</div>
+      <div class="benefit-title">Monthly impact story</div>
+      <div class="benefit-body">A ready-to-share post, written for you every month, turning your giveback dollars into a specific, honest story you can drop on Instagram or Facebook.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🏆</div>
+      <div class="benefit-title">Giveback Certified badge</div>
+      <div class="benefit-body">Window decal, web badge, and social kit — showing your customers that your business funds local good. Not a slogan. Proof, with a public ledger behind it.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">📍</div>
+      <div class="benefit-title">Local cause matching</div>
+      <div class="benefit-body">Your giveback defaults to the cause closest to your community and your business category. A bakery funds food security first. A gym funds youth programs. Always local before global.</div>
+    </div>
+  </div>
+
+  <div class="how-section">
+    <div class="section-title">How the giving works</div>
+    <div class="waterfall">
+      <div class="wf-row">
+        <div class="wf-label">Transaction fee</div>
+        <div class="wf-bar" style="width:100%;background:#2D6A4F">100% gross revenue</div>
+      </div>
+      <div class="wf-row">
+        <div class="wf-label">Agent residuals</div>
+        <div class="wf-bar" style="width:50%;background:#1F5240">25–85% — untouched</div>
+        <div class="wf-note">Your sales rep's earnings are never reduced</div>
+      </div>
+      <div class="wf-row">
+        <div class="wf-label">The Giveback Pool</div>
+        <div class="wf-bar" style="width:25%;background:#B5821A;color:#fff">20–30% covenant</div>
+        <div class="wf-note">From our margin. Not yours. Not your customer's.</div>
+      </div>
+    </div>
+    <div class="covenant-note">
+      <strong>This is a covenant, not a campaign.</strong> We formalized the 20–30% in writing before the first merchant was certified. It holds in a good month and a bad one. You can verify every disbursement on our public ledger at thegiveback.org/ledger.
+    </div>
+  </div>
+
+  <div class="pledge">
+    <div class="pledge-title">Our promises to every certified merchant</div>
+    <ul class="pledge-list">
+      <li>Your rates and your customers' experience never change. Certification costs you nothing.</li>
+      <li>The giving comes from our earnings. Never from your residuals and never hidden in your processing fees.</li>
+      <li>Every dollar is publicly traceable — from your transaction volume to the foundation's receipt.</li>
+      <li>A small shop's giveback has identical dignity to a large one's. We never tier generosity by size.</li>
+      <li>Your default cause is hyper-local to your zip code and business type before anything global.</li>
+    </ul>
+  </div>
+
+  <div class="cta-section">
+    <div class="cta-text">
+      <h3>Ready to get certified?</h3>
+      <p>Already a DataOne merchant — you're eligible immediately. Takes five minutes.</p>
+    </div>
+    <a href="https://thegiveback.org/certify" class="cta-btn">Get certified →</a>
+  </div>
+
+  <div class="scripture">
+    <p>"Let your light shine before others, that they may see your good deeds."</p>
+    <cite>Matthew 5:16</cite>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TheGiveback — Full Circle Ecosystem</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F8F4EE;color:#2C3E50}
+:root{
+  --forest:#1B4332;--forest-mid:#2D6A4F;--forest-lt:#40916C;
+  --gold:#B5821A;--gold-lt:#D4A547;
+  --cream:#F8F4EE;--slate:#2C3E50;--muted:#6B7280;
+  --light-green:#E8F5E9;--white:#fff;--border:#D1E8D8;
+  --purple:#4C1D95;--purple-lt:#EDE9FE;
+  --amber:#92400E;--amber-lt:#FEF3C7;
+  --teal:#0F766E;--teal-lt:#CCFBF1;
+  --coral:#9A3412;--coral-lt:#FEE2E2;
+  --blue:#1E40AF;--blue-lt:#DBEAFE;
+}
+.page{max-width:900px;margin:0 auto;padding:40px 28px}
+.sec-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem}
+.h1{font-family:'Lora',serif;font-size:34px;font-weight:600;color:var(--forest);line-height:1.2;margin-bottom:.75rem}
+.h2{font-family:'Lora',serif;font-size:20px;font-weight:600;color:var(--forest);margin-bottom:.5rem}
+.sub{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:2rem;max-width:700px}
+.divider{height:0.5px;background:var(--border);margin:2.5rem 0}
+
+/* Flywheel SVG */
+.flywheel-wrap{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:2rem;overflow:hidden}
+
+/* Layers */
+.layers-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:2rem}
+.layer-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:18px}
+.layer-header{display:flex;align-items:center;gap:10px;margin-bottom:.5rem}
+.layer-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0}
+.layer-title{font-size:14px;font-weight:600;color:var(--forest)}
+.layer-body{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:.6rem}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px;border:1px solid var(--border);background:var(--light-green);color:var(--forest-mid)}
+.chip-live{background:#D1FAE5;border-color:#6EE7B7;color:#065F46}
+
+/* Revenue table */
+.tbl-wrap{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:2rem}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);padding:9px 12px;background:#F0FAF4;text-align:left;border-bottom:1px solid var(--border)}
+td{padding:9px 12px;border-bottom:0.5px solid var(--border);color:var(--muted);vertical-align:top;line-height:1.55}
+td:first-child{font-weight:500;color:var(--slate)}
+tr:last-child td{border-bottom:none}
+.hl{color:var(--forest-lt);font-weight:600}
+.star-row td{background:#F0FAF4}
+.star-row td:first-child{color:var(--forest);font-weight:600}
+
+/* Decision grid */
+.decision-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:2rem}
+.dec-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px}
+.dec-title{font-size:13px;font-weight:600;color:var(--forest);margin-bottom:.4rem}
+.dec-body{font-size:12px;color:var(--muted);line-height:1.6}
+.dec-warn{font-size:11px;font-weight:600;color:var(--coral);background:var(--coral-lt);padding:3px 8px;border-radius:4px;display:inline-block;margin-bottom:.4rem}
+
+/* Comparison */
+.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:2rem}
+.comp-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.comp-card.us{border-color:var(--forest-lt);background:#F0FAF4}
+.comp-icon{font-size:24px;margin-bottom:.5rem}
+.comp-title{font-size:13px;font-weight:600;color:var(--forest);margin-bottom:.4rem}
+.comp-body{font-size:11px;color:var(--muted);line-height:1.6}
+.comp-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;display:inline-block;margin-top:.5rem}
+
+/* Verdict */
+.verdict{background:var(--forest);border-radius:12px;padding:28px;color:var(--white);margin-bottom:2rem}
+.verdict .h2{color:var(--white);font-family:'Lora',serif}
+.verdict p{font-size:14px;color:#A8D5B5;line-height:1.75;margin-top:.6rem}
+.verdict strong{color:var(--gold-lt)}
+.scripture{text-align:center;padding-top:1.5rem;border-top:1px solid var(--border)}
+.scripture p{font-family:'Lora',serif;font-size:14px;font-style:italic;color:var(--forest-mid)}
+.scripture cite{font-size:11px;font-style:normal;color:var(--muted);display:block;margin-top:3px}
+
+/* Sequence */
+.seq{display:flex;flex-direction:column;gap:0;margin-bottom:2rem}
+.seq-item{display:flex;gap:14px}
+.seq-line-wrap{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.seq-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0}
+.seq-connector{width:2px;flex:1;min-height:20px}
+.seq-content{padding:.3rem 0 1.2rem}
+.seq-title{font-size:13px;font-weight:600;color:var(--forest);margin-bottom:.25rem}
+.seq-body{font-size:12px;color:var(--muted);line-height:1.6}
+.seq-badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;display:inline-block;margin-bottom:.3rem}
+
+@media(max-width:600px){
+  .layers-grid,.decision-grid,.compare-grid{grid-template-columns:1fr}
+  .h1{font-size:26px}
+  table{font-size:11px}
+  th,td{padding:7px 8px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="sec-label">Strategy Document · July 2026</div>
+  <div class="h1">The Full Circle Ecosystem: What to Build and Why</div>
+  <div class="sub">The e-commerce marketplace isn't a fourth product — it's the layer that closes the loop between acquiring, issuing, giving, and community commerce. When built correctly, every transaction inside the network generates revenue on both sides, drives more giving, and keeps money circulating among the same certified merchants and foundations.</div>
+
+  <!-- FLYWHEEL DIAGRAM -->
+  <div class="flywheel-wrap">
+    <svg width="100%" viewBox="0 0 720 360" role="img">
+      <title>TheGiveback full-circle flywheel</title>
+      <desc>Six nodes in a clockwise loop: DataOne Acquiring feeds Certified Merchants, which feed the Marketplace, which drives the Giveback Card, which earns Giveback Points, which fund Foundations, which strengthen the mission and attract more merchants back to DataOne.</desc>
+      <defs>
+        <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <!-- Background center ring -->
+      <circle cx="360" cy="180" r="66" fill="none" stroke="#2D6A4F" stroke-width="0.5" stroke-dasharray="4 5"/>
+      <text x="360" y="171" text-anchor="middle" font-family="Lora,serif" font-size="13" font-weight="600" fill="#2D6A4F">GIVEBACK</text>
+      <text x="360" y="188" text-anchor="middle" font-family="Lora,serif" font-size="13" font-weight="600" fill="#2D6A4F">CLOSED LOOP</text>
+      <text x="360" y="203" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#40916C">Acquiring + Issuing + Giving</text>
+
+      <!-- NODE 1: DataOne Acquiring - left center -->
+      <g>
+        <rect x="18" y="156" width="148" height="48" rx="8" fill="#FEE2E2" stroke="#F87171" stroke-width="0.5"/>
+        <text x="92" y="174" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#9A3412">DataOne Acquiring</text>
+        <text x="92" y="191" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#B91C1C">Processing · Covenant 20–30%</text>
+      </g>
+
+      <!-- NODE 2: Certified Merchants - top left -->
+      <g>
+        <rect x="110" y="36" width="148" height="48" rx="8" fill="#DBEAFE" stroke="#60A5FA" stroke-width="0.5"/>
+        <text x="184" y="54" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#1E40AF">Certified Merchants</text>
+        <text x="184" y="71" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#1D4ED8">Products · Services · Storefronts</text>
+      </g>
+
+      <!-- NODE 3: Marketplace - top right -->
+      <g>
+        <rect x="462" y="36" width="148" height="48" rx="8" fill="#CCFBF1" stroke="#2DD4BF" stroke-width="0.5"/>
+        <text x="536" y="54" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#0F766E">Giveback Marketplace</text>
+        <text x="536" y="71" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#0D9488">Shop local · Give local</text>
+      </g>
+
+      <!-- NODE 4: Giveback Card - right center -->
+      <g>
+        <rect x="554" y="156" width="148" height="48" rx="8" fill="#EDE9FE" stroke="#A78BFA" stroke-width="0.5"/>
+        <text x="628" y="174" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#4C1D95">Giveback Card</text>
+        <text x="628" y="191" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#5B21B6">Issuing · Interchange earned</text>
+      </g>
+
+      <!-- NODE 5: Giveback Points - bottom right -->
+      <g>
+        <rect x="462" y="276" width="148" height="48" rx="8" fill="#FEF3C7" stroke="#F59E0B" stroke-width="0.5"/>
+        <text x="536" y="294" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#92400E">Giveback Points</text>
+        <text x="536" y="311" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#B45309">Earn · Donate · Redeem local</text>
+      </g>
+
+      <!-- NODE 6: Foundations - bottom left -->
+      <g>
+        <rect x="110" y="276" width="148" height="48" rx="8" fill="#D1FAE5" stroke="#34D399" stroke-width="0.5"/>
+        <text x="184" y="294" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#065F46">Foundation Giving</text>
+        <text x="184" y="311" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#059669">3 streams · Public ledger</text>
+      </g>
+
+      <!-- ARROWS clockwise -->
+      <!-- DataOne → Certified Merchants -->
+      <path d="M136 156 C135 120 148 90 168 84" fill="none" stroke="#9A3412" stroke-width="1.5" marker-end="url(#a)"/>
+      <!-- Certified Merchants → Marketplace -->
+      <path d="M258 60 C330 45 390 45 462 60" fill="none" stroke="#1E40AF" stroke-width="1.5" marker-end="url(#a)"/>
+      <!-- Marketplace → Giveback Card -->
+      <path d="M573 84 C598 100 614 128 618 156" fill="none" stroke="#0F766E" stroke-width="1.5" marker-end="url(#a)"/>
+      <!-- Giveback Card → Giveback Points -->
+      <path d="M620 204 C614 232 598 264 573 276" fill="none" stroke="#4C1D95" stroke-width="1.5" marker-end="url(#a)"/>
+      <!-- Giveback Points → Foundations -->
+      <path d="M462 300 C390 315 330 315 258 300" fill="none" stroke="#92400E" stroke-width="1.5" marker-end="url(#a)"/>
+      <!-- Foundations → DataOne Acquiring -->
+      <path d="M168 276 C148 270 136 244 136 204" fill="none" stroke="#065F46" stroke-width="1.5" marker-end="url(#a)"/>
+
+      <!-- Inner dashes to center -->
+      <line x1="166" y1="180" x2="294" y2="180" stroke="#2D6A4F" stroke-width="0.5" stroke-dasharray="3 4"/>
+      <line x1="554" y1="180" x2="426" y2="180" stroke="#2D6A4F" stroke-width="0.5" stroke-dasharray="3 4"/>
+      <line x1="215" y1="84" x2="320" y2="148" stroke="#2D6A4F" stroke-width="0.5" stroke-dasharray="3 4"/>
+      <line x1="506" y1="84" x2="400" y2="148" stroke="#2D6A4F" stroke-width="0.5" stroke-dasharray="3 4"/>
+      <line x1="215" y1="276" x2="320" y2="212" stroke="#2D6A4F" stroke-width="0.5" stroke-dasharray="3 4"/>
+      <line x1="506" y1="276" x2="400" y2="212" stroke="#2D6A4F" stroke-width="0.5" stroke-dasharray="3 4"/>
+    </svg>
+  </div>
+
+  <!-- WHAT BLOCK PROVED -->
+  <div class="divider"></div>
+  <div class="sec-label">The closed-loop insight</div>
+  <div class="h2">What Block/Square proved — and what TheGiveback does differently</div>
+  <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:1.5rem">Block's greatest structural insight: sitting on both the acquiring side (Square — merchants accept payments) and the issuing side (Cash App — consumers spend with their card) means transactions between their own merchants and cardholders create a closed loop. At scale, Block earns ~3% on closed-loop transactions vs ~1% on open-loop. TheGiveback builds this same closed loop — but every incremental dollar of economics it captures goes directly into foundation giving, not just profits.</p>
+
+  <div class="compare-grid">
+    <div class="comp-card">
+      <div class="comp-icon">🟦</div>
+      <div class="comp-title">Block / Square</div>
+      <div class="comp-body">Square acquires merchant transactions. Cash App issues cards to consumers. When both sides transact together, closed-loop economics = ~3x open-loop revenue. Mission: financial access.</div>
+      <span class="comp-tag" style="background:#DBEAFE;color:#1E40AF">Commercial closed loop</span>
+    </div>
+    <div class="comp-card">
+      <div class="comp-icon">🔴</div>
+      <div class="comp-title">Bilt Rewards</div>
+      <div class="comp-body">Issued cards for rent payments (near-zero interchange). Funded rich travel rewards from thin margin. Economics never closed. Wells Fargo lost $10M/month. Lesson: closed loop only works when the underlying transaction generates interchange.</div>
+      <span class="comp-tag" style="background:#FEE2E2;color:#9A3412">Broken economics</span>
+    </div>
+    <div class="comp-card us">
+      <div class="comp-icon">✦</div>
+      <div class="comp-title">TheGiveback</div>
+      <div class="comp-body">DataOne acquires merchant-present card transactions (high interchange). Giveback Card issues to consumers who spend at certified merchants. Closed loop on the highest-interchange transaction category. Every incremental dollar funds more giving.</div>
+      <span class="comp-tag" style="background:#D1FAE5;color:#065F46">Mission-aligned closed loop</span>
+    </div>
+  </div>
+
+  <!-- REVENUE TABLE -->
+  <div class="sec-label">Revenue on every transaction type</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Transaction</th><th>Acquiring revenue</th><th>Issuing revenue</th><th>Giveback generated</th><th>Phase</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Any card, any merchant</td>
+          <td class="hl">~1.45% blended margin</td>
+          <td>—</td>
+          <td>20–30% of acquiring margin</td>
+          <td><span class="chip chip-live">Live today</span></td>
+        </tr>
+        <tr>
+          <td>Any card, certified merchant + marketplace listing</td>
+          <td class="hl">~1.45% + marketplace visibility</td>
+          <td>—</td>
+          <td>20–30% of margin + merchant story</td>
+          <td><span class="chip">Phase 3</span></td>
+        </tr>
+        <tr>
+          <td>Giveback Card, non-certified merchant</td>
+          <td>—</td>
+          <td class="hl">~1.5–2% interchange (unregulated issuer)</td>
+          <td>Points earned → optional donation</td>
+          <td><span class="chip">Phase 4</span></td>
+        </tr>
+        <tr class="star-row">
+          <td>✦ Giveback Card, certified merchant (closed loop)</td>
+          <td class="hl">~1.45% acquiring margin</td>
+          <td class="hl">~1.5–2% issuing interchange</td>
+          <td class="hl">Covenant + points → ~3× giving per swipe</td>
+          <td><span class="chip">Phase 4–5</span></td>
+        </tr>
+        <tr>
+          <td>Consumer round-up at certified merchant</td>
+          <td class="hl">~1.45% acquiring margin</td>
+          <td>—</td>
+          <td>Covenant + 100% round-up pass-through</td>
+          <td><span class="chip">Phase 3</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SIX LAYERS -->
+  <div class="sec-label">What to build — the six layers</div>
+  <div class="layers-grid">
+    <div class="layer-card">
+      <div class="layer-header">
+        <div class="layer-num" style="background:#FEE2E2;color:#9A3412">1</div>
+        <div class="layer-title">DataOne Acquiring (already live)</div>
+      </div>
+      <div class="layer-body">The seed layer. Merchants accept card payments, DataOne earns margin, covenant routes 20–30% to the Giveback Pool. Everything else builds on this foundation — don't change it, just extend it upward.</div>
+      <div class="chips"><span class="chip chip-live">Live today</span><span class="chip">Dual 1.8%</span><span class="chip">Traditional 40bps</span></div>
+    </div>
+    <div class="layer-card">
+      <div class="layer-header">
+        <div class="layer-num" style="background:#DBEAFE;color:#1E40AF">2</div>
+        <div class="layer-title">Certified Merchant Digital Storefronts</div>
+      </div>
+      <div class="layer-body">Every certified merchant gets a free storefront on TheGiveback marketplace — product listings, service bookings, gift cards, digital offerings. DataOne processes all storefront payments, earning acquiring margin on each sale. Zero platform fee to merchants; you earn through processing.</div>
+      <div class="chips"><span class="chip">Products</span><span class="chip">Services</span><span class="chip">Bookings</span><span class="chip">Gift cards</span><span class="chip">Digital goods</span></div>
+    </div>
+    <div class="layer-card">
+      <div class="layer-header">
+        <div class="layer-num" style="background:#CCFBF1;color:#0F766E">3</div>
+        <div class="layer-title">The Giveback Marketplace</div>
+      </div>
+      <div class="layer-body">TheGiveback.org becomes a shop-local commerce platform — not just a directory but a place to actually buy from certified merchants. Consumer searches by zip, category, or cause. Every purchase generates giving from the acquiring margin. Hyper-local by default. No competing Amazon-style categories.</div>
+      <div class="chips"><span class="chip">ZIP-code search</span><span class="chip">Category browse</span><span class="chip">Impact per purchase</span><span class="chip">Mobile-first</span></div>
+    </div>
+    <div class="layer-card">
+      <div class="layer-header">
+        <div class="layer-num" style="background:#EDE9FE;color:#4C1D95">4</div>
+        <div class="layer-title">Giveback Card (Issuing)</div>
+      </div>
+      <div class="layer-body">Consumers carry the Giveback Card. Every purchase anywhere earns Giveback Points. But purchases at certified merchants on the marketplace trigger the closed loop — DataOne earns acquiring margin AND issuing interchange on the same transaction, doubling the giving per swipe without asking anyone for more money.</div>
+      <div class="chips"><span class="chip">Marqeta or Galileo BaaS</span><span class="chip">Unregulated sponsor bank</span><span class="chip">Virtual + physical</span></div>
+    </div>
+    <div class="layer-card">
+      <div class="layer-header">
+        <div class="layer-num" style="background:#FEF3C7;color:#92400E">5</div>
+        <div class="layer-title">Giveback Points Currency</div>
+      </div>
+      <div class="layer-body">Single currency. Three redemption paths: donate to a matched foundation (primary), discount at any certified merchant (keeps money inside the network), or statement credit. No travel transfer partners — ever. Complexity killed Bilt. Simplicity serves the mission.</div>
+      <div class="chips"><span class="chip">Donate to foundation</span><span class="chip">Merchant discount</span><span class="chip">Statement credit</span></div>
+    </div>
+    <div class="layer-card">
+      <div class="layer-header">
+        <div class="layer-num" style="background:#D1FAE5;color:#065F46">6</div>
+        <div class="layer-title">Foundation Giving Pool (three streams)</div>
+      </div>
+      <div class="layer-body">Foundations receive from three sources, all publicly traceable and separately labeled: the company covenant (acquiring margin), consumer points converted to donations, and optional round-up at checkout. More merchants in the network = more closed-loop transactions = more giving without additional cost to anyone.</div>
+      <div class="chips"><span class="chip">Covenant stream</span><span class="chip">Points redemption</span><span class="chip">Round-up stream</span><span class="chip">Public ledger</span></div>
+    </div>
+  </div>
+
+  <!-- FOUR DECISIONS -->
+  <div class="divider"></div>
+  <div class="sec-label">Four non-negotiable design decisions</div>
+  <div class="decision-grid">
+    <div class="dec-card">
+      <div class="dec-warn">Never violate this</div>
+      <div class="dec-title">Don't compete with your merchants</div>
+      <div class="dec-body">The marketplace lists and sells merchant products — TheGiveback never sells its own. Amazon destroyed merchant trust by becoming a seller. You are infrastructure, not a competitor. This constraint is permanent and non-negotiable regardless of scale.</div>
+    </div>
+    <div class="dec-card">
+      <div class="dec-warn">Never violate this</div>
+      <div class="dec-title">Zero platform fee to certified merchants</div>
+      <div class="dec-body">You earn acquiring margin on every marketplace transaction. You don't need a listing fee on top. Adding a platform fee turns an asset (free distribution) into an obstacle. Merchants stay because the marketplace generates revenue for them, not because you're extracting it from them.</div>
+    </div>
+    <div class="dec-card">
+      <div class="dec-title">Marketplace before card</div>
+      <div class="dec-body">The Giveback Card needs certified merchant storefronts to be meaningful to cardholders. Without a network of local merchants where they earn bonus points, there's no reason to carry the card. Build the marketplace (Phase 3) before pitching BaaS partners (Phase 4).</div>
+    </div>
+    <div class="dec-card">
+      <div class="dec-title">Keep points inside the ecosystem</div>
+      <div class="dec-body">Points can be donated to foundations or redeemed at certified merchants. Not transferred to airlines. Not freely cashed out. Money that flows to certified merchants as discounts spins back through the acquiring engine, generating more giving per dollar of value distributed.</div>
+    </div>
+  </div>
+
+  <!-- BUILD SEQUENCE -->
+  <div class="divider"></div>
+  <div class="sec-label">Build sequence — what to build when</div>
+  <div class="seq">
+    <div class="seq-item">
+      <div class="seq-line-wrap">
+        <div class="seq-dot" style="background:#D1FAE5;color:#065F46">✓</div>
+        <div class="seq-connector" style="background:var(--border)"></div>
+      </div>
+      <div class="seq-content">
+        <span class="seq-badge" style="background:#D1FAE5;color:#065F46">Now / Phase 1–2</span>
+        <div class="seq-title">Prove the plumbing — ledger, accrual, disbursement</div>
+        <div class="seq-body">The acquiring engine, covenant, and public ledger. First real disbursement must complete before any marketplace or storefront work begins. The counter on the website must show real dollars.</div>
+      </div>
+    </div>
+    <div class="seq-item">
+      <div class="seq-line-wrap">
+        <div class="seq-dot" style="background:#DBEAFE;color:#1E40AF">3</div>
+        <div class="seq-connector" style="background:var(--border)"></div>
+      </div>
+      <div class="seq-content">
+        <span class="seq-badge" style="background:#DBEAFE;color:#1E40AF">Phase 3 · Months 5–8</span>
+        <div class="seq-title">Certified merchant storefronts + marketplace launch</div>
+        <div class="seq-body">Simple product/service listing for existing certified merchants. DataOne processes all transactions. Consumers can browse by zip code and buy local. Every transaction generates the giving story. No new payment infrastructure needed — DataOne already processes it.</div>
+      </div>
+    </div>
+    <div class="seq-item">
+      <div class="seq-line-wrap">
+        <div class="seq-dot" style="background:#FEF3C7;color:#92400E">4</div>
+        <div class="seq-connector" style="background:var(--border)"></div>
+      </div>
+      <div class="seq-content">
+        <span class="seq-badge" style="background:#FEF3C7;color:#92400E">Phase 4 · Months 9–14</span>
+        <div class="seq-title">Giveback Points layer (card-linked, no branded card yet)</div>
+        <div class="seq-body">Enable Giveback Points on marketplace purchases using any existing card via Pledge or similar card-linking API. Consumers accumulate points on certified merchant transactions and can donate them to foundations. This generates behavioral data before committing to a full card program.</div>
+      </div>
+    </div>
+    <div class="seq-item">
+      <div class="seq-line-wrap">
+        <div class="seq-dot" style="background:#EDE9FE;color:#4C1D95">5</div>
+        <div class="seq-connector" style="background:var(--border)"></div>
+      </div>
+      <div class="seq-content">
+        <span class="seq-badge" style="background:#EDE9FE;color:#4C1D95">Phase 5 · Months 14–24</span>
+        <div class="seq-title">Giveback Card launch (BaaS + closed loop)</div>
+        <div class="seq-body">By this point: live merchant network, real giving track record, behavioral data from points program. The BaaS pitch to Marqeta or Galileo is now backed by evidence. Card launches to waitlist of consumers who've already engaged. Closed loop begins. Giving per transaction roughly doubles.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VERDICT -->
+  <div class="verdict">
+    <div class="h2">The flywheel, stated plainly</div>
+    <p>More merchants join DataOne because of the Giveback certification → their storefronts attract consumers to the marketplace → consumers discover the Giveback Card to earn points at those merchants → closed-loop transactions generate acquiring <strong>and</strong> issuing revenue → more giving flows to foundations → foundations promote the certified merchants in their community networks → more merchants join.</p>
+    <p style="margin-top:.75rem">Every rotation of the flywheel generates more giving, not less. It's the opposite of most loyalty economics, which get more expensive as they scale. <strong>This one gets cheaper to operate and more impactful per transaction as the network grows.</strong></p>
+  </div>
+
+  <div class="scripture">
+    <p>"Every good and perfect gift is from above."</p>
+    <cite>James 1:17 — The giving is upstream. The commerce is the vehicle.</cite>
+  </div>
+
+</div>
+</body>
+</html>

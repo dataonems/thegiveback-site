@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TheGiveback — Internal Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#FBF6F0;color:#111;line-height:1.6}
+.topbar{background:#1A3A2A;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Lora',serif;font-size:17px;font-weight:600;color:#fff}
+.logo span{color:#E8A94A}
+.badge{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.12);color:rgba(255,255,255,.7);padding:4px 10px;border-radius:20px}
+.wrap{max-width:960px;margin:0 auto;padding:48px 24px}
+.page-title{font-family:'Lora',serif;font-size:28px;color:#1A3A2A;margin-bottom:8px}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#1A3A2A;text-decoration:none;margin-bottom:32px;padding:8px 16px;background:#fff;border-radius:7px;border:1px solid #E8D5B8}
+.section-title{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#4A9B6F;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #E8D5B8;margin-top:40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:20px}
+.card{background:#fff;border-radius:12px;border:0.5px solid #E8D5B8;padding:18px 20px;text-decoration:none;color:inherit;transition:all .15s;display:block;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,58,42,.09);border-color:#4A9B6F}
+.card-icon{font-size:22px;margin-bottom:10px}
+.card-title{font-size:14px;font-weight:600;color:#1A3A2A;margin-bottom:5px}
+.card-desc{font-size:12px;color:#6B7280;line-height:1.6}
+.card-tag{display:inline-block;margin-top:8px;font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:rgba(26,58,42,.08);color:#1A3A2A;letter-spacing:.04em;text-transform:uppercase}
+.warning{background:#FFF7ED;border:1px solid #FED7AA;border-radius:8px;padding:14px 18px;margin-bottom:32px;font-size:13px;color:#92400E;line-height:1.65}
+footer{text-align:center;padding:40px 24px;font-size:11px;color:#9CA3AF;border-top:1px solid #E8D5B8;margin-top:60px}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="logo">The<span>Giveback</span> 🇨🇴🇻🇪</span>
+  <span class="badge">Internal Reference Only</span>
+</div>
+<div class="wrap">
+  <a class="back-link" href="/">← Back to Live Site</a>
+  <h1 class="page-title">Internal Reference Documents</h1>
+  <p style="font-size:14px;color:#6B7280;margin-bottom:24px">Strategy, research, and working documents from the platform build. Not public-facing.</p>
+  <div class="warning"><strong>Internal use only.</strong> These documents contain strategy, financial models, legal research, and confidential partnership briefs.</div>
+
+  <div class="section-title">Strategy & Vision</div>
+  <div class="grid">
+    <a class="card" href="/internal/docs/master-vision.md"><div class="card-icon">🌟</div><div class="card-title">Master Vision Document</div><p class="card-desc">North star, principles, economic model, MVP roadmap.</p><span class="card-tag">Vision</span></a>
+    <a class="card" href="/internal/docs/complete-product-strategy.md"><div class="card-icon">📋</div><div class="card-title">Complete Product Strategy</div><p class="card-desc">18 sections — economic engine, ecosystem, architecture, GTM.</p><span class="card-tag">Strategy</span></a>
+    <a class="card" href="/internal/docs/mission-asset-suite.md"><div class="card-icon">✍️</div><div class="card-title">Mission Asset Suite</div><p class="card-desc">Founder letter, problem statement, manifesto, elevator pitches.</p><span class="card-tag">Brand</span></a>
+    <a class="card" href="/internal/docs/founders-story.md"><div class="card-icon">📖</div><div class="card-title">Founder's Story Draft</div><p class="card-desc">Full six-chapter narrative. Working document.</p><span class="card-tag">Content</span></a>
+    <a class="card" href="/internal/docs/owner-checklist.md"><div class="card-icon">✅</div><div class="card-title">Owner Checklist</div><p class="card-desc">Critical blockers, legal tasks, partnerships, technical tasks.</p><span class="card-tag">Operations</span></a>
+    <a class="card" href="/internal/docs/feature-gaps.md"><div class="card-icon">🗺️</div><div class="card-title">Feature Gaps & Capabilities</div><p class="card-desc">9 identified gaps, priority matrix, dependency map.</p><span class="card-tag">Roadmap</span></a>
+  </div>
+
+  <div class="section-title">Legal & Research</div>
+  <div class="grid">
+    <a class="card" href="/internal/docs/competitive-legal-research.md"><div class="card-icon">⚖️</div><div class="card-title">Competitive & Legal Research</div><p class="card-desc">§162/§170 tax question, commercial co-venture, money transmission.</p><span class="card-tag">Legal</span></a>
+    <a class="card" href="/internal/docs/loyalty-card-research.md"><div class="card-icon">💳</div><div class="card-title">Loyalty & Card Research</div><p class="card-desc">Bilt case study, BaaS vendor landscape, Pledge API.</p><span class="card-tag">Research</span></a>
+    <a class="card" href="/internal/docs/robotica-integration-spec.md"><div class="card-icon">🔬</div><div class="card-title">Robotica AI Integration</div><p class="card-desc">3 capability layers, 4 applications, build sequence.</p><span class="card-tag">Technical</span></a>
+    <a class="card" href="/internal/docs/robotica-brief.md"><div class="card-icon">🔒</div><div class="card-title">Robotica Partnership Brief</div><p class="card-desc">CONFIDENTIAL — NDA required.</p><span class="card-tag">Confidential</span></a>
+  </div>
+
+  <div class="section-title">Product Specs</div>
+  <div class="grid">
+    <a class="card" href="/internal/docs/academy-lms-spec.md"><div class="card-icon">🎓</div><div class="card-title">Academy LMS Spec</div><p class="card-desc">5 learning tracks, English for commerce, AI tutor.</p><span class="card-tag">Product</span></a>
+    <a class="card" href="/internal/docs/creator-celebrity-program.md"><div class="card-icon">✨</div><div class="card-title">Creator & Celebrity Program</div><p class="card-desc">3 tiers, OTIS access suite, affiliate architecture.</p><span class="card-tag">Growth</span></a>
+    <a class="card" href="/internal/docs/sports-community.md"><div class="card-icon">⚽</div><div class="card-title">Sports Community Integration</div><p class="card-desc">Team registration, Transaction Sponsor tier, NIL framework.</p><span class="card-tag">Product</span></a>
+    <a class="card" href="/internal/docs/live-community-spec.md"><div class="card-icon">🎵</div><div class="card-title">Live Events & Community</div><p class="card-desc">4 event formats, 70/20/10 split, silent auction module.</p><span class="card-tag">Product</span></a>
+  </div>
+
+  <div class="section-title">Interactive Tools</div>
+  <div class="grid">
+    <a class="card" href="/internal/core-model.html"><div class="card-icon">📊</div><div class="card-title">Economic Model Calculator</div><p class="card-desc">Live sliders, giving waterfall, scenario presets.</p><span class="card-tag">Financial</span></a>
+    <a class="card" href="/internal/merchant-onepager.html"><div class="card-icon">🏪</div><div class="card-title">Merchant One-Pager</div><p class="card-desc">Printable merchant certification pitch.</p><span class="card-tag">Sales Tool</span></a>
+    <a class="card" href="/internal/card-loyalty.html"><div class="card-icon">💳</div><div class="card-title">Giveback Card Page</div><p class="card-desc">3D card visual, points earn/redeem tables.</p><span class="card-tag">Phase 4</span></a>
+    <a class="card" href="/internal/impact-intelligence.html"><div class="card-icon">📈</div><div class="card-title">Verified Impact Page</div><p class="card-desc">Robotica/OTIS capabilities, sample reports.</p><span class="card-tag">Phase 4</span></a>
+    <a class="card" href="/internal/ecosystem-strategy.html"><div class="card-icon">🌐</div><div class="card-title">Ecosystem Strategy</div><p class="card-desc">Full flywheel visual, six-layer breakdown.</p><span class="card-tag">Strategy</span></a>
+  </div>
+</div>
+<footer>TheGiveback · DATAONE · Internal Reference · July 2026 · Confidential</footer>
+</body>
+</html>

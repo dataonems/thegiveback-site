@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TheGiveback Card & Rewards — Every Swipe Does Double Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────────── */
+:root{
+  --green:#1B4332;
+  --green-mid:#2D6A4F;
+  --green-lt:#40916C;
+  --gold:#B5821A;
+  --gold-lt:#D4A547;
+  --gold-pale:#F5E9C8;
+  --cream:#F8F4EE;
+  --mist:#EEF2EF;
+  --slate:#2C3E50;
+  --muted:#6B7280;
+  --white:#FFFFFF;
+  --border:#D1E8D8;
+  --purple:#4C1D95;
+  --purple-lt:#EDE9FE;
+  --font-d:'Lora',Georgia,serif;
+  --font-b:'Inter',system-ui,sans-serif;
+  --r:10px;--rlg:16px;
+  --sh:0 2px 16px rgba(27,67,50,.10);
+  --shlg:0 8px 40px rgba(27,67,50,.14);
+  --ease:cubic-bezier(.22,.68,0,1.2);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--cream);color:var(--slate);line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:var(--font-d);line-height:1.15;letter-spacing:-.02em}
+p{line-height:1.75;color:var(--muted)}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green-lt)}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.container-sm{max-width:760px;margin:0 auto;padding:0 28px}
+section{padding:100px 0}
+
+/* ── NAV ─────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(248,244,238,.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  max-width:1100px;margin:0 auto;padding:0 28px;
+  height:64px;display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{font-family:var(--font-d);font-size:18px;font-weight:600;color:var(--green);text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-back{font-size:13px;color:var(--muted);text-decoration:none;font-weight:500;display:flex;align-items:center;gap:6px;transition:color .2s}
+.nav-back:hover{color:var(--green)}
+.nav-cta{background:var(--green);color:var(--white);padding:9px 20px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--green-mid)}
+
+/* ── BUTTONS ─────────────────────────────────────── */
+.btn-p{
+  background:var(--green);color:var(--white);
+  padding:16px 32px;border-radius:8px;font-weight:600;font-size:15px;
+  text-decoration:none;display:inline-block;
+  transition:transform .2s var(--ease),box-shadow .2s;
+  box-shadow:0 4px 20px rgba(27,67,50,.25);
+}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(27,67,50,.35)}
+.btn-s{
+  background:transparent;color:var(--green);
+  padding:16px 32px;border-radius:8px;font-weight:600;font-size:15px;
+  text-decoration:none;display:inline-block;
+  border:1.5px solid var(--green);
+  transition:background .2s,color .2s;
+}
+.btn-s:hover{background:var(--green);color:var(--white)}
+
+/* ── HERO ─────────────────────────────────────────── */
+.hero{
+  padding:120px 0 0;
+  background:var(--green);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-100px;right:-200px;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(181,130,26,.15) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:end;
+}
+.hero-text{padding-bottom:80px}
+.hero-eyebrow{
+  font-size:11px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold-lt);margin-bottom:20px;
+}
+.hero h1{
+  font-size:clamp(40px,4.5vw,62px);
+  color:var(--white);margin-bottom:24px;
+}
+.hero h1 em{font-style:italic;color:var(--gold-lt)}
+.hero-sub{
+  font-size:17px;line-height:1.75;color:rgba(255,255,255,.75);
+  max-width:480px;margin-bottom:40px;
+}
+.hero-sub strong{color:var(--white)}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.btn-gold{
+  background:var(--gold);color:var(--white);
+  padding:16px 32px;border-radius:8px;font-weight:700;font-size:15px;
+  text-decoration:none;display:inline-block;
+  transition:transform .2s var(--ease),box-shadow .2s;
+  box-shadow:0 4px 20px rgba(181,130,26,.35);
+  letter-spacing:.01em;
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(181,130,26,.5)}
+.btn-ghost{
+  background:rgba(255,255,255,.1);color:var(--white);border:1.5px solid rgba(255,255,255,.3);
+  padding:16px 32px;border-radius:8px;font-weight:600;font-size:15px;
+  text-decoration:none;display:inline-block;
+  transition:background .2s,border-color .2s;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.5)}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap}
+.hstat-num{font-family:var(--font-d);font-size:30px;font-weight:700;color:var(--gold-lt);letter-spacing:-.02em}
+.hstat-label{font-size:12px;color:rgba(255,255,255,.55);margin-top:3px}
+
+/* ── CARD VISUAL ─────────────────────────────────── */
+.card-visual-wrap{
+  position:relative;height:460px;display:flex;align-items:flex-end;justify-content:center;
+  padding-bottom:0;
+}
+/* The physical card */
+.card-3d{
+  width:340px;height:210px;border-radius:18px;
+  background:linear-gradient(135deg,#1B4332 0%,#2D6A4F 50%,#1B4332 100%);
+  box-shadow:0 24px 60px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.08);
+  position:relative;overflow:hidden;
+  transform:perspective(1000px) rotateX(8deg) rotateY(-12deg) translateY(-20px);
+  transition:transform .4s var(--ease);
+  cursor:default;
+  flex-shrink:0;
+}
+.card-3d:hover{
+  transform:perspective(1000px) rotateX(4deg) rotateY(-6deg) translateY(-30px);
+}
+/* Shimmer overlay */
+.card-3d::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.06) 0%,transparent 50%,rgba(255,255,255,.04) 100%);
+}
+/* Gold accent stripe */
+.card-3d::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(to right,var(--gold),var(--gold-lt),var(--gold));
+}
+.card-inner{padding:24px;height:100%;display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:1}
+.card-logo{font-family:var(--font-d);font-size:15px;font-weight:600;color:var(--white);letter-spacing:-.01em}
+.card-logo span{color:var(--gold-lt)}
+.card-chip{
+  width:36px;height:28px;border-radius:5px;
+  background:linear-gradient(135deg,#D4A547,#B5821A);
+  border:1px solid rgba(255,255,255,.2);
+}
+.card-num{
+  font-size:14px;letter-spacing:.2em;color:rgba(255,255,255,.7);
+  font-weight:500;
+}
+.card-bottom{display:flex;align-items:flex-end;justify-content:space-between}
+.card-name-label{font-size:8px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+.card-holder{font-size:13px;font-weight:600;color:var(--white);letter-spacing:.04em}
+.card-expiry{text-align:right}
+.card-exp-label{font-size:8px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+.card-exp{font-size:13px;color:var(--white)}
+.card-network{
+  position:absolute;bottom:24px;right:24px;
+  display:flex;gap:-4px;align-items:center;
+}
+.card-network-circle{
+  width:26px;height:26px;border-radius:50%;
+}
+.c1{background:rgba(255,100,50,.6)}
+.c2{background:rgba(255,180,0,.5);margin-left:-10px}
+
+/* Floating points badge */
+.card-badge{
+  position:absolute;top:60px;right:-10px;
+  background:var(--white);border-radius:12px;
+  padding:12px 16px;box-shadow:var(--shlg);
+  font-size:12px;text-align:center;
+  border:1px solid var(--border);
+  animation:float 3s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.card-badge-pts{font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--green);line-height:1}
+.card-badge-label{font-size:10px;color:var(--muted);margin-top:3px}
+.card-badge-sub{font-size:9px;color:var(--green-lt);font-weight:600;margin-top:2px}
+
+/* Floating impact badge */
+.impact-badge{
+  position:absolute;bottom:40px;left:-20px;
+  background:var(--green-lt);border-radius:12px;
+  padding:12px 16px;box-shadow:var(--shlg);
+  font-size:12px;border:1px solid rgba(64,145,108,.3);
+  animation:float 3s ease-in-out infinite;animation-delay:.8s;
+}
+.impact-badge-val{font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--white);line-height:1}
+.impact-badge-label{font-size:10px;color:rgba(255,255,255,.8);margin-top:3px}
+
+/* ── THE BIG IDEA ─────────────────────────────────── */
+.big-idea{background:var(--cream);padding:100px 0}
+.big-idea-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+}
+.big-idea h2{font-size:clamp(30px,3.5vw,48px);color:var(--green);margin-bottom:24px}
+.big-idea h2 em{font-style:italic;color:var(--gold)}
+.big-idea p{font-size:16px;line-height:1.8;margin-bottom:20px}
+.truth-box{
+  background:var(--mist);border-radius:var(--rlg);
+  padding:32px;border-left:4px solid var(--gold);
+  margin-top:8px;
+}
+.truth-box p{
+  font-family:var(--font-d);font-size:18px;font-style:italic;
+  color:var(--slate);line-height:1.6;margin:0;
+}
+.transaction-diagram{
+  background:var(--white);border-radius:var(--rlg);
+  border:1px solid var(--border);overflow:hidden;
+  box-shadow:var(--sh);
+}
+.txn-header{
+  background:var(--green);padding:16px 24px;
+  font-size:12px;font-weight:600;color:rgba(255,255,255,.8);
+  letter-spacing:.08em;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;
+}
+.txn-dot{width:6px;height:6px;border-radius:50%;background:var(--gold-lt)}
+.txn-body{padding:24px}
+.txn-row{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 0;border-bottom:1px solid var(--mist);
+}
+.txn-row:last-child{border-bottom:none;padding-bottom:0}
+.txn-icon{
+  width:40px;height:40px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.txn-green{background:rgba(27,67,50,.08)}
+.txn-gold{background:rgba(181,130,26,.1)}
+.txn-purple{background:var(--purple-lt)}
+.txn-label{flex:1}
+.txn-title{font-size:13px;font-weight:600;color:var(--slate);margin-bottom:2px}
+.txn-sub{font-size:11px;color:var(--muted)}
+.txn-amount{font-family:var(--font-d);font-size:17px;font-weight:700}
+.txn-plus{color:var(--green-lt)}
+.txn-giving{
+  margin-top:16px;padding:14px;
+  background:var(--mist);border-radius:8px;
+  border-left:3px solid var(--green-lt);
+}
+.txn-giving-title{font-size:11px;font-weight:600;color:var(--green);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.txn-giving-val{font-family:var(--font-d);font-size:24px;font-weight:700;color:var(--green-lt)}
+.txn-giving-sub{font-size:11px;color:var(--muted);margin-top:3px}
+
+/* ── HOW POINTS WORK ──────────────────────────────── */
+.points{background:var(--mist)}
+.points-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:start;
+}
+.points h2{font-size:clamp(28px,3vw,42px);color:var(--green);margin-bottom:16px}
+.points-earn{display:flex;flex-direction:column;gap:12px;margin-top:32px}
+.earn-row{
+  display:flex;align-items:center;gap:16px;
+  background:var(--white);border-radius:var(--r);
+  padding:16px 20px;border:1px solid var(--border);
+}
+.earn-icon{font-size:22px;flex-shrink:0}
+.earn-text{flex:1}
+.earn-title{font-size:13px;font-weight:600;color:var(--slate);margin-bottom:2px}
+.earn-desc{font-size:12px;color:var(--muted)}
+.earn-pts{
+  font-family:var(--font-d);font-size:18px;font-weight:700;
+  color:var(--green);white-space:nowrap;
+}
+.earn-pts span{font-size:11px;font-weight:500;color:var(--muted)}
+.earn-row.featured{
+  border-color:var(--gold);background:var(--gold-pale);
+}
+.earn-row.featured .earn-title{color:var(--gold)}
+.earn-row.featured .earn-pts{color:var(--gold)}
+
+/* Redemption paths */
+.redeem-paths{display:flex;flex-direction:column;gap:16px;margin-top:32px}
+.redeem-card{
+  border-radius:var(--r);padding:24px;border:1.5px solid transparent;
+  background:var(--white);transition:border-color .2s,transform .2s var(--ease);
+  cursor:default;
+}
+.redeem-card:hover{transform:translateY(-2px);border-color:var(--green-lt)}
+.redeem-card.primary-path{
+  border-color:var(--green);
+  background:linear-gradient(135deg,rgba(27,67,50,.04) 0%,var(--white) 100%);
+}
+.redeem-header{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.redeem-icon{
+  width:44px;height:44px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.ri-green{background:rgba(27,67,50,.08)}
+.ri-gold{background:var(--gold-pale)}
+.ri-purple{background:var(--purple-lt)}
+.redeem-name{font-size:15px;font-weight:600;color:var(--slate)}
+.redeem-tag{
+  font-size:9px;font-weight:700;padding:2px 8px;border-radius:4px;
+  letter-spacing:.06em;text-transform:uppercase;margin-left:auto;
+}
+.rt-green{background:rgba(27,67,50,.1);color:var(--green)}
+.rt-gold{background:var(--gold-pale);color:var(--gold)}
+.rt-purple{background:var(--purple-lt);color:var(--purple)}
+.redeem-desc{font-size:13px;color:var(--muted);line-height:1.65;padding-left:58px}
+.redeem-card.primary-path .redeem-desc{color:var(--slate)}
+
+/* NEVER section */
+.never-box{
+  background:var(--slate);border-radius:var(--r);
+  padding:20px 24px;margin-top:24px;
+}
+.never-title{font-size:12px;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.never-items{display:flex;flex-direction:column;gap:8px}
+.never-item{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.6)}
+.never-x{color:#EF4444;font-weight:700}
+
+/* ── THE MATH ─────────────────────────────────────── */
+.math{background:var(--green);padding:100px 0}
+.math h2{font-size:clamp(28px,3vw,44px);color:var(--white);text-align:center;margin-bottom:16px}
+.math h2 em{font-style:italic;color:var(--gold-lt)}
+.math-sub{font-size:17px;color:rgba(255,255,255,.7);text-align:center;max-width:600px;margin:0 auto 64px}
+.math-comparison{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  gap:24px;align-items:center;max-width:900px;margin:0 auto 48px;
+}
+.math-card{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--rlg);padding:32px;
+}
+.math-card.winner{
+  background:rgba(181,130,26,.15);border-color:var(--gold);
+  position:relative;
+}
+.math-card.winner::before{
+  content:'The Giveback Card';
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--gold);color:var(--white);
+  font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 12px;border-radius:20px;white-space:nowrap;
+}
+.math-card-title{font-size:13px;font-weight:600;color:rgba(255,255,255,.6);margin-bottom:20px;text-align:center;letter-spacing:.04em;text-transform:uppercase}
+.math-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);
+  gap:12px;
+}
+.math-row:last-child{border-bottom:none;padding-bottom:0}
+.math-row-label{font-size:12px;color:rgba(255,255,255,.55)}
+.math-row-val{font-size:13px;font-weight:600;color:rgba(255,255,255,.85)}
+.math-row-val.highlight{color:var(--gold-lt);font-size:14px}
+.math-vs{
+  font-family:var(--font-d);font-size:24px;font-weight:600;
+  color:rgba(255,255,255,.3);text-align:center;
+}
+.math-total{
+  background:rgba(255,255,255,.05);border-radius:var(--r);
+  padding:12px 16px;margin-top:16px;
+  display:flex;justify-content:space-between;align-items:center;
+  border:1px solid rgba(255,255,255,.1);
+}
+.math-total-label{font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em}
+.math-total-val{font-family:var(--font-d);font-size:22px;font-weight:700}
+.math-total-val.green{color:var(--gold-lt)}
+.math-total-val.grey{color:rgba(255,255,255,.35)}
+.math-note{
+  text-align:center;max-width:600px;margin:0 auto;
+  font-size:14px;color:rgba(255,255,255,.55);line-height:1.7;
+}
+.math-note strong{color:rgba(255,255,255,.8)}
+
+/* ── THE BILT LESSON ──────────────────────────────── */
+.bilt-lesson{background:var(--cream);padding:80px 0}
+.lesson-inner{
+  background:var(--white);border-radius:var(--rlg);
+  border:1px solid var(--border);
+  padding:48px;max-width:820px;margin:0 auto;
+  box-shadow:var(--sh);
+}
+.lesson-eyebrow{margin-bottom:16px;color:var(--gold)}
+.lesson-inner h2{font-size:clamp(24px,2.8vw,36px);color:var(--green);margin-bottom:20px}
+.lesson-inner p{font-size:15px;line-height:1.8;margin-bottom:16px}
+.lesson-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+.lesson-card{border-radius:var(--r);padding:20px}
+.lesson-card.bad{background:#FEF2F2;border:1px solid #FECACA}
+.lesson-card.good{background:rgba(27,67,50,.06);border:1px solid var(--border)}
+.lesson-card-title{font-size:13px;font-weight:700;margin-bottom:10px}
+.lesson-card.bad .lesson-card-title{color:#991B1B}
+.lesson-card.good .lesson-card-title{color:var(--green)}
+.lesson-card ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.lesson-card li{font-size:12px;line-height:1.6;display:flex;gap:8px}
+.lesson-card.bad li::before{content:'✗';color:#EF4444;font-weight:700;flex-shrink:0}
+.lesson-card.good li::before{content:'✓';color:var(--green-lt);font-weight:700;flex-shrink:0}
+.lesson-card li span{color:var(--muted)}
+
+/* ── CLOSED LOOP ──────────────────────────────────── */
+.loop{background:var(--mist);padding:100px 0}
+.loop-header{text-align:center;margin-bottom:64px}
+.loop-header h2{font-size:clamp(28px,3vw,44px);color:var(--green);margin-bottom:16px}
+.loop-diagram{
+  max-width:860px;margin:0 auto;
+  position:relative;
+}
+/* Steps in a connected flow */
+.loop-steps{
+  display:flex;gap:0;align-items:stretch;
+}
+.loop-step{
+  flex:1;background:var(--white);
+  border:1px solid var(--border);
+  padding:28px 20px;text-align:center;
+  position:relative;
+  transition:transform .2s var(--ease);
+}
+.loop-step:hover{transform:translateY(-4px);box-shadow:var(--sh)}
+.loop-step:first-child{border-radius:var(--r) 0 0 var(--r)}
+.loop-step:last-child{border-radius:0 var(--r) var(--r) 0}
+.loop-step::after{
+  content:'→';
+  position:absolute;right:-16px;top:50%;transform:translateY(-50%);
+  font-size:18px;color:var(--border);z-index:2;
+  background:var(--mist);
+}
+.loop-step:last-child::after{display:none}
+.loop-icon{font-size:28px;margin-bottom:12px}
+.loop-title{font-size:13px;font-weight:600;color:var(--green);margin-bottom:6px}
+.loop-desc{font-size:11px;color:var(--muted);line-height:1.6}
+.loop-amount{
+  font-family:var(--font-d);font-size:16px;font-weight:700;
+  color:var(--green-lt);margin-top:8px;
+}
+.loop-total{
+  background:var(--green);border-radius:var(--r);
+  padding:24px 32px;margin-top:24px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:16px;
+}
+.loop-total-label{font-size:13px;color:rgba(255,255,255,.7)}
+.loop-total-val{font-family:var(--font-d);font-size:28px;font-weight:700;color:var(--gold-lt)}
+.loop-total-sub{font-size:11px;color:rgba(255,255,255,.5);margin-top:3px}
+
+/* ── WAITLIST / CTA ───────────────────────────────── */
+.waitlist{background:var(--green);padding:100px 0;text-align:center}
+.waitlist h2{font-size:clamp(30px,3.5vw,50px);color:var(--white);margin-bottom:16px;max-width:700px;margin-left:auto;margin-right:auto}
+.waitlist h2 em{font-style:italic;color:var(--gold-lt)}
+.waitlist p{font-size:17px;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 48px}
+.waitlist-form{
+  display:flex;gap:12px;max-width:440px;margin:0 auto 20px;
+  flex-wrap:wrap;justify-content:center;
+}
+.waitlist-input{
+  flex:1;min-width:200px;padding:14px 18px;border-radius:8px;
+  border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);
+  color:var(--white);font-size:15px;outline:none;
+  font-family:var(--font-b);
+}
+.waitlist-input::placeholder{color:rgba(255,255,255,.4)}
+.waitlist-input:focus{border-color:var(--gold-lt)}
+.waitlist-sub{font-size:13px;color:rgba(255,255,255,.45);font-style:italic}
+.phase-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(181,130,26,.2);border:1px solid rgba(181,130,26,.4);
+  color:var(--gold-lt);padding:6px 14px;border-radius:20px;
+  font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  margin-bottom:24px;
+}
+.phase-dot{width:6px;height:6px;border-radius:50%;background:var(--gold-lt);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ── FAQ ─────────────────────────────────────────── */
+.faq{background:var(--cream);padding:80px 0}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}
+.faq-item{background:var(--white);border-radius:var(--r);padding:24px;border:1px solid var(--border)}
+.faq-q{font-size:14px;font-weight:600;color:var(--green);margin-bottom:10px;display:flex;gap:8px}
+.faq-q span{color:var(--gold)}
+.faq-a{font-size:13px;color:var(--muted);line-height:1.75}
+
+/* ── FOOTER ──────────────────────────────────────── */
+footer{background:var(--green);color:rgba(255,255,255,.5);padding:48px 0 32px}
+.footer-inner{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  flex-wrap:wrap;gap:32px;margin-bottom:32px;
+}
+.footer-brand{font-family:var(--font-d);font-size:18px;font-weight:600;color:var(--white)}
+.footer-brand span{color:var(--gold-lt)}
+.footer-desc{font-size:12px;line-height:1.7;color:rgba(255,255,255,.45);max-width:240px;margin-top:8px}
+.footer-links-group{display:flex;flex-direction:column;gap:10px}
+.footer-links-group a{font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-links-group a:hover{color:var(--white)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);padding-top:20px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+}
+.footer-legal{font-size:11px;color:rgba(255,255,255,.3)}
+.footer-scripture{font-family:var(--font-d);font-size:12px;font-style:italic;color:rgba(255,255,255,.35)}
+
+/* ── ANIMATIONS ──────────────────────────────────── */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-in{opacity:0;transition:opacity .6s ease}
+.fade-in.visible{opacity:1}
+
+/* ── RESPONSIVE ──────────────────────────────────── */
+@media(max-width:900px){
+  .hero-grid,.big-idea-inner,.points-grid,.lesson-grid,.math-comparison{grid-template-columns:1fr}
+  .math-vs{display:none}
+  .card-visual-wrap{height:320px}
+  .loop-steps{flex-direction:column}
+  .loop-step{border-radius:var(--r)!important}
+  .loop-step::after{content:'↓';right:auto;left:50%;top:auto;bottom:-16px;transform:translateX(-50%)}
+  .loop-step:last-child::after{display:none}
+  .faq-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  section{padding:72px 0}
+  .hero-grid{gap:40px}
+  .hero-ctas{flex-direction:column}
+  .card-3d{width:280px;height:175px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">The<span>Giveback</span>.org</a>
+    <div style="display:flex;align-items:center;gap:24px">
+      <a href="#" class="nav-back">← Back to Home</a>
+      <a href="#waitlist" class="nav-cta">Join the Waitlist</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding-top:64px">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-eyebrow">TheGiveback Card & Rewards</div>
+        <h1>Every swipe<br>does <em>double</em><br>the work.</h1>
+        <p class="hero-sub">
+          Most loyalty cards reward you with points you'll never use.
+          <strong>The Giveback Card rewards your community — automatically — while still rewarding you.</strong>
+          One transaction. Two giving streams. Everything verified on a public ledger.
+        </p>
+        <div class="hero-ctas">
+          <a href="#waitlist" class="btn-gold">Join the Waitlist</a>
+          <a href="#how" class="btn-ghost">See How It Works</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hstat-num">1 pt</div>
+            <div class="hstat-label">per $1 at certified merchants</div>
+          </div>
+          <div>
+            <div class="hstat-num">~3%</div>
+            <div class="hstat-label">closed-loop giving per transaction</div>
+          </div>
+          <div>
+            <div class="hstat-num">100%</div>
+            <div class="hstat-label">traceable on public ledger</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD VISUAL -->
+      <div class="card-visual-wrap fade-in">
+        <!-- The card -->
+        <div class="card-3d">
+          <div class="card-inner">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start">
+              <div class="card-logo">The<span>Giveback</span></div>
+              <div class="card-chip"></div>
+            </div>
+            <div class="card-num">•••• •••• •••• 4819</div>
+            <div class="card-bottom">
+              <div>
+                <div class="card-name-label">Card Member</div>
+                <div class="card-holder">SARAH J.</div>
+              </div>
+              <div class="card-expiry">
+                <div class="card-exp-label">Valid Thru</div>
+                <div class="card-exp">12/28</div>
+              </div>
+              <div class="card-network">
+                <div class="card-network-circle c1"></div>
+                <div class="card-network-circle c2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating badges -->
+        <div class="card-badge">
+          <div class="card-badge-pts">1,247</div>
+          <div class="card-badge-label">Giveback Points</div>
+          <div class="card-badge-sub">≈ $12.47 to your cause</div>
+        </div>
+        <div class="impact-badge">
+          <div class="impact-badge-val">$412</div>
+          <div class="impact-badge-label">given this month ✓</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THE BIG IDEA -->
+<section class="big-idea" id="how">
+  <div class="container">
+    <div class="big-idea-inner">
+      <div class="fade-up">
+        <div class="eyebrow" style="margin-bottom:16px">The Insight</div>
+        <h2>Other cards reward you.<br>This one rewards<br><em>your neighborhood.</em></h2>
+        <p>
+          Every loyalty card in your wallet promises you something — miles, cashback, hotel nights. They're funded by interchange revenue the card issuer earns from your purchases. The money flows from merchants through networks through banks and into your points account.
+        </p>
+        <p>
+          The Giveback Card uses the same economics — but routes the giving to two destinations instead of one. Your community foundation gets funded from the merchant's acquiring margin. Your points account gets funded from the card's issuing interchange. Both happen from the same transaction. Neither one requires anything extra from you.
+        </p>
+        <div class="truth-box">
+          <p>"When you buy your coffee at Rosa's with the Giveback Card, that transaction funds the food pantry twice — once from the restaurant's processing margin, once from your card's interchange. You get points. The community gets funded. Rosa's gets a customer who's invested in her success."</p>
+        </div>
+      </div>
+
+      <!-- TRANSACTION DIAGRAM -->
+      <div class="transaction-diagram fade-in">
+        <div class="txn-header">
+          <div class="txn-dot"></div>
+          One $40 Purchase · Rosa's Restaurant
+        </div>
+        <div class="txn-body">
+          <div class="txn-row">
+            <div class="txn-icon txn-green">🏪</div>
+            <div class="txn-label">
+              <div class="txn-title">DataOne Acquiring Margin</div>
+              <div class="txn-sub">Rosa's processing generates ~$0.58 margin</div>
+            </div>
+            <div class="txn-amount txn-plus">$0.58</div>
+          </div>
+          <div class="txn-row">
+            <div class="txn-icon txn-gold">💳</div>
+            <div class="txn-label">
+              <div class="txn-title">Card Issuing Interchange</div>
+              <div class="txn-sub">Giveback Card earns ~$0.60 interchange</div>
+            </div>
+            <div class="txn-amount txn-plus">$0.60</div>
+          </div>
+          <div class="txn-row">
+            <div class="txn-icon" style="background:rgba(64,145,108,.1)">🎯</div>
+            <div class="txn-label">
+              <div class="txn-title">Your Giveback Points</div>
+              <div class="txn-sub">40 points earned · redeem for giving or credit</div>
+            </div>
+            <div class="txn-amount" style="color:var(--purple);font-size:15px">40 pts</div>
+          </div>
+          <div class="txn-giving">
+            <div class="txn-giving-title">Total Giving Generated</div>
+            <div class="txn-giving-val">≈ $0.29 <span style="font-size:14px;font-weight:400;color:var(--muted)">to Midtown Food Pantry</span></div>
+            <div class="txn-giving-sub">From one $40 purchase · Combined acquiring + issuing giving · Verified on public ledger</div>
+          </div>
+          <div style="margin-top:16px;padding:12px;background:var(--mist);border-radius:6px;font-size:11px;color:var(--muted);font-style:italic">
+            Open-loop card only: ~$0.14 giving / This transaction: ~$0.29 giving — 2× the impact, zero extra cost
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW POINTS WORK -->
+<section class="points">
+  <div class="container">
+    <div class="section-header fade-up" style="text-align:center;margin-bottom:64px">
+      <div class="eyebrow" style="color:var(--gold);margin-bottom:12px">The Points Program</div>
+      <h2 style="font-size:clamp(28px,3vw,44px);color:var(--green);margin-bottom:16px">Simple by design.<br>Powerful by choice.</h2>
+      <p style="max-width:560px;margin:0 auto">One currency. Three redemption paths. No airline partners. No expiry games. No hotel tiers. Complexity is what killed Bilt. Simplicity serves the mission.</p>
+    </div>
+    <div class="points-grid">
+      <!-- EARN -->
+      <div class="fade-up">
+        <h3 style="font-size:20px;color:var(--green);margin-bottom:8px">How you earn</h3>
+        <p style="font-size:14px;margin-bottom:0">Points accumulate automatically on every purchase. No activation required. No minimum spend.</p>
+        <div class="points-earn">
+          <div class="earn-row featured">
+            <div class="earn-icon">⭐</div>
+            <div class="earn-text">
+              <div class="earn-title">Certified Merchant + Giveback Card</div>
+              <div class="earn-desc">The closed loop. Maximum earning. Maximum giving.</div>
+            </div>
+            <div class="earn-pts">2 pts <span>/ $1</span></div>
+          </div>
+          <div class="earn-row">
+            <div class="earn-icon">🏪</div>
+            <div class="earn-text">
+              <div class="earn-title">Any certified merchant (any card)</div>
+              <div class="earn-desc">Via card-linking — earning starts before the card launches</div>
+            </div>
+            <div class="earn-pts">1 pt <span>/ $1</span></div>
+          </div>
+          <div class="earn-row">
+            <div class="earn-icon">💳</div>
+            <div class="earn-text">
+              <div class="earn-title">Giveback Card, anywhere else</div>
+              <div class="earn-desc">Outside the certified merchant network</div>
+            </div>
+            <div class="earn-pts">1 pt <span>/ $1</span></div>
+          </div>
+          <div class="earn-row">
+            <div class="earn-icon">🎵</div>
+            <div class="earn-text">
+              <div class="earn-title">TheGiveback Live tips</div>
+              <div class="earn-desc">Points on every tip at a live event</div>
+            </div>
+            <div class="earn-pts">1 pt <span>/ $1</span></div>
+          </div>
+          <div class="earn-row">
+            <div class="earn-icon">🎓</div>
+            <div class="earn-text">
+              <div class="earn-title">Academy enrollment referrals</div>
+              <div class="earn-desc">Refer someone to the Academy</div>
+            </div>
+            <div class="earn-pts">500 pts <span>/ referral</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REDEEM -->
+      <div class="fade-up">
+        <h3 style="font-size:20px;color:var(--green);margin-bottom:8px">How you redeem</h3>
+        <p style="font-size:14px;margin-bottom:0">Three paths. Each one honest. The first one is the mission.</p>
+        <div class="redeem-paths">
+          <div class="redeem-card primary-path">
+            <div class="redeem-header">
+              <div class="redeem-icon ri-green">🏛️</div>
+              <span class="redeem-name">Donate to a foundation</span>
+              <span class="redeem-tag rt-green">Most meaningful</span>
+            </div>
+            <div class="redeem-desc">
+              Convert your points directly to giving for any vetted foundation in the TheGiveback network. 100 points = $1 to your chosen cause. It appears as a separate, named entry on the public ledger: "Given by Sarah J's points redemption." Your giving, your name, your record.
+            </div>
+          </div>
+          <div class="redeem-card">
+            <div class="redeem-header">
+              <div class="redeem-icon ri-gold">🏪</div>
+              <span class="redeem-name">Discount at certified merchants</span>
+              <span class="redeem-tag rt-gold">Keeps it local</span>
+            </div>
+            <div class="redeem-desc">Redeem points for a discount at any certified merchant storefront — in-store or online. Every point you redeem at a certified merchant is a dollar that stays inside the local commerce ecosystem, funding more giving on the next transaction.</div>
+          </div>
+          <div class="redeem-card">
+            <div class="redeem-header">
+              <div class="redeem-icon ri-purple">💳</div>
+              <span class="redeem-name">Statement credit</span>
+              <span class="redeem-tag rt-purple">Simple fallback</span>
+            </div>
+            <div class="redeem-desc">100 points = $1 off your card balance. Clean, simple, no games. Available always, but we'd love it if you gave it to someone first.</div>
+          </div>
+        </div>
+        <div class="never-box">
+          <div class="never-title">What your points will never do</div>
+          <div class="never-items">
+            <div class="never-item"><span class="never-x">✗</span><span>Transfer to airline miles or hotel programs</span></div>
+            <div class="never-item"><span class="never-x">✗</span><span>Expire (ever — even if inactive)</span></div>
+            <div class="never-item"><span class="never-x">✗</span><span>Get devalued by the platform without notice</span></div>
+            <div class="never-item"><span class="never-x">✗</span><span>Require minimum balance to redeem</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE MATH -->
+<section class="math">
+  <div class="container">
+    <div class="eyebrow" style="color:var(--gold-lt);text-align:center;margin-bottom:16px">The Numbers</div>
+    <h2>Your card. <em>Their impact.</em><br>The math is simple.</h2>
+    <p class="math-sub">Same transaction. Two economics. The closed loop is what makes the Giveback Card structurally different from every other rewards card you carry.</p>
+
+    <div class="math-comparison fade-up">
+      <!-- Standard card -->
+      <div class="math-card">
+        <div class="math-card-title">Standard Rewards Card</div>
+        <div class="math-row">
+          <span class="math-row-label">$100 purchase</span>
+          <span class="math-row-val">$100.00</span>
+        </div>
+        <div class="math-row">
+          <span class="math-row-label">Issuer interchange earned</span>
+          <span class="math-row-val">~$1.75</span>
+        </div>
+        <div class="math-row">
+          <span class="math-row-label">Points to you</span>
+          <span class="math-row-val">~$1.00</span>
+        </div>
+        <div class="math-row">
+          <span class="math-row-label">Goes to your community</span>
+          <span class="math-row-val">$0.00</span>
+        </div>
+        <div class="math-total">
+          <span class="math-total-label">Community giving</span>
+          <span class="math-total-val grey">$0</span>
+        </div>
+      </div>
+
+      <div class="math-vs">vs</div>
+
+      <!-- Giveback card -->
+      <div class="math-card winner">
+        <div class="math-card-title">At a Certified Merchant</div>
+        <div class="math-row">
+          <span class="math-row-label">$100 purchase</span>
+          <span class="math-row-val highlight">$100.00</span>
+        </div>
+        <div class="math-row">
+          <span class="math-row-label">DataOne acquiring giving</span>
+          <span class="math-row-val highlight">~$0.36 → foundation</span>
+        </div>
+        <div class="math-row">
+          <span class="math-row-label">Card issuing giving</span>
+          <span class="math-row-val highlight">~$0.36 → foundation</span>
+        </div>
+        <div class="math-row">
+          <span class="math-row-label">Your Giveback Points</span>
+          <span class="math-row-val highlight">200 pts (~$2.00 value)</span>
+        </div>
+        <div class="math-total">
+          <span class="math-total-label">Community giving</span>
+          <span class="math-total-val green">~$0.72 per $100</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="math-note fade-up">
+      <strong>The same $100 purchase.</strong> The only difference is which card you used and which merchant you went to.
+      At $500/month in certified merchant spending: ~$43 in community giving per year, automatically.
+      At $2,000/month: ~$173 per year. From your normal spending. Without changing your life.
+    </p>
+  </div>
+</section>
+
+<!-- THE BILT LESSON — HONEST CONTEXT -->
+<section class="bilt-lesson">
+  <div class="container">
+    <div class="lesson-inner fade-up">
+      <div class="eyebrow lesson-eyebrow">Why We Built It This Way</div>
+      <h2>Bilt Rewards lost Wells Fargo $10M/month.<br>Here's why that won't happen here.</h2>
+      <p>
+        Bilt rewarded rent payments — transactions that generate near-zero interchange revenue — while funding rich travel rewards from that thin margin. The economics never worked. Wells Fargo lost tens of millions and exited the partnership.
+      </p>
+      <p>
+        We studied that failure before designing a single feature. The Giveback Card is built on the opposite structure: merchant-present card interchange on certified merchant transactions — the <em>highest</em> interchange category. The economics support the loyalty program.
+      </p>
+      <div class="lesson-grid">
+        <div class="lesson-card bad">
+          <div class="lesson-card-title">What Bilt got wrong</div>
+          <ul>
+            <li><span>Rewarded rent payments (near-zero interchange)</span></li>
+            <li><span>Rich travel rewards funded from thin margin</span></li>
+            <li><span>Complex dual currency on launch day</span></li>
+            <li><span>Bank partner absorbed unsustainable losses</span></li>
+            <li><span>Redemption catalog designed to impress, not sustain</span></li>
+          </ul>
+        </div>
+        <div class="lesson-card good">
+          <div class="lesson-card-title">What we built instead</div>
+          <ul>
+            <li><span>Points earned on merchant-present transactions (high interchange)</span></li>
+            <li><span>Simple 3-path redemption — donate, discount, credit</span></li>
+            <li><span>No airline partners, no hotel tiers, no complexity</span></li>
+            <li><span>Durbin-exempt sponsor bank preserves interchange economics</span></li>
+            <li><span>The mission IS the value proposition — not travel perks</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSED LOOP DIAGRAM -->
+<section class="loop">
+  <div class="container">
+    <div class="loop-header fade-up">
+      <div class="eyebrow" style="color:var(--gold);margin-bottom:12px">The Flywheel</div>
+      <h2 style="font-size:clamp(28px,3vw,44px);color:var(--green)">The closed loop that makes it compound.</h2>
+      <p style="max-width:580px;margin:16px auto 0">Every piece reinforces every other piece. More merchants → more earning opportunities → more cardholders → more certified merchant visits → more giving → more merchants who want to be part of it.</p>
+    </div>
+    <div class="loop-diagram">
+      <div class="loop-steps fade-up">
+        <div class="loop-step">
+          <div class="loop-icon">🏪</div>
+          <div class="loop-title">Merchant joins DataOne</div>
+          <div class="loop-desc">Certified merchant processes through DataOne. Covenant giving starts automatically.</div>
+          <div class="loop-amount">→ giving begins</div>
+        </div>
+        <div class="loop-step">
+          <div class="loop-icon">🛒</div>
+          <div class="loop-title">Consumer shops certified</div>
+          <div class="loop-desc">Consumer discovers certified merchants in the app. Shops there with Giveback Card.</div>
+          <div class="loop-amount">→ earning starts</div>
+        </div>
+        <div class="loop-step">
+          <div class="loop-icon">⚡</div>
+          <div class="loop-title">Closed loop fires</div>
+          <div class="loop-desc">Both acquiring margin AND card interchange generate giving from the same transaction.</div>
+          <div class="loop-amount">→ 2× giving</div>
+        </div>
+        <div class="loop-step">
+          <div class="loop-icon">🏛️</div>
+          <div class="loop-title">Foundation funded</div>
+          <div class="loop-desc">Foundation receives predictable monthly disbursements. OTIS measures program impact.</div>
+          <div class="loop-amount">→ community thrives</div>
+        </div>
+        <div class="loop-step">
+          <div class="loop-icon">🔄</div>
+          <div class="loop-title">Network effect</div>
+          <div class="loop-desc">Foundation promotes certified merchants to its donor network. More merchants join. Loop repeats.</div>
+          <div class="loop-amount">→ flywheel spins</div>
+        </div>
+      </div>
+      <div class="loop-total fade-up">
+        <div>
+          <div class="loop-total-label">At $2,000/month in certified merchant spending</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:3px">Open-loop card only: ~$87/yr in community giving</div>
+        </div>
+        <div style="text-align:right">
+          <div class="loop-total-val">~$173/year</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:3px">Closed-loop Giveback Card · 2× the impact</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="waitlist" id="waitlist">
+  <div class="container-sm">
+    <div class="phase-badge">
+      <div class="phase-dot"></div>
+      Phase 4 Launch · Coming Late 2027
+    </div>
+    <h2>The card that rewards you<br>for <em>investing in your community.</em></h2>
+    <p>The card launches to our warmest audience first — certified merchant customers who've already been earning points through card-linking. Join the waitlist to be first in line.</p>
+    <div class="waitlist-form">
+      <input type="email" class="waitlist-input" placeholder="Your email address">
+      <a href="#" class="btn-gold">Join Waitlist</a>
+    </div>
+    <p class="waitlist-sub">No spam. One email when we launch. Your data is never sold — ever.</p>
+    <div style="margin-top:40px;display:flex;justify-content:center;gap:40px;flex-wrap:wrap">
+      <div style="text-align:center">
+        <div style="font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--gold-lt)">Phase 3</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px">Points via card-linking<br>(any card, certified merchants)</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--gold-lt)">Phase 4</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px">Branded Giveback Card<br>(full closed-loop economics)</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--gold-lt)">Always</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px">Public ledger · No black boxes<br>Every dollar verified</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px" class="fade-up">
+      <div class="eyebrow" style="color:var(--gold);margin-bottom:12px">Quick Answers</div>
+      <h2 style="font-size:clamp(26px,3vw,40px);color:var(--green)">The questions you're already asking.</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item fade-up">
+        <div class="faq-q"><span>?</span> Is this a credit or debit card?</div>
+        <div class="faq-a">Debit card, at launch. Issued through a BaaS partner (Marqeta or Galileo) on top of a Durbin-exempt sponsor bank. This keeps the interchange economics in the range needed to fund the loyalty program. A credit product may follow once the debit program proves the unit economics.</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q"><span>?</span> What if there are no certified merchants near me?</div>
+        <div class="faq-a">Your card still earns 1 point per dollar on any purchase, anywhere. And you can help change that — every certified merchant you refer earns you 500 bonus points. The more people who carry the card, the more merchants have a reason to join the network.</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q"><span>?</span> Can I choose which foundation my giving goes to?</div>
+        <div class="faq-a">Yes. When you redeem points for a foundation donation, you choose from any vetted foundation in the network. Your card's automatic giving (from the interchange) defaults to the matched cause of the merchant where you spent. You always control your points redemption.</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q"><span>?</span> When can I start earning points before the card launches?</div>
+        <div class="faq-a">Phase 3 of the platform introduces card-linking via Pledge API — connecting your existing card to certified merchant transactions so you start earning Giveback Points immediately. No branded card needed yet. The points carry over when the card launches.</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q"><span>?</span> Why no airline or hotel transfer partners?</div>
+        <div class="faq-a">Because that's not what this is. The Giveback Card's value proposition is giving your points meaning in your community — not accumulating miles for a trip to Bali. Adding airline partners would make the program look like every other premium card and dilute the one thing that makes it different.</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q"><span>?</span> Do my points expire?</div>
+        <div class="faq-a">Never. Points don't expire. They don't get devalued without notice. They don't require a minimum balance to redeem. This is a deliberate design decision — points that expire punish loyal customers. We're not building a gotcha product.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">The<span>Giveback</span>.org</div>
+        <div class="footer-desc">Every swipe, somewhere sacred. Payment infrastructure that makes generosity as automatic as commerce.</div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:12px">Card Program</div>
+        <div class="footer-links-group">
+          <a href="#">Join the Waitlist</a>
+          <a href="#">How Points Work</a>
+          <a href="#">Redeem Points</a>
+          <a href="#">Card-Linking (Phase 3)</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:12px">Platform</div>
+        <div class="footer-links-group">
+          <a href="#">Get Certified (Merchants)</a>
+          <a href="#">Foundation Partners</a>
+          <a href="#">Sports Teams</a>
+          <a href="#">TheGiveback Live</a>
+          <a href="#">Public Ledger</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">© 2026 TheGiveback.org · DataOne · Giveback Card issued by [Partner Bank] Member FDIC</div>
+      <div class="footer-scripture">"The pennies were never small."</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Scroll animations */
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+},{threshold:.1});
+document.querySelectorAll('.fade-up,.fade-in').forEach(el=>obs.observe(el));
+
+/* Stagger grid children */
+document.querySelectorAll('.earn-row,.redeem-card,.faq-item,.loop-step').forEach((el,i)=>{
+  el.style.transitionDelay=(i*.07)+'s';
+});
+
+/* Points counter animation */
+function animateCounter(el, target, duration, prefix=''){
+  let start = null;
+  function step(ts){
+    if(!start) start=ts;
+    const progress = Math.min((ts-start)/duration,1);
+    const ease = 1-Math.pow(1-progress,3);
+    el.textContent = prefix+Math.round(ease*target).toLocaleString();
+    if(progress<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+/* Trigger counter when hero is visible */
+const heroObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const ptEl = document.querySelector('.card-badge-pts');
+      if(ptEl) animateCounter(ptEl, 1247, 1800);
+      heroObs.disconnect();
+    }
+  });
+},{threshold:.3});
+const cardWrap = document.querySelector('.card-visual-wrap');
+if(cardWrap) heroObs.observe(cardWrap);
+</script>
+</body>
+</html>
