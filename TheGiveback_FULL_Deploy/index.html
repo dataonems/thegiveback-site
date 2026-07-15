@@ -458,6 +458,9 @@ p { color: var(--text-muted); line-height: 1.8; }
 .dual-lbl { color: rgba(255,255,255,.55); }
 .dual-val { font-weight: 600; color: #fff; }
 .dual-val.disc { color: #4ade80; }
+/* "Simulated experience"-style honesty label (GiveDirectly pattern) */
+.demo-disclaimer { font-family: var(--sans); font-size: 9px; font-style: italic; letter-spacing: .04em; color: var(--text-muted); }
+.clover-screen .demo-disclaimer { color: rgba(255,255,255,.35); text-align: center; margin-top: 10px; }
 .clover-strip { height: 20px; background: linear-gradient(to bottom, #1a1a1a, #111); margin: 0 7px; border-radius: 0 0 4px 4px; }
 
 /* Floating badges */
@@ -1677,6 +1680,7 @@ section:nth-child(even) {
                 <div class="dual-row"><span class="dual-lbl">Precio tarjeta</span><span class="dual-val">$42.00</span></div>
                 <div class="dual-row"><span class="dual-lbl">Precio efectivo</span><span class="dual-val disc">$41.25</span></div>
               </div>
+              <div class="demo-disclaimer" id="terminal-demo-lbl">Ejemplo ilustrativo</div>
             </div>
             <div class="clover-strip"></div>
           </div>
@@ -1686,11 +1690,12 @@ section:nth-child(even) {
             <div class="fb-val" id="fb-live-val">—</div>
             <div class="fb-label" id="fb-live-lbl">Se activa con el primer desembolso 🇨🇴</div>
           </div>
-          <!-- ⚠ PLACEHOLDER: Replace with first real foundation name -->
+          <!-- DEV NOTE: Replace "Fundación Piloto" with the first real foundation name
+               when the partnership agreement is signed, and drop the demo disclaimer. -->
           <div class="float-badge fb-bot">
-            <div class="ph" style="margin-bottom:4px">⚠ Foundation name</div>
             <div class="fb-val" style="font-size:13px">Fundación Piloto</div>
             <div class="fb-label">Colombia · Fundación Piloto</div>
+            <div class="demo-disclaimer" style="margin-top:4px" id="fb-demo-lbl">Ejemplo ilustrativo</div>
           </div>
         </div>
       </div>
@@ -2926,6 +2931,7 @@ es: {
   heroCta1:'Únete al pacto →', heroCta2:'Cómo Funciona →', waCta:'💬 Hablar con Chris →',
   hs1Lbl:'Costo extra para ti', hs2Lbl:'De nuestro margen a Colombia y Venezuela', hs3Lbl:'En libro público',
   fbLiveLbl:'Se activa con el primer desembolso 🇨🇴',
+  terminalDemoLbl:'Ejemplo ilustrativo', fbDemoLbl:'Ejemplo ilustrativo',
   hw1T:'Tu cliente paga', hw1S:'Nada cambia para ti',
   hw2T:'DATAONE gana margen', hw2S:'Ese es nuestro dinero, no el tuyo',
   hw3T:'El 30% va a Colombia y Venezuela', hw3S:'Automático · Verificado · Permanente',
@@ -3237,6 +3243,7 @@ en: {
   heroCta1:'Join the covenant →', heroCta2:'How It Works →', waCta:'💬 Talk to Chris →',
   hs1Lbl:'Extra cost to you', hs2Lbl:'Of our margin to Colombia & Venezuela', hs3Lbl:'On public ledger',
   fbLiveLbl:'Activates with first disbursement 🇨🇴',
+  terminalDemoLbl:'Illustrative example', fbDemoLbl:'Illustrative example',
   hw1T:'Your customer pays', hw1S:'Nothing changes for you',
   hw2T:'DATAONE earns margin', hw2S:'That is our money, not yours',
   hw3T:'30% goes to Colombia and Venezuela', hw3S:'Automatic · Verified · Permanent',
@@ -3665,8 +3672,8 @@ function setLang(code) {
     's3-title': false, 's3-p1': false, 's3-p2': false, 's3-cta': false,
     // Card 4 — Venezuelan foundations
     's4-title': false, 's4-p1': false, 's4-cta': false,
-    // Terminal widget floating badges
-    'fb-live-lbl': false,
+    // Terminal widget floating badges + demo disclaimers
+    'fb-live-lbl': false, 'terminal-demo-lbl': false, 'fb-demo-lbl': false,
     // How-band
     'hw1-t': false, 'hw1-s': false,
     'hw2-t': false, 'hw2-s': false,
