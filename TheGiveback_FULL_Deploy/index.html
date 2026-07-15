@@ -7,6 +7,8 @@
 <title id="doc-title">TheGiveback — Cada transacción construye Colombia y Venezuela</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="font" href="https://fonts.gstatic.com/s/lora/v35/0QI6MX1D_JOxE7fSMj8Y.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZhrib2Bg-4.woff2" type="font/woff2" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -60,6 +62,11 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 img { display: block; max-width: 100%; }
+
+/* ── ACCESSIBILITY ──────────────────────────── */
+.skip-link { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+.skip-link:focus { position:fixed; top:0; left:0; width:auto; height:auto; padding:12px 20px; background:var(--green); color:#fff; font-weight:700; z-index:9999; font-size:14px; }
+*:focus-visible { outline:2px solid var(--green-lt); outline-offset:2px; }
 a { text-decoration: none; color: inherit; }
 button { font-family: var(--sans); cursor: pointer; }
 h1,h2,h3,h4 { font-family: var(--serif); line-height: 1.2; letter-spacing: -.02em; color: var(--green); }
@@ -1535,6 +1542,8 @@ section:nth-child(even) {
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <!-- ─────────────────────────────────────────
      FLOATING WHATSAPP BUTTON
 ───────────────────────────────────────────── -->
@@ -1580,8 +1589,8 @@ section:nth-child(even) {
     </div>
     <div class="nav-actions">
       <div class="lang-toggle" style="display:flex;align-items:center;gap:0;background:var(--mist);border-radius:20px;padding:2px;border:1px solid var(--border)">
-      <button onclick="setLang('es')" data-lang="es" class="lang-btn active" style="font-family:var(--sans);font-size:11px;font-weight:700;padding:8px 14px;border-radius:16px;border:none;cursor:pointer;background:var(--green);color:#fff;transition:all .15s;letter-spacing:.04em">ES</button>
-      <button onclick="setLang('en')" data-lang="en" class="lang-btn" style="font-family:var(--sans);font-size:11px;font-weight:700;padding:8px 14px;border-radius:16px;border:none;cursor:pointer;background:transparent;color:var(--text-muted);transition:all .15s;letter-spacing:.04em">EN</button>
+      <button onclick="setLang('es')" data-lang="es" class="lang-btn active" aria-pressed="true" style="font-family:var(--sans);font-size:11px;font-weight:700;padding:8px 14px;border-radius:16px;border:none;cursor:pointer;background:var(--green);color:#fff;transition:all .15s;letter-spacing:.04em">ES</button>
+      <button onclick="setLang('en')" data-lang="en" class="lang-btn" aria-pressed="false" style="font-family:var(--sans);font-size:11px;font-weight:700;padding:8px 14px;border-radius:16px;border:none;cursor:pointer;background:transparent;color:var(--text-muted);transition:all .15s;letter-spacing:.04em">EN</button>
     </div>
       <button class="btn btn-gold btn-sm" onclick="showPage('start')" style="font-weight:700">Únete →</button>
     </div>
@@ -1603,8 +1612,8 @@ section:nth-child(even) {
   <button class="nav-mobile-link" onclick="showPage('roadmap');closeMobileMenu()" data-i18n="navRoadmap">Mapa de Ruta</button>
   <button class="nav-mobile-link" onclick="showPage('join');closeMobileMenu()" data-i18n="navJoin">Únete</button>
   <div style="display:flex;gap:8px;margin-top:16px;margin-bottom:8px">
-    <button onclick="setLang('es');closeMobileMenu()" data-lang="es" class="lang-btn active" style="flex:1;padding:10px;border-radius:var(--r);border:1.5px solid var(--green);background:var(--green);color:#fff;font-weight:700;font-size:13px;cursor:pointer">🇨🇴 Español</button>
-    <button onclick="setLang('en');closeMobileMenu()" data-lang="en" class="lang-btn" style="flex:1;padding:10px;border-radius:var(--r);border:1.5px solid var(--border);background:transparent;color:var(--green);font-weight:700;font-size:13px;cursor:pointer">🇺🇸 English</button>
+    <button onclick="setLang('es');closeMobileMenu()" data-lang="es" class="lang-btn active" aria-pressed="true" style="flex:1;padding:10px;border-radius:var(--r);border:1.5px solid var(--green);background:var(--green);color:#fff;font-weight:700;font-size:13px;cursor:pointer">🇨🇴 Español</button>
+    <button onclick="setLang('en');closeMobileMenu()" data-lang="en" class="lang-btn" aria-pressed="false" style="flex:1;padding:10px;border-radius:var(--r);border:1.5px solid var(--border);background:transparent;color:var(--green);font-weight:700;font-size:13px;cursor:pointer">🇺🇸 English</button>
   </div>
   <button class="btn btn-primary nav-mobile-cta" onclick="showPage('start');closeMobileMenu()" data-i18n="navStart" style="width:100%;text-align:center;padding:16px;margin-top:8px">Empezar</button>
 </div>
@@ -1615,7 +1624,7 @@ section:nth-child(even) {
 <div class="page active" id="page-home">
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="main-content">
     <div class="hero-ray"></div>
     <div class="wrap">
       <div class="hero-grid">
@@ -2955,7 +2964,7 @@ es: {
   sidesH2:'Cuatro comunidades.<br><em>Una sola decisión.</em>',
   sidesSub:'El comerciante que procesa pagos. La diáspora que nunca dejó de amar su país. Las fundaciones en Colombia. Las fundaciones en Venezuela.',
   s1Title:'Comercios en EE.UU.', s1Sub:'Tu terminal, sin cambios',
-  s1P1:'Ya estás generando el margen. La pregunta es a dónde va. Con TheGiveback, el 30% de lo que DATAONE gana en tu procesamiento va a Colombia — automáticamente, sin que cambies nada en tu operación.',
+  s1P1:'Ya estás generando el margen. La pregunta es a dónde va. Con TheGiveback, el 30% de lo que DATAONE gana en tu procesamiento va a Colombia y Venezuela — automáticamente, sin que cambies nada en tu operación.',
   s1P2:'El primero de cada mes: un reporte de impacto específico. Qué fundación. Qué monto. Qué financió. Un toque para compartirlo.',
   s1Cta:'Lo que ganas →',
   s4Title:'Fundaciones Venezolanas', s4P1:'La crisis humanitaria en Venezuela es una de las más graves del hemisferio. Estamos incorporando fundaciones verificadas que sirven a las comunidades venezolanas más vulnerables.', s4Cta:'Conectar una fundación →',
@@ -3262,7 +3271,7 @@ en: {
   sidesH2:'Four communities.<br><em>One decision.</em>',
   sidesSub:'The merchant already generating margin. The diaspora that never stopped loving their country. The foundations in Colombia. The foundations in Venezuela.',
   s1Title:'US Merchants', s1Sub:'Your terminal, unchanged',
-  s1P1:'You are already generating the margin. The question is where it goes. With TheGiveback, 30% of what DATAONE earns on your processing goes to Colombia — automatically, without changing anything in your operation.',
+  s1P1:'You are already generating the margin. The question is where it goes. With TheGiveback, 30% of what DATAONE earns on your processing goes to Colombia and Venezuela — automatically, without changing anything in your operation.',
   s1P2:'First of every month: a specific impact report. Which foundation. What amount. What it funded. Shareable in one tap.',
   s1Cta:'What you get →',
   s4Title:'Venezuelan Foundations', s4P1:'The humanitarian crisis in Venezuela is one of the most severe in the western hemisphere. We are incorporating verified foundations serving the most vulnerable Venezuelan communities.', s4Cta:'Connect a foundation →',
@@ -3548,6 +3557,7 @@ function setLang(code) {
     const isActive = b.dataset.lang === code;
     b.style.background = isActive ? 'var(--green)' : 'transparent';
     b.style.color = isActive ? '#fff' : 'var(--text-muted)';
+    b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
   });
 
   // Update How It Works page — all ID-tagged elements
