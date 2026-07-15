@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es" id="html-root" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="description" content="Política de Privacidad de TheGiveback — qué información recopilamos, cómo la usamos, y tus derechos.">
+<meta property="og:title" content="Política de Privacidad — TheGiveback">
+<meta property="og:description" content="Qué información recopilamos, cómo la usamos, y tus derechos.">
+<meta property="og:type" content="article">
+<title id="doc-title">Política de Privacidad — TheGiveback</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────── */
+:root {
+  --ink:       #0A0A0A;
+  --ink-mid:   #2C2C2C;
+  --ink-soft:  #4A4A4A;
+  --muted:     #7A7A7A;
+  --rule:      #E0DDD8;
+  --bg:        #FAF9F6;
+  --bg-warm:   #F3F1EC;
+  --green:     #1A3A2A;
+  --green-lt:  #4A9B6F;
+  --gold:      #C4872A;
+  --gold-lt:   #E8A94A;
+  --gold-pale: #FBF2E3;
+  --serif:     'Lora', Georgia, serif;
+  --sans:      'Inter', system-ui, sans-serif;
+}
+
+/* ── RESET ──────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; color-scheme: light only; }
+body {
+  font-family: var(--serif);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* ── NAV BAR ────────────────────────────────── */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(250,249,246,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+  height: 54px; display: flex; align-items: center;
+}
+.topbar-inner {
+  max-width: 900px; margin: 0 auto; padding: 0 24px;
+  width: 100%; display: flex; align-items: center;
+  justify-content: space-between;
+}
+.topbar-logo {
+  font-family: var(--serif); font-size: 16px; font-weight: 700;
+  color: var(--green); text-decoration: none;
+  display: flex; align-items: center; gap: 6px;
+}
+.topbar-logo .accent { color: var(--gold); }
+.topbar-actions { display: flex; align-items: center; gap: 10px; }
+.lang-toggle {
+  display: flex; gap: 0; background: #EEECEA;
+  border-radius: 20px; padding: 2px;
+  border: 1px solid var(--rule);
+}
+.lang-btn {
+  font-family: var(--sans); font-size: 11px; font-weight: 700;
+  padding: 8px 12px; border-radius: 16px; border: none;
+  cursor: pointer; background: transparent; color: var(--muted);
+  transition: all .15s; letter-spacing: .04em; min-height: 36px;
+}
+.lang-btn.active { background: var(--green); color: #fff; }
+.topbar-back {
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  color: var(--muted); text-decoration: none;
+  display: flex; align-items: center; gap: 4px;
+  transition: color .15s;
+}
+.topbar-back:hover { color: var(--green); }
+
+/* ── DOCUMENT LAYOUT ────────────────────────── */
+.doc {
+  max-width: 640px; margin: 0 auto;
+  padding: 96px 24px 80px;
+}
+
+/* ── MASTHEAD ───────────────────────────────── */
+.masthead {
+  margin-bottom: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--rule);
+}
+.masthead-eyebrow {
+  font-family: var(--sans); font-size: 10px; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 18px; display: block;
+}
+.masthead-title {
+  font-family: var(--serif); font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700; line-height: 1.2; color: var(--ink);
+  margin-bottom: 16px; letter-spacing: -.02em;
+}
+.masthead-updated {
+  font-family: var(--sans); font-size: 12px;
+  color: var(--muted); margin-bottom: 20px; display: block;
+}
+.masthead-opening {
+  font-family: var(--serif); font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.8; color: var(--ink-soft);
+}
+
+/* ── SECTIONS ───────────────────────────────── */
+.doc-section {
+  padding: 36px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.doc-section:last-of-type {
+  border-bottom: none;
+}
+.section-label {
+  font-family: var(--sans); font-size: 9px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--green); display: block; margin-bottom: 16px;
+}
+.section-title {
+  font-family: var(--serif); font-size: clamp(19px, 2.4vw, 24px);
+  font-weight: 600; color: var(--ink); margin-bottom: 14px;
+  letter-spacing: -.01em;
+}
+
+/* ── BODY PROSE ─────────────────────────────── */
+.prose {
+  font-family: var(--serif);
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.82; color: var(--ink-mid);
+}
+.prose + .prose { margin-top: 16px; }
+.prose em { font-style: italic; color: var(--ink); }
+.prose strong { font-weight: 600; color: var(--ink); }
+
+/* ── LIST ───────────────────────────────────── */
+.doc-list {
+  list-style: none;
+  margin-top: 12px;
+}
+.doc-list li {
+  font-family: var(--serif);
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.7; color: var(--ink-mid);
+  padding-left: 22px; position: relative;
+  margin-bottom: 10px;
+}
+.doc-list li::before {
+  content: '—'; position: absolute; left: 0; color: var(--gold);
+}
+
+/* ── CONTACT BLOCK ──────────────────────────── */
+.contact-block {
+  margin-top: 8px; padding: 22px 26px;
+  background: var(--bg-warm);
+  border-radius: 10px;
+  border: 1px solid var(--rule);
+}
+.contact-block p { font-family: var(--sans); font-size: 14px; color: var(--ink-mid); line-height: 1.8; }
+.contact-block a { color: var(--green); font-weight: 600; text-decoration: none; }
+.contact-block a:hover { color: var(--gold); }
+
+/* ── FOOTER ──────────────────────────────────── */
+.doc-footer {
+  margin-top: 48px; padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 10px;
+}
+.doc-footer-legal {
+  font-family: var(--sans); font-size: 10px; color: var(--muted);
+}
+.doc-footer-links { display: flex; gap: 16px; }
+.doc-footer-links a {
+  font-family: var(--sans); font-size: 10px; color: var(--muted);
+  text-decoration: none;
+}
+.doc-footer-links a:hover { color: var(--green); }
+
+/* ── DARK MODE OVERRIDE ──────────────────────── */
+@media (prefers-color-scheme: dark) {
+  html, body { background: var(--bg) !important; color: var(--ink) !important; }
+  .doc { background: var(--bg) !important; }
+  .topbar { background: rgba(250,249,246,.97) !important; }
+  .prose { color: var(--ink-mid) !important; }
+}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 600px) {
+  .doc { padding: 80px 16px 60px; }
+  .topbar-back span { display: none; }
+  .topbar-inner { padding: 0 14px; }
+  .masthead { margin-bottom: 32px; padding-bottom: 28px; }
+  .doc-section { padding: 28px 0; }
+  .masthead-title { font-size: clamp(22px, 6vw, 30px); }
+  .prose { font-size: 15px; line-height: 1.75; }
+  .doc-footer { flex-direction: column; gap: 10px; text-align: center; }
+  .contact-block { padding: 18px 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-logo" href="/" style="flex-direction:column;align-items:flex-start;gap:1px">
+      <span style="display:flex;align-items:center;gap:5px">🇨🇴 The<span class="accent">Giveback</span></span>
+      <span style="font-family:var(--sans);font-size:9px;font-weight:500;color:var(--muted);letter-spacing:.06em;text-transform:uppercase">Commerce that gives back.</span>
+    </a>
+    <div class="topbar-actions">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <a class="topbar-back" href="/">
+        ← <span id="back-label">Volver al sitio</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- DOCUMENT -->
+<div class="doc">
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <span class="masthead-eyebrow" id="eyebrow">Legal</span>
+    <h1 class="masthead-title" id="title">Política de Privacidad</h1>
+    <span class="masthead-updated" id="updated">Última actualización: 15 de julio de 2026</span>
+    <p class="masthead-opening" id="opening">Esta política explica qué información recopila TheGiveback cuando te certificas o interactúas con nosotros, cómo la usamos, y qué derechos tienes sobre ella.</p>
+  </div>
+
+  <!-- WHAT WE COLLECT -->
+  <div class="doc-section">
+    <span class="section-label" id="label-collect">Sección 1</span>
+    <h2 class="section-title" id="title-collect">Qué Información Recopilamos</h2>
+    <p class="prose" id="collect-body">Cuando te registras a través de nuestro formulario "Empezar", recopilamos: tu nombre y apellido, el nombre de tu negocio u organización, tu información de contacto (teléfono y correo electrónico), tu volumen mensual de procesamiento estimado, y la fundación colombiana o venezolana que deseas apoyar, si nos la indicas. No recopilamos datos de tarjetas ni información financiera sensible a través de este formulario.</p>
+  </div>
+
+  <!-- HOW WE USE IT -->
+  <div class="doc-section">
+    <span class="section-label" id="label-use">Sección 2</span>
+    <h2 class="section-title" id="title-use">Cómo Usamos Tu Información</h2>
+    <p class="prose" id="use-body">Usamos tu información para configurar tu procesamiento de pagos con DATAONE, activar los precios duales, conectarte con tu fundación colombiana o venezolana asignada, administrar el programa de donación, y enviarte tu reporte de impacto mensual.</p>
+  </div>
+
+  <!-- WHAT WE SHARE -->
+  <div class="doc-section">
+    <span class="section-label" id="label-share">Sección 3</span>
+    <h2 class="section-title" id="title-share">Qué Compartimos</h2>
+    <p class="prose" id="share-body">La fundación que apoyas recibe el monto de tu donación mensual. Por defecto, tu identidad es anónima en el libro público — apareces por un ID anónimo, no por tu nombre, a menos que elijas explícitamente ser identificado. No vendemos ni alquilamos tu información personal a terceros con fines de mercadeo.</p>
+  </div>
+
+  <!-- WHATSAPP -->
+  <div class="doc-section">
+    <span class="section-label" id="label-wa">Sección 4</span>
+    <h2 class="section-title" id="title-wa">Comunicaciones por WhatsApp</h2>
+    <p class="prose" id="wa-body">Al proporcionar tu número de teléfono, puedes recibir actualizaciones sobre tu certificación, tu reporte de impacto mensual, y noticias del programa a través de WhatsApp. Puedes optar por no participar en cualquier momento contactándonos directamente.</p>
+  </div>
+
+  <!-- YOUR RIGHTS -->
+  <div class="doc-section">
+    <span class="section-label" id="label-rights">Sección 5</span>
+    <h2 class="section-title" id="title-rights">Tus Derechos</h2>
+    <p class="prose" id="rights-intro">Tienes derecho a:</p>
+    <ul class="doc-list" id="rights-list">
+      <li id="right-1">Optar por no recibir comunicaciones en cualquier momento.</li>
+      <li id="right-2">Solicitar una copia de la información que tenemos sobre ti.</li>
+      <li id="right-3">Solicitar la eliminación de tu información de nuestros sistemas.</li>
+      <li id="right-4">Contactarnos con cualquier pregunta sobre cómo se usan tus datos.</li>
+    </ul>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="doc-section">
+    <span class="section-label" id="label-contact">Sección 6</span>
+    <h2 class="section-title" id="title-contact">Contacto</h2>
+    <p class="prose" id="contact-body" style="margin-bottom:12px">Si tienes preguntas sobre esta política o quieres ejercer alguno de tus derechos, contáctanos:</p>
+    <div class="contact-block">
+      <p>🌐 <a href="https://thegiveback.org">thegiveback.org</a></p>
+      <!-- ⚠ PLACEHOLDER: Add real WhatsApp number -->
+      <p>💬 WhatsApp: <a href="https://wa.me/15555555555" target="_blank" rel="noopener">Add real WhatsApp link here</a></p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span class="doc-footer-legal" id="footer-legal">© 2026 TheGiveback · DATAONE</span>
+    <div class="doc-footer-links">
+      <a href="/terms" id="footer-terms-link">Términos de Servicio</a>
+      <a href="/">TheGiveback.org</a>
+    </div>
+  </div>
+
+</div><!-- /doc -->
+
+<script>
+/* ── TRANSLATIONS ─────────────────────────── */
+const T = {
+es: {
+  htmlLang: 'es',
+  docTitle: 'Política de Privacidad — TheGiveback',
+  backLabel: 'Volver al sitio',
+  eyebrow: 'Legal',
+  title: 'Política de Privacidad',
+  updated: 'Última actualización: 15 de julio de 2026',
+  opening: 'Esta política explica qué información recopila TheGiveback cuando te certificas o interactúas con nosotros, cómo la usamos, y qué derechos tienes sobre ella.',
+  labelCollect: 'Sección 1', titleCollect: 'Qué Información Recopilamos',
+  collectBody: 'Cuando te registras a través de nuestro formulario "Empezar", recopilamos: tu nombre y apellido, el nombre de tu negocio u organización, tu información de contacto (teléfono y correo electrónico), tu volumen mensual de procesamiento estimado, y la fundación colombiana o venezolana que deseas apoyar, si nos la indicas. No recopilamos datos de tarjetas ni información financiera sensible a través de este formulario.',
+  labelUse: 'Sección 2', titleUse: 'Cómo Usamos Tu Información',
+  useBody: 'Usamos tu información para configurar tu procesamiento de pagos con DATAONE, activar los precios duales, conectarte con tu fundación colombiana o venezolana asignada, administrar el programa de donación, y enviarte tu reporte de impacto mensual.',
+  labelShare: 'Sección 3', titleShare: 'Qué Compartimos',
+  shareBody: 'La fundación que apoyas recibe el monto de tu donación mensual. Por defecto, tu identidad es anónima en el libro público — apareces por un ID anónimo, no por tu nombre, a menos que elijas explícitamente ser identificado. No vendemos ni alquilamos tu información personal a terceros con fines de mercadeo.',
+  labelWa: 'Sección 4', titleWa: 'Comunicaciones por WhatsApp',
+  waBody: 'Al proporcionar tu número de teléfono, puedes recibir actualizaciones sobre tu certificación, tu reporte de impacto mensual, y noticias del programa a través de WhatsApp. Puedes optar por no participar en cualquier momento contactándonos directamente.',
+  labelRights: 'Sección 5', titleRights: 'Tus Derechos', rightsIntro: 'Tienes derecho a:',
+  right1: 'Optar por no recibir comunicaciones en cualquier momento.',
+  right2: 'Solicitar una copia de la información que tenemos sobre ti.',
+  right3: 'Solicitar la eliminación de tu información de nuestros sistemas.',
+  right4: 'Contactarnos con cualquier pregunta sobre cómo se usan tus datos.',
+  labelContact: 'Sección 6', titleContact: 'Contacto',
+  contactBody: 'Si tienes preguntas sobre esta política o quieres ejercer alguno de tus derechos, contáctanos:',
+  footerLegal: '© 2026 TheGiveback · DATAONE',
+  footerTermsLink: 'Términos de Servicio'
+},
+en: {
+  htmlLang: 'en',
+  docTitle: 'Privacy Policy — TheGiveback',
+  backLabel: 'Back to site',
+  eyebrow: 'Legal',
+  title: 'Privacy Policy',
+  updated: 'Last updated: July 15, 2026',
+  opening: 'This policy explains what information TheGiveback collects when you certify or interact with us, how we use it, and what rights you have over it.',
+  labelCollect: 'Section 1', titleCollect: 'What Information We Collect',
+  collectBody: 'When you sign up through our "Get Started" form, we collect: your first and last name, your business or organization name, your contact information (phone and email), your estimated monthly processing volume, and the Colombian or Venezuelan foundation you\'d like to support, if you tell us. We do not collect card data or sensitive financial information through this form.',
+  labelUse: 'Section 2', titleUse: 'How We Use It',
+  useBody: 'We use your information to set up your payment processing with DATAONE, activate dual pricing, connect you with your assigned Colombian or Venezuelan foundation, administer the giving program, and send you your monthly impact report.',
+  labelShare: 'Section 3', titleShare: 'What We Share',
+  shareBody: 'The foundation you support receives the amount of your monthly giving. By default, your identity is anonymous on the public ledger — you appear by an anonymous ID, not your name, unless you explicitly choose to be identified. We do not sell or rent your personal information to third parties for marketing purposes.',
+  labelWa: 'Section 4', titleWa: 'WhatsApp Communications',
+  waBody: 'By providing your phone number, you may receive updates about your certification, your monthly impact report, and program news via WhatsApp. You can opt out at any time by contacting us directly.',
+  labelRights: 'Section 5', titleRights: 'Your Rights', rightsIntro: 'You have the right to:',
+  right1: 'Opt out of communications at any time.',
+  right2: 'Request a copy of the information we hold about you.',
+  right3: 'Request deletion of your information from our systems.',
+  right4: 'Contact us with any questions about how your data is used.',
+  labelContact: 'Section 6', titleContact: 'Contact',
+  contactBody: 'If you have questions about this policy or want to exercise any of your rights, contact us:',
+  footerLegal: '© 2026 TheGiveback · DATAONE',
+  footerTermsLink: 'Terms of Service'
+}
+};
+
+let currentLang = 'es';
+
+function setLang(code) {
+  currentLang = code;
+  const d = T[code];
+  document.getElementById('html-root').lang = d.htmlLang;
+  document.title = d.docTitle;
+
+  const setText = (id, val) => {
+    const el = document.getElementById(id);
+    if (el && val !== undefined) el.textContent = val;
+  };
+
+  setText('back-label', d.backLabel);
+  setText('eyebrow', d.eyebrow);
+  setText('title', d.title);
+  setText('updated', d.updated);
+  setText('opening', d.opening);
+  setText('label-collect', d.labelCollect);
+  setText('title-collect', d.titleCollect);
+  setText('collect-body', d.collectBody);
+  setText('label-use', d.labelUse);
+  setText('title-use', d.titleUse);
+  setText('use-body', d.useBody);
+  setText('label-share', d.labelShare);
+  setText('title-share', d.titleShare);
+  setText('share-body', d.shareBody);
+  setText('label-wa', d.labelWa);
+  setText('title-wa', d.titleWa);
+  setText('wa-body', d.waBody);
+  setText('label-rights', d.labelRights);
+  setText('title-rights', d.titleRights);
+  setText('rights-intro', d.rightsIntro);
+  setText('right-1', d.right1);
+  setText('right-2', d.right2);
+  setText('right-3', d.right3);
+  setText('right-4', d.right4);
+  setText('label-contact', d.labelContact);
+  setText('title-contact', d.titleContact);
+  setText('contact-body', d.contactBody);
+  setText('footer-legal', d.footerLegal);
+  setText('footer-terms-link', d.footerTermsLink);
+
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === code);
+  });
+
+  try { localStorage.setItem('tg_privacy_lang', code); } catch(e){}
+}
+
+/* ── INIT ──────────────────────────────── */
+(function() {
+  let saved = 'es';
+  try { saved = localStorage.getItem('tg_privacy_lang') || 'es'; } catch(e){}
+  setLang(saved);
+})();
+</script>
+
+</body>
+</html>

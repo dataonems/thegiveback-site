@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es" id="html-root" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="description" content="Términos de Servicio de TheGiveback — el pacto del 30%, responsabilidades del comercio, y el libro público.">
+<meta property="og:title" content="Términos de Servicio — TheGiveback">
+<meta property="og:description" content="El pacto del 30%, responsabilidades del comercio, y el libro público.">
+<meta property="og:type" content="article">
+<title id="doc-title">Términos de Servicio — TheGiveback</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────── */
+:root {
+  --ink:       #0A0A0A;
+  --ink-mid:   #2C2C2C;
+  --ink-soft:  #4A4A4A;
+  --muted:     #7A7A7A;
+  --rule:      #E0DDD8;
+  --bg:        #FAF9F6;
+  --bg-warm:   #F3F1EC;
+  --green:     #1A3A2A;
+  --green-lt:  #4A9B6F;
+  --gold:      #C4872A;
+  --gold-lt:   #E8A94A;
+  --gold-pale: #FBF2E3;
+  --serif:     'Lora', Georgia, serif;
+  --sans:      'Inter', system-ui, sans-serif;
+}
+
+/* ── RESET ──────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; color-scheme: light only; }
+body {
+  font-family: var(--serif);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* ── NAV BAR ────────────────────────────────── */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(250,249,246,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+  height: 54px; display: flex; align-items: center;
+}
+.topbar-inner {
+  max-width: 900px; margin: 0 auto; padding: 0 24px;
+  width: 100%; display: flex; align-items: center;
+  justify-content: space-between;
+}
+.topbar-logo {
+  font-family: var(--serif); font-size: 16px; font-weight: 700;
+  color: var(--green); text-decoration: none;
+  display: flex; align-items: center; gap: 6px;
+}
+.topbar-logo .accent { color: var(--gold); }
+.topbar-actions { display: flex; align-items: center; gap: 10px; }
+.lang-toggle {
+  display: flex; gap: 0; background: #EEECEA;
+  border-radius: 20px; padding: 2px;
+  border: 1px solid var(--rule);
+}
+.lang-btn {
+  font-family: var(--sans); font-size: 11px; font-weight: 700;
+  padding: 8px 12px; border-radius: 16px; border: none;
+  cursor: pointer; background: transparent; color: var(--muted);
+  transition: all .15s; letter-spacing: .04em; min-height: 36px;
+}
+.lang-btn.active { background: var(--green); color: #fff; }
+.topbar-back {
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  color: var(--muted); text-decoration: none;
+  display: flex; align-items: center; gap: 4px;
+  transition: color .15s;
+}
+.topbar-back:hover { color: var(--green); }
+
+/* ── DOCUMENT LAYOUT ────────────────────────── */
+.doc {
+  max-width: 640px; margin: 0 auto;
+  padding: 96px 24px 80px;
+}
+
+/* ── MASTHEAD ───────────────────────────────── */
+.masthead {
+  margin-bottom: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--rule);
+}
+.masthead-eyebrow {
+  font-family: var(--sans); font-size: 10px; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 18px; display: block;
+}
+.masthead-title {
+  font-family: var(--serif); font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700; line-height: 1.2; color: var(--ink);
+  margin-bottom: 16px; letter-spacing: -.02em;
+}
+.masthead-updated {
+  font-family: var(--sans); font-size: 12px;
+  color: var(--muted); margin-bottom: 20px; display: block;
+}
+.masthead-opening {
+  font-family: var(--serif); font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.8; color: var(--ink-soft);
+}
+
+/* ── SECTIONS ───────────────────────────────── */
+.doc-section {
+  padding: 36px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.doc-section:last-of-type {
+  border-bottom: none;
+}
+.section-label {
+  font-family: var(--sans); font-size: 9px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--green); display: block; margin-bottom: 16px;
+}
+.section-title {
+  font-family: var(--serif); font-size: clamp(19px, 2.4vw, 24px);
+  font-weight: 600; color: var(--ink); margin-bottom: 14px;
+  letter-spacing: -.01em;
+}
+
+/* ── BODY PROSE ─────────────────────────────── */
+.prose {
+  font-family: var(--serif);
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.82; color: var(--ink-mid);
+}
+.prose + .prose { margin-top: 16px; }
+.prose em { font-style: italic; color: var(--ink); }
+.prose strong { font-weight: 600; color: var(--ink); }
+
+/* ── LIST ───────────────────────────────────── */
+.doc-list {
+  list-style: none;
+  margin-top: 12px;
+}
+.doc-list li {
+  font-family: var(--serif);
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.7; color: var(--ink-mid);
+  padding-left: 22px; position: relative;
+  margin-bottom: 10px;
+}
+.doc-list li::before {
+  content: '—'; position: absolute; left: 0; color: var(--gold);
+}
+
+/* ── COVENANT CALLOUT ────────────────────────── */
+.covenant-callout {
+  margin-top: 16px; padding: 26px 30px;
+  background: var(--green);
+  border-radius: 10px;
+}
+.covenant-callout p {
+  font-family: var(--serif);
+  font-size: clamp(15px, 1.7vw, 17px);
+  line-height: 1.8; color: rgba(255,255,255,.9);
+}
+.covenant-callout strong { color: #fff; font-weight: 600; }
+
+/* ── CONTACT BLOCK ──────────────────────────── */
+.contact-block {
+  margin-top: 8px; padding: 22px 26px;
+  background: var(--bg-warm);
+  border-radius: 10px;
+  border: 1px solid var(--rule);
+}
+.contact-block p { font-family: var(--sans); font-size: 14px; color: var(--ink-mid); line-height: 1.8; }
+.contact-block a { color: var(--green); font-weight: 600; text-decoration: none; }
+.contact-block a:hover { color: var(--gold); }
+
+/* ── FOOTER ──────────────────────────────────── */
+.doc-footer {
+  margin-top: 48px; padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 10px;
+}
+.doc-footer-legal {
+  font-family: var(--sans); font-size: 10px; color: var(--muted);
+}
+.doc-footer-links { display: flex; gap: 16px; }
+.doc-footer-links a {
+  font-family: var(--sans); font-size: 10px; color: var(--muted);
+  text-decoration: none;
+}
+.doc-footer-links a:hover { color: var(--green); }
+
+/* ── DARK MODE OVERRIDE ──────────────────────── */
+@media (prefers-color-scheme: dark) {
+  html, body { background: var(--bg) !important; color: var(--ink) !important; }
+  .doc { background: var(--bg) !important; }
+  .topbar { background: rgba(250,249,246,.97) !important; }
+  .prose { color: var(--ink-mid) !important; }
+}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 600px) {
+  .doc { padding: 80px 16px 60px; }
+  .topbar-back span { display: none; }
+  .topbar-inner { padding: 0 14px; }
+  .masthead { margin-bottom: 32px; padding-bottom: 28px; }
+  .doc-section { padding: 28px 0; }
+  .masthead-title { font-size: clamp(22px, 6vw, 30px); }
+  .prose { font-size: 15px; line-height: 1.75; }
+  .doc-footer { flex-direction: column; gap: 10px; text-align: center; }
+  .contact-block { padding: 18px 18px; }
+  .covenant-callout { padding: 18px 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-logo" href="/" style="flex-direction:column;align-items:flex-start;gap:1px">
+      <span style="display:flex;align-items:center;gap:5px">🇨🇴 The<span class="accent">Giveback</span></span>
+      <span style="font-family:var(--sans);font-size:9px;font-weight:500;color:var(--muted);letter-spacing:.06em;text-transform:uppercase">Commerce that gives back.</span>
+    </a>
+    <div class="topbar-actions">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <a class="topbar-back" href="/">
+        ← <span id="back-label">Volver al sitio</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- DOCUMENT -->
+<div class="doc">
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <span class="masthead-eyebrow" id="eyebrow">Legal</span>
+    <h1 class="masthead-title" id="title">Términos de Servicio</h1>
+    <span class="masthead-updated" id="updated">Última actualización: 15 de julio de 2026</span>
+    <p class="masthead-opening" id="opening">Estos términos rigen tu participación en TheGiveback como comercio certificado, socio referente, o fundación asociada.</p>
+  </div>
+
+  <!-- WHAT THIS IS -->
+  <div class="doc-section">
+    <span class="section-label" id="label-what">Sección 1</span>
+    <h2 class="section-title" id="title-what">Qué Es TheGiveback</h2>
+    <p class="prose" id="what-body">TheGiveback es un programa de procesamiento de pagos operado a través de DATAONE que redirige automáticamente una parte del margen de la empresa a fundaciones colombianas y venezolanas verificadas. No es una organización benéfica independiente ni un fondo de inversión — es un compromiso estructural incorporado en cómo procesamos pagos para comercios certificados.</p>
+  </div>
+
+  <!-- THE 30% COVENANT -->
+  <div class="doc-section">
+    <span class="section-label" id="label-covenant">Sección 2</span>
+    <h2 class="section-title" id="title-covenant">El Pacto del 30%</h2>
+    <p class="prose" id="covenant-body">El 30% del margen retenido de DATAONE se dirige automáticamente cada mes a fundaciones verificadas.</p>
+    <div class="covenant-callout">
+      <p id="covenant-callout-text">Este monto proviene <strong>exclusivamente</strong> de la ganancia de procesamiento de DATAONE — no de los ingresos del comerciante. Los comercios certificados no pagan nada adicional ni ven ninguna deducción de sus propios ingresos como resultado de este pacto.</p>
+    </div>
+  </div>
+
+  <!-- MERCHANT RESPONSIBILITIES -->
+  <div class="doc-section">
+    <span class="section-label" id="label-merchant">Sección 3</span>
+    <h2 class="section-title" id="title-merchant">Responsabilidades del Comercio</h2>
+    <p class="prose" id="merchant-intro">Los comercios certificados aceptan:</p>
+    <ul class="doc-list" id="merchant-list">
+      <li id="merchant-1">Mantener el procesamiento activo con DATAONE para continuar calificando para el hardware gratuito y el estado de certificación.</li>
+      <li id="merchant-2">Proporcionar información precisa y actualizada en el formulario de registro.</li>
+      <li id="merchant-3">Notificarnos de cualquier cambio significativo en su información de contacto o de negocio.</li>
+    </ul>
+  </div>
+
+  <!-- HARDWARE TERMS -->
+  <div class="doc-section">
+    <span class="section-label" id="label-hardware">Sección 4</span>
+    <h2 class="section-title" id="title-hardware">Términos del Hardware</h2>
+    <p class="prose" id="hardware-body">Los comercios calificados reciben su terminal (Clover, PAX o Dejavoo) sin costo mientras mantengan su procesamiento activo con DATAONE. El hardware sigue siendo propiedad de DATAONE y debe devolverse si el comercio termina su relación de procesamiento dentro del período especificado en su acuerdo de comerciante.</p>
+  </div>
+
+  <!-- PUBLIC LEDGER -->
+  <div class="doc-section">
+    <span class="section-label" id="label-ledger">Sección 5</span>
+    <h2 class="section-title" id="title-ledger">El Libro Público</h2>
+    <p class="prose" id="ledger-body">Cada desembolso se registra en un libro público verificable. Por defecto, los comercios aparecen por un ID anónimo. Los comercios pueden optar por ser identificados públicamente por su nombre de negocio.</p>
+  </div>
+
+  <!-- LIMITATION OF LIABILITY -->
+  <div class="doc-section">
+    <span class="section-label" id="label-liability">Sección 6</span>
+    <h2 class="section-title" id="title-liability">Limitación de Responsabilidad</h2>
+    <p class="prose" id="liability-body">TheGiveback y DATAONE se esfuerzan por garantizar la precisión de la información del libro público y los reportes de impacto, pero no garantizan resultados específicos de las fundaciones financiadas. En la medida permitida por la ley, DATAONE no será responsable por daños indirectos, incidentales o consecuentes que surjan del uso de esta plataforma.</p>
+  </div>
+
+  <!-- GOVERNING LAW -->
+  <div class="doc-section">
+    <span class="section-label" id="label-law">Sección 7</span>
+    <h2 class="section-title" id="title-law">Ley Aplicable</h2>
+    <p class="prose" id="law-body">Estos términos se rigen por las leyes del Estado de Florida, Estados Unidos, sin importar sus disposiciones sobre conflicto de leyes.</p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="doc-section">
+    <span class="section-label" id="label-contact">Sección 8</span>
+    <h2 class="section-title" id="title-contact">Contacto</h2>
+    <p class="prose" id="contact-body" style="margin-bottom:12px">Si tienes preguntas sobre estos términos, contáctanos:</p>
+    <div class="contact-block">
+      <p>🌐 <a href="https://thegiveback.org">thegiveback.org</a></p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span class="doc-footer-legal" id="footer-legal">© 2026 TheGiveback · DATAONE</span>
+    <div class="doc-footer-links">
+      <a href="/privacy" id="footer-privacy-link">Política de Privacidad</a>
+      <a href="/">TheGiveback.org</a>
+    </div>
+  </div>
+
+</div><!-- /doc -->
+
+<script>
+/* ── TRANSLATIONS ─────────────────────────── */
+const T = {
+es: {
+  htmlLang: 'es',
+  docTitle: 'Términos de Servicio — TheGiveback',
+  backLabel: 'Volver al sitio',
+  eyebrow: 'Legal',
+  title: 'Términos de Servicio',
+  updated: 'Última actualización: 15 de julio de 2026',
+  opening: 'Estos términos rigen tu participación en TheGiveback como comercio certificado, socio referente, o fundación asociada.',
+  labelWhat: 'Sección 1', titleWhat: 'Qué Es TheGiveback',
+  whatBody: 'TheGiveback es un programa de procesamiento de pagos operado a través de DATAONE que redirige automáticamente una parte del margen de la empresa a fundaciones colombianas y venezolanas verificadas. No es una organización benéfica independiente ni un fondo de inversión — es un compromiso estructural incorporado en cómo procesamos pagos para comercios certificados.',
+  labelCovenant: 'Sección 2', titleCovenant: 'El Pacto del 30%',
+  covenantBody: 'El 30% del margen retenido de DATAONE se dirige automáticamente cada mes a fundaciones verificadas.',
+  covenantCalloutText: 'Este monto proviene <strong>exclusivamente</strong> de la ganancia de procesamiento de DATAONE — no de los ingresos del comerciante. Los comercios certificados no pagan nada adicional ni ven ninguna deducción de sus propios ingresos como resultado de este pacto.',
+  labelMerchant: 'Sección 3', titleMerchant: 'Responsabilidades del Comercio', merchantIntro: 'Los comercios certificados aceptan:',
+  merchant1: 'Mantener el procesamiento activo con DATAONE para continuar calificando para el hardware gratuito y el estado de certificación.',
+  merchant2: 'Proporcionar información precisa y actualizada en el formulario de registro.',
+  merchant3: 'Notificarnos de cualquier cambio significativo en su información de contacto o de negocio.',
+  labelHardware: 'Sección 4', titleHardware: 'Términos del Hardware',
+  hardwareBody: 'Los comercios calificados reciben su terminal (Clover, PAX o Dejavoo) sin costo mientras mantengan su procesamiento activo con DATAONE. El hardware sigue siendo propiedad de DATAONE y debe devolverse si el comercio termina su relación de procesamiento dentro del período especificado en su acuerdo de comerciante.',
+  labelLedger: 'Sección 5', titleLedger: 'El Libro Público',
+  ledgerBody: 'Cada desembolso se registra en un libro público verificable. Por defecto, los comercios aparecen por un ID anónimo. Los comercios pueden optar por ser identificados públicamente por su nombre de negocio.',
+  labelLiability: 'Sección 6', titleLiability: 'Limitación de Responsabilidad',
+  liabilityBody: 'TheGiveback y DATAONE se esfuerzan por garantizar la precisión de la información del libro público y los reportes de impacto, pero no garantizan resultados específicos de las fundaciones financiadas. En la medida permitida por la ley, DATAONE no será responsable por daños indirectos, incidentales o consecuentes que surjan del uso de esta plataforma.',
+  labelLaw: 'Sección 7', titleLaw: 'Ley Aplicable',
+  lawBody: 'Estos términos se rigen por las leyes del Estado de Florida, Estados Unidos, sin importar sus disposiciones sobre conflicto de leyes.',
+  labelContact: 'Sección 8', titleContact: 'Contacto',
+  contactBody: 'Si tienes preguntas sobre estos términos, contáctanos:',
+  footerLegal: '© 2026 TheGiveback · DATAONE',
+  footerPrivacyLink: 'Política de Privacidad'
+},
+en: {
+  htmlLang: 'en',
+  docTitle: 'Terms of Service — TheGiveback',
+  backLabel: 'Back to site',
+  eyebrow: 'Legal',
+  title: 'Terms of Service',
+  updated: 'Last updated: July 15, 2026',
+  opening: 'These terms govern your participation in TheGiveback as a certified merchant, referral partner, or partner foundation.',
+  labelWhat: 'Section 1', titleWhat: 'What TheGiveback Is',
+  whatBody: 'TheGiveback is a payment processing program operated through DATAONE that automatically routes a portion of the company\'s margin to vetted Colombian and Venezuelan foundations. It is not an independent charity or an investment fund — it is a structural commitment built into how we process payments for certified merchants.',
+  labelCovenant: 'Section 2', titleCovenant: 'The 30% Covenant',
+  covenantBody: '30% of DATAONE\'s retained margin routes automatically every month to vetted foundations.',
+  covenantCalloutText: 'This amount comes <strong>exclusively</strong> from DATAONE\'s processing profit — not from the merchant\'s revenue. Certified merchants pay nothing extra and see no deduction from their own revenue as a result of this covenant.',
+  labelMerchant: 'Section 3', titleMerchant: 'Merchant Responsibilities', merchantIntro: 'Certified merchants agree to:',
+  merchant1: 'Maintain active processing with DATAONE to continue qualifying for free hardware and certified status.',
+  merchant2: 'Provide accurate and up-to-date information on the registration form.',
+  merchant3: 'Notify us of any significant change to their contact or business information.',
+  labelHardware: 'Section 4', titleHardware: 'Hardware Terms',
+  hardwareBody: 'Qualified merchants receive their terminal (Clover, PAX, or Dejavoo) at no cost while they maintain active processing with DATAONE. The hardware remains the property of DATAONE and must be returned if the merchant terminates their processing relationship within the period specified in their merchant agreement.',
+  labelLedger: 'Section 5', titleLedger: 'The Public Ledger',
+  ledgerBody: 'Every disbursement is recorded on a verifiable public ledger. By default, merchants appear by an anonymous ID. Merchants may opt to be publicly identified by their business name.',
+  labelLiability: 'Section 6', titleLiability: 'Limitation of Liability',
+  liabilityBody: 'TheGiveback and DATAONE work to ensure the accuracy of public ledger information and impact reports, but do not guarantee specific outcomes from funded foundations. To the extent permitted by law, DATAONE will not be liable for indirect, incidental, or consequential damages arising from use of this platform.',
+  labelLaw: 'Section 7', titleLaw: 'Governing Law',
+  lawBody: 'These terms are governed by the laws of the State of Florida, United States, without regard to its conflict of law provisions.',
+  labelContact: 'Section 8', titleContact: 'Contact',
+  contactBody: 'If you have questions about these terms, contact us:',
+  footerLegal: '© 2026 TheGiveback · DATAONE',
+  footerPrivacyLink: 'Privacy Policy'
+}
+};
+
+let currentLang = 'es';
+
+function setLang(code) {
+  currentLang = code;
+  const d = T[code];
+  document.getElementById('html-root').lang = d.htmlLang;
+  document.title = d.docTitle;
+
+  const setText = (id, val) => {
+    const el = document.getElementById(id);
+    if (el && val !== undefined) el.textContent = val;
+  };
+  const setHTML = (id, val) => {
+    const el = document.getElementById(id);
+    if (el && val !== undefined) el.innerHTML = val;
+  };
+
+  setText('back-label', d.backLabel);
+  setText('eyebrow', d.eyebrow);
+  setText('title', d.title);
+  setText('updated', d.updated);
+  setText('opening', d.opening);
+  setText('label-what', d.labelWhat);
+  setText('title-what', d.titleWhat);
+  setText('what-body', d.whatBody);
+  setText('label-covenant', d.labelCovenant);
+  setText('title-covenant', d.titleCovenant);
+  setText('covenant-body', d.covenantBody);
+  setHTML('covenant-callout-text', d.covenantCalloutText);
+  setText('label-merchant', d.labelMerchant);
+  setText('title-merchant', d.titleMerchant);
+  setText('merchant-intro', d.merchantIntro);
+  setText('merchant-1', d.merchant1);
+  setText('merchant-2', d.merchant2);
+  setText('merchant-3', d.merchant3);
+  setText('label-hardware', d.labelHardware);
+  setText('title-hardware', d.titleHardware);
+  setText('hardware-body', d.hardwareBody);
+  setText('label-ledger', d.labelLedger);
+  setText('title-ledger', d.titleLedger);
+  setText('ledger-body', d.ledgerBody);
+  setText('label-liability', d.labelLiability);
+  setText('title-liability', d.titleLiability);
+  setText('liability-body', d.liabilityBody);
+  setText('label-law', d.labelLaw);
+  setText('title-law', d.titleLaw);
+  setText('law-body', d.lawBody);
+  setText('label-contact', d.labelContact);
+  setText('title-contact', d.titleContact);
+  setText('contact-body', d.contactBody);
+  setText('footer-legal', d.footerLegal);
+  setText('footer-privacy-link', d.footerPrivacyLink);
+
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === code);
+  });
+
+  try { localStorage.setItem('tg_terms_lang', code); } catch(e){}
+}
+
+/* ── INIT ──────────────────────────────── */
+(function() {
+  let saved = 'es';
+  try { saved = localStorage.getItem('tg_terms_lang') || 'es'; } catch(e){}
+  setLang(saved);
+})();
+</script>
+
+</body>
+</html>
