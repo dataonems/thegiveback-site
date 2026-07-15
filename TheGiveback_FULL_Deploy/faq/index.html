@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es" id="faq-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="description" content="Preguntas frecuentes sobre TheGiveback — Cómo funciona, costos, fundaciones, y el pacto del 30%.">
+<title id="faq-title">Preguntas Frecuentes — TheGiveback</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green:#1A3A2A; --green-mid:#2E6B4A; --green-lt:#4A9B6F;
+  --gold:#C4872A; --gold-lt:#E8A94A; --gold-deep:#96651A;
+  --gold-pale:#FBF2E3; --terra-pale:#FDF0E8;
+  --bg:#FDFAF6; --bg-soft:#FBF6F0; --border:#E8D5B8; --mist:#F5EDE3;
+  --text:#111111; --text-mid:#374151; --text-muted:#6B7280;
+  --serif:'Lora',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+  --r:10px; --rlg:20px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.06);
+  --shadow-md:0 2px 6px rgba(0,0,0,.06),0 8px 32px rgba(0,0,0,.09);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;color-scheme:light only}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-text-size-adjust:100%}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--sans);cursor:pointer}
+h1,h2,h3{font-family:var(--serif);line-height:1.2;letter-spacing:-.02em;color:var(--green)}
+p{color:var(--text-muted);line-height:1.8}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:100;height:64px;background:rgba(253,250,246,.97);backdrop-filter:blur(12px);border-bottom:.5px solid var(--border);box-shadow:0 1px 0 rgba(232,213,184,.4),0 2px 12px rgba(0,0,0,.04);display:flex;align-items:center}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-logo{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--green);letter-spacing:-.02em;display:flex;flex-direction:column;gap:2px}
+.nav-logo .accent{color:var(--gold)}
+.nav-logo .tagline{font-family:var(--sans);font-size:8px;font-weight:700;color:var(--text-muted);letter-spacing:.14em;text-transform:uppercase;line-height:1}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.lang-toggle{display:flex;background:var(--mist);border-radius:20px;padding:2px;border:1px solid var(--border)}
+.lang-btn{font-family:var(--sans);font-size:11px;font-weight:700;padding:8px 12px;border-radius:16px;border:none;cursor:pointer;background:transparent;color:var(--text-muted);transition:all .15s;letter-spacing:.04em;min-height:36px}
+.lang-btn.active{background:var(--green);color:#fff}
+.back-link{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--text-muted);display:flex;align-items:center;gap:5px;padding:8px 14px;background:var(--bg-soft);border-radius:var(--r);border:1px solid var(--border);transition:all .15s}
+.back-link:hover{color:var(--green);border-color:var(--green-lt)}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+
+/* ── HERO ── */
+.faq-hero{background:linear-gradient(145deg,#0F2218 0%,#1A3A2A 60%,#1F4430 100%);padding:72px 0;position:relative;overflow:hidden}
+.faq-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(196,135,42,.1) 0%,transparent 65%);pointer-events:none}
+.eyebrow{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-lt);display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+.eyebrow::before{content:'';display:block;width:20px;height:1.5px;background:currentColor;opacity:.6;flex-shrink:0}
+.faq-hero h1{font-size:clamp(28px,4vw,48px);color:#fff;letter-spacing:-.04em;line-height:1.1;margin-bottom:14px}
+.faq-hero h1 em{color:var(--gold-lt);font-style:italic}
+.faq-hero p{font-size:16px;color:rgba(255,255,255,.65);max-width:540px;line-height:1.8}
+
+/* ── SEARCH / FILTER BAR ── */
+.filter-bar{background:var(--bg);border-bottom:1px solid var(--border);padding:20px 0;position:sticky;top:64px;z-index:90}
+.filter-inner{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filter-btn{font-family:var(--sans);font-size:12px;font-weight:600;padding:8px 16px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;transition:all .2s;letter-spacing:.01em}
+.filter-btn:hover{border-color:var(--green-lt);color:var(--green)}
+.filter-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
+
+/* ── FAQ SECTIONS ── */
+.faq-section{padding:56px 0}
+.faq-section+.faq-section{border-top:1px solid var(--border)}
+.section-header{margin-bottom:32px}
+.section-header h2{font-size:clamp(20px,2.5vw,28px);margin-bottom:8px}
+.section-header p{font-size:14px}
+.section-icon{font-size:28px;margin-bottom:12px;display:block}
+
+/* ── FAQ ITEMS ── */
+.faq-list{display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--bg);border-radius:var(--rlg);border:.5px solid var(--border);box-shadow:var(--shadow-sm);overflow:hidden;transition:box-shadow .2s}
+.faq-item:hover{box-shadow:var(--shadow-md)}
+.faq-q{width:100%;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:none;text-align:left;cursor:pointer;transition:background .15s}
+.faq-q:hover{background:var(--mist)}
+.faq-q-text{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--green);line-height:1.4;flex:1}
+.faq-icon{width:28px;height:28px;border-radius:50%;background:var(--mist);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;transition:all .25s;color:var(--green-lt)}
+.faq-item.open .faq-icon{background:var(--green);border-color:var(--green);color:#fff;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.16,1,.3,1)}
+.faq-item.open .faq-a{max-height:600px}
+.faq-a-inner{padding:0 24px 24px;border-top:1px solid var(--border)}
+.faq-a-inner p{font-size:14px;line-height:1.85;color:var(--text-mid);margin-top:16px}
+.faq-a-inner p+p{margin-top:12px}
+.faq-a-inner strong{color:var(--text);font-weight:600}
+.faq-a-inner em{color:var(--green);font-style:italic}
+.faq-highlight{margin-top:14px;padding:14px 18px;background:var(--gold-pale);border-radius:var(--r);border-left:3px solid var(--gold-deep)}
+.faq-highlight p{font-size:13px;color:var(--text-mid);margin:0}
+
+/* ── CTA BAND ── */
+.cta-band{background:linear-gradient(145deg,#0F2218 0%,#1A3A2A 60%,#1F4430 100%);padding:80px 0;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(196,135,42,.1) 0%,transparent 65%);pointer-events:none}
+.cta-band h2{font-size:clamp(26px,3.5vw,42px);color:#fff;letter-spacing:-.04em;margin-bottom:12px}
+.cta-band h2 em{color:var(--gold-lt)}
+.cta-band p{color:rgba(255,255,255,.6);font-size:16px;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-family:var(--sans);font-size:14px;font-weight:700;border:none;cursor:pointer;transition:all .2s cubic-bezier(.34,1.56,.64,1);text-decoration:none;letter-spacing:.01em}
+.btn-gold{background:linear-gradient(135deg,#96651A 0%,#A8721F 100%);color:#fff;box-shadow:0 4px 20px rgba(196,135,42,.28);position:relative;overflow:hidden}
+.btn-gold::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.12) 0%,transparent 60%);pointer-events:none}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(196,135,42,.42)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.btn-ghost:hover{background:rgba(255,255,255,.18);transform:translateY(-1px)}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ── WA FLOAT ── */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);border:none;cursor:pointer;transition:all .2s cubic-bezier(.34,1.56,.64,1);animation:waPulse 3s ease-in-out infinite}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.55)}
+.wa-float svg{width:28px;height:28px}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 28px rgba(37,211,102,.7),0 0 0 8px rgba(37,211,102,.1)}}
+.wa-tooltip{position:absolute;bottom:64px;right:0;background:var(--green);color:#fff;font-family:var(--sans);font-size:11px;font-weight:700;padding:6px 12px;border-radius:var(--r);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s;letter-spacing:.04em}
+.wa-float:hover .wa-tooltip{opacity:1}
+
+/* ── FOOTER ── */
+.faq-footer{background:linear-gradient(160deg,#0A1810 0%,#111E14 100%);padding:40px 0;text-align:center}
+.faq-footer p{font-size:11px;color:rgba(255,255,255,.35);margin-bottom:8px}
+.faq-footer a{color:rgba(255,255,255,.5);font-size:12px;font-weight:500;margin:0 8px;transition:color .15s}
+.faq-footer a:hover{color:#fff}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .faq-hero{padding:56px 0}
+  .faq-section{padding:40px 0}
+  .filter-inner{gap:6px}
+  .filter-btn{font-size:11px;padding:7px 12px}
+  .faq-q{padding:16px 18px}
+  .faq-q-text{font-size:15px}
+  .faq-a-inner{padding:0 18px 20px}
+  .nav-logo .tagline{display:none}
+  .back-link span{display:none}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">
+      <span>🇨🇴🇻🇪 The<span class="accent">Giveback</span></span>
+      <span class="tagline">Commerce that gives back.</span>
+    </a>
+    <div class="nav-actions">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <a class="back-link" href="/"><span>←</span> <span id="back-label">Volver al sitio</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="faq-hero">
+  <div class="wrap">
+    <span class="eyebrow" id="hero-eyebrow">Preguntas Frecuentes</span>
+    <h1 id="hero-title">Tienes preguntas.<br><em>Aquí están las respuestas.</em></h1>
+    <p id="hero-sub">Todo lo que necesitas saber sobre cómo funciona TheGiveback — para comercios, fundaciones, y cualquier persona que quiera entender el modelo.</p>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="wrap">
+    <div class="filter-inner">
+      <button class="filter-btn active" onclick="filterSection('all')" id="f-all">Todo</button>
+      <button class="filter-btn" onclick="filterSection('merchants')" id="f-merchants">🏪 Comercios</button>
+      <button class="filter-btn" onclick="filterSection('certified')" id="f-certified">✅ Ya certificado</button>
+      <button class="filter-btn" onclick="filterSection('foundations')" id="f-foundations">🏛️ Fundaciones</button>
+      <button class="filter-btn" onclick="filterSection('general')" id="f-general">🌍 General</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div style="padding-bottom:80px">
+
+<!-- ── SECTION 1: MERCHANTS ─────────────────────────────── -->
+<div class="faq-section" data-section="merchants">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-icon">🏪</span>
+      <h2 id="s1-title">Comercios que consideran unirse</h2>
+      <p id="s1-sub">Las preguntas más comunes antes de certificarse.</p>
+    </div>
+    <div class="faq-list">
+
+      <!-- Q1 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q1">¿Esto me cuesta algo extra?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a1">No. Absolutamente nada. El 30% que va a Colombia y Venezuela sale del margen de <strong>DATAONE</strong> — nuestro dinero, no el tuyo. Tu costo efectivo de procesamiento con precios duales es cercano a cero porque el cliente que paga con tarjeta cubre la comisión. El cliente en efectivo recibe un descuento.</p>
+          <p id="a1b">Recibes: procesamiento de pagos sin costo efectivo, hardware gratuito (para comercios calificados), una insignia verificable, y reportes mensuales de impacto. Sin contratos de largo plazo. Sin tarifas ocultas.</p>
+          <div class="faq-highlight"><p id="a1c">💡 <strong>En resumen:</strong> TheGiveback no es un costo. Es una característica de procesamiento de pagos que también hace bien.</p></div>
+        </div></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q2">¿Tengo que cambiar mi terminal o procesador actual?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a2">Depende de tu terminal actual. Trabajamos con <strong>Clover, PAX y Dejavoo</strong> — los tres sistemas más implementados en EE.UU. Si ya tienes uno de estos, lo configuramos remotamente en 24 horas sin que cambies nada físicamente. Si tienes otro sistema, te proporcionamos el hardware compatible.</p>
+          <p id="a2b">Los comercios que califican reciben su terminal sin costo inicial. Si ya tienes un terminal compatible, simplemente lo configuramos de forma remota — sin visitas, sin interrupciones.</p>
+        </div></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q3">¿Cómo funcionan los precios duales y mis clientes se molestarán?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a3">Los precios duales ofrecen dos opciones en cada transacción: un precio con tarjeta y un precio en efectivo (generalmente 3–4% menor). El cliente elige. El que paga con tarjeta cubre el costo de procesamiento. El que paga en efectivo recibe un descuento.</p>
+          <p id="a3b">¿Se molestan los clientes? Raramente. El 88% de los consumidores prefieren negocios que apoyan causas comunitarias. Cuando tu cliente ve la insignia Giveback Certified y sabe que su transacción ayuda a Colombia y Venezuela, la percepción cambia completamente. La transparencia es el activo.</p>
+          <div class="faq-highlight"><p id="a3c">🏪 <strong>Clave:</strong> Miles de negocios en EE.UU. ya usan precios duales exitosamente. La mayoría de los clientes lo aceptan sin problema cuando la explicación es clara y directa.</p></div>
+        </div></div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q4">¿Cuál es el volumen mínimo para calificar para hardware gratuito?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a4">El umbral mínimo de procesamiento mensual se confirma individualmente al momento de la solicitud — varía según el tipo de terminal y la ubicación. La mayoría de comercios activos califican.</p>
+          <p id="a4b">Lo que sí podemos confirmar: <em>la donación empieza desde el primer dólar procesado</em>, independientemente del volumen. El hardware gratuito es el beneficio adicional para comercios que cumplen el umbral. La misión no está condicionada al tamaño.</p>
+        </div></div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q5">¿Cuánto de mis transacciones va realmente a Colombia y Venezuela, y de dónde viene ese dinero?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a5"><strong>De dónde viene:</strong> DATAONE gana un margen de procesamiento en cada transacción de precios duales — aproximadamente el 1.8% en promedio (tu tarifa exacta se confirma al inscribirte). Ese es el dinero de DATAONE, no el tuyo.</p>
+          <p id="a5b"><strong>Cuánto va a Colombia y Venezuela:</strong> El 30% de ese margen de DATAONE se dirige automáticamente a fundaciones verificadas el primero de cada mes. El 20% va al socio referente que te presentó el programa. El 50% cubre las operaciones de DATAONE.</p>
+          <p id="a5c"><strong>En números concretos:</strong> Si tu negocio procesa $100,000 al mes, DATAONE gana aproximadamente $1,800. De esos $1,800, $540 van a Colombia y Venezuela. Tu costo efectivo: cercano a cero.</p>
+          <div class="faq-highlight"><p id="a5d">📊 Usa nuestro <strong>calculador interactivo</strong> en la página ¿Cómo Funciona? para ver exactamente qué generaría tu volumen mensual para las fundaciones.</p></div>
+        </div></div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q6">¿Puedo elegir qué fundación recibe mi donación?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a6">Sí. Al certificarte seleccionas una fundación de nuestra red verificada — o puedes nominar una fundación colombiana o venezolana que ya conozcas personalmente. Tu donación mensual va a la causa que te importa, no a un fondo genérico.</p>
+          <p id="a6b">Si ocurre una crisis en Colombia o Venezuela, también puedes redirigir tu donación mensual a fundaciones de respuesta de emergencia con un solo toque — sin papeleo, sin espera.</p>
+        </div></div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q7">¿Cómo sé que el dinero realmente llega a la fundación? ¿Puedo verificarlo?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a7">Sí — de tres formas:</p>
+          <p id="a7b"><strong>1. El libro público:</strong> Cada desembolso queda registrado en thegiveback.org/ledger de forma permanente. Cualquier persona — tu cliente, un periodista, un regulador — puede verificarlo.</p>
+          <p id="a7c"><strong>2. Tu reporte mensual de impacto:</strong> El primero de cada mes recibes un reporte con el monto exacto, la fundación, y qué financió ese mes. Diseñado para compartirlo en Instagram o WhatsApp con un toque.</p>
+          <p id="a7d"><strong>3. El reporte de la fundación:</strong> Cada fundación en nuestra red publica mensualmente qué financió el desembolso. Ese reporte queda enlazado a tu entrada en el ledger permanentemente.</p>
+          <div class="faq-highlight"><p id="a7e">🔒 <strong>Privacidad:</strong> Tu nombre aparece en el ledger como ID anónimo por defecto. Si quieres ser identificado públicamente, tú lo decides al certificarte.</p></div>
+        </div></div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q8">¿Qué pasa si quiero cancelar — pierdo el hardware?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a8">El hardware que recibiste sin costo es tuyo mientras proceses con DATAONE. Si decides salir del programa, los términos específicos de devolución o compra del hardware se acuerdan en tu contrato de servicio — que recibes antes de comprometerte con nada.</p>
+          <p id="a8b">No hay contratos de largo plazo obligatorios para el programa de donación en sí. La decisión de salir siempre es tuya.</p>
+        </div></div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q9">¿Cuánto tiempo toma la configuración y qué tengo que hacer yo?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a9">Cuatro pasos — la mayoría los hacemos nosotros:</p>
+          <p id="a9b"><strong>Tú:</strong> Completas una solicitud corta — nombre del negocio, volumen estimado, y tu fundación preferida. Tiempo: 5 minutos.</p>
+          <p id="a9c"><strong>Nosotros:</strong> Configuramos los precios duales en tu terminal existente de forma remota. Normalmente el mismo día o al día siguiente.</p>
+          <p id="a9d"><strong>Tú:</strong> Procesas normalmente desde el primer día. Cada transacción con tarjeta acumula hacia tu total de donación mensual.</p>
+          <p id="a9e"><strong>Automático:</strong> El primero del mes, DATAONE envía el desembolso a tu fundación, crea la entrada en el ledger, y te envía tu reporte de impacto.</p>
+        </div></div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q10">¿Está disponible para cualquier tipo de negocio?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a10">La mayoría de negocios que aceptan pagos con tarjeta en EE.UU. califican — restaurantes, salones, barberías, tiendas de abarrotes, talleres mecánicos, servicios de limpieza, consultorios, y muchos más.</p>
+          <p id="a10b">Negocios que típicamente no califican: los que procesan principalmente transacciones de alto riesgo, los que operan en industrias con restricciones de procesamiento, o los que tienen un historial de devoluciones de cargo elevado. En la llamada inicial evaluamos juntos si tu negocio es una buena candidatura.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION 2: CERTIFIED MERCHANTS ──────────────────── -->
+<div class="faq-section" data-section="certified">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-icon">✅</span>
+      <h2 id="s2-title">Comercios ya certificados</h2>
+      <p id="s2-sub">Preguntas sobre el día a día del programa.</p>
+    </div>
+    <div class="faq-list">
+
+      <!-- Q11 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q11">¿Cuándo ocurre mi primer desembolso y cómo lo sabré?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a11">El primer desembolso ocurre el primero del mes siguiente a tu primera transacción procesada. Si empiezas en julio, tu primer desembolso llega el 1 de agosto.</p>
+          <p id="a11b">Recibirás una notificación por WhatsApp con tu reporte de impacto: monto exacto enviado, nombre de la fundación, qué financió, y el enlace a tu entrada permanente en el libro público.</p>
+        </div></div>
+      </div>
+
+      <!-- Q12 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q12">¿Qué es la insignia Giveback Certified y cómo la uso?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a12">La insignia Giveback Certified es una verificación pública de que tu negocio participa en el programa. No es un logo decorativo — es una entrada verificable en el libro público que cualquiera puede comprobar.</p>
+          <p id="a12b">Úsala en tu vitrina, tu sitio web, tu perfil de Google Business, tu Instagram, y tu WhatsApp Business. Cada vez que un cliente la ve y pregunta qué significa, tienes la oportunidad de contar la historia de lo que tu negocio está construyendo en Colombia y Venezuela.</p>
+          <div class="faq-highlight"><p id="a12c">📱 <strong>El reporte mensual</strong> está diseñado para ser compartido en un toque — en Instagram Stories, WhatsApp, o Facebook. Es tu contenido de marketing de alto valor sin esfuerzo adicional.</p></div>
+        </div></div>
+      </div>
+
+      <!-- Q13 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q13">¿Puedo redirigir mi donación si hay una crisis en Colombia o Venezuela?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a13">Sí. La función de Respuesta Rápida te permite redirigir tu donación mensual a fundaciones de ayuda de emergencia cuando ocurre una crisis — con un solo toque, sin papeleo.</p>
+          <p id="a13b">Cuando ocurre una crisis verificada, DATAONE envía una notificación inmediata a todos los comercios certificados con la opción de redirigir. Tú decides si quieres participar en la respuesta de emergencia o mantener tu fundación habitual.</p>
+        </div></div>
+      </div>
+
+      <!-- Q14 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q14">¿Puedo donar mi comisión de referido en vez de quedarme con ella?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a14">Sí — y muchos socios lo hacen. Cuando refieres un comercio al programa, ganas el 20% del margen de DATAONE de su procesamiento. Puedes recibir esa comisión como ingreso, o puedes donarla al fondo de Colombia y Venezuela también.</p>
+          <p id="a14b">Si eliges donar tu comisión, esa donación también aparece en el ledger público bajo tu nombre (si optaste por ser identificado) — es un acto de generosidad adicional que la comunidad puede ver.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION 3: FOUNDATIONS ───────────────────────────── -->
+<div class="faq-section" data-section="foundations">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-icon">🏛️</span>
+      <h2 id="s3-title">Fundaciones</h2>
+      <p id="s3-sub">Preguntas para directores de fundaciones que quieren unirse a la red.</p>
+    </div>
+    <div class="faq-list">
+
+      <!-- Q15 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q15">¿Cómo es el proceso de verificación y cuánto tiempo toma?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a15">El proceso de verificación toma aproximadamente 30 días y consta de cuatro pasos:</p>
+          <p id="a15b"><strong>1. Solicitud:</strong> Completas un formulario con la información legal de tu fundación, misión, y programas activos.</p>
+          <p id="a15c"><strong>2. Revisión documental:</strong> Verificamos tu registro legal (501(c)(3) en EE.UU., ESAL en Colombia, o asociación civil en Venezuela), estados financieros, y cumplimiento regulatorio.</p>
+          <p id="a15d"><strong>3. Revisión de misión:</strong> Evaluamos que tu trabajo sirva directamente a comunidades vulnerables en Colombia o Venezuela — con neutralidad política.</p>
+          <p id="a15e"><strong>4. Acuerdo de asociación:</strong> Firmamos un acuerdo que define los términos del desembolso mensual y los requisitos de reporte. Una vez firmado, el primer desembolso llega el mes siguiente.</p>
+        </div></div>
+      </div>
+
+      <!-- Q16 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q16">¿Cómo se calcula el monto mensual que recibiremos?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a16">El monto mensual que recibe cada fundación depende del volumen total procesado por los comercios que la eligieron, multiplicado por el porcentaje de margen de DATAONE, multiplicado por el 30% del pacto.</p>
+          <p id="a16b">En la fase piloto con 5–10 comercios, los desembolsos iniciales serán modestos — posiblemente $500–$5,000 por mes. A medida que la red de comercios crece, los desembolsos crecen proporcionalmente y de forma predecible.</p>
+          <p id="a16c">La ventaja clave: es ingreso predecible, mensual, y sin tener que solicitar ni competir. Tu equipo puede planificar programas basados en un flujo constante en vez de reaccionar a lo que llegue.</p>
+        </div></div>
+      </div>
+
+      <!-- Q17 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q17">¿Qué reporte tenemos que entregar a cambio de recibir fondos?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a17">Un reporte mensual — específico, en lenguaje sencillo. No un informe de gestión de 50 páginas. Una publicación honesta que responda: <em>¿qué financió el desembolso de este mes?</em></p>
+          <p id="a17b">Ejemplos de lo que funciona: una foto de la distribución de alimentos, el número de familias atendidas, el nombre del programa que financiaste, una historia específica de una persona impactada. El formato ideal es algo que puedas publicar en Instagram o WhatsApp — porque ese contenido se comparte con los comercios que te financiaron, cerrando el ciclo de transparencia.</p>
+          <div class="faq-highlight"><p id="a17c">📸 <strong>Nota:</strong> No se require producción profesional. Un video de 60 segundos grabado con el teléfono es frecuentemente más poderoso que un informe formal.</p></div>
+        </div></div>
+      </div>
+
+      <!-- Q18 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q18">¿Necesitamos ser una 501(c)(3) en EE.UU. o pueden aplicar fundaciones colombianas y venezolanas?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a18">Pueden aplicar fundaciones registradas legalmente en EE.UU., Colombia, o Venezuela. Los requisitos específicos de registro varían por país:</p>
+          <p id="a18b"><strong>EE.UU.:</strong> 501(c)(3) en buen estado con el IRS.</p>
+          <p id="a18c"><strong>Colombia:</strong> ESAL (Entidad Sin Ánimo de Lucro) registrada ante la Cámara de Comercio, con NIT activo.</p>
+          <p id="a18d"><strong>Venezuela:</strong> Asociación civil o fundación registrada ante el SAREN, con documentación de operaciones activas.</p>
+          <p id="a18e">La estructura legal de desembolso para fundaciones fuera de EE.UU. se define caso a caso para cumplir con las regulaciones de transferencias internacionales. Trabajamos contigo para encontrar el mecanismo correcto.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION 4: GENERAL ────────────────────────────────── -->
+<div class="faq-section" data-section="general">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <h2 id="s4-title">General y prensa</h2>
+      <p id="s4-sub">Para el público en general, periodistas, e inversores.</p>
+    </div>
+    <div class="faq-list">
+
+      <!-- Q19 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q19">¿En qué se diferencia TheGiveback de simplemente donar directamente a una fundación?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a19">Tres diferencias fundamentales:</p>
+          <p id="a19b"><strong>1. Es automático:</strong> No tienes que recordar donar, decidir cuánto, ni hacer una transferencia. El comercio simplemente procesa pagos como siempre — la donación es una consecuencia estructural, no un acto voluntario repetido.</p>
+          <p id="a19c"><strong>2. No cuesta nada:</strong> La donación directa sale de tu bolsillo. TheGiveback sale del margen de procesamiento de DATAONE — un costo que ya existe en el sistema de pagos. Nadie paga de más; simplemente el dinero apunta en una dirección diferente.</p>
+          <p id="a19d"><strong>3. Es verificable públicamente:</strong> Una donación directa es un acto privado entre tú y la fundación. TheGiveback es un registro público permanente que cualquiera puede comprobar — tus clientes, tu comunidad, la prensa.</p>
+          <div class="faq-highlight"><p id="a19e">🔑 <strong>La tesis central:</strong> La infraestructura para la generosidad debería ser tan automática como la infraestructura para el comercio.</p></div>
+        </div></div>
+      </div>
+
+      <!-- Q20 -->
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <button class="faq-q">
+          <span class="faq-q-text" id="q20">¿Qué pasa con la donación si DATAONE deja de operar — el pacto es legalmente vinculante?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p id="a20">Esta es la pregunta más importante que alguien puede hacer — y merece una respuesta honesta.</p>
+          <p id="a20b"><strong>El pacto es un documento escrito y firmado</strong> por Chris Humphrey, fundador de DATAONE, que compromete el 30% del margen de la empresa a fundaciones verificadas. Está diseñado para sobrevivir a los cambios de ánimo y a los trimestres difíciles.</p>
+          <p id="a20c"><strong>Lo que lo hace robusto:</strong> El pacto está escrito en la arquitectura operativa de DATAONE — no es una política que puede cambiarse en una reunión de junta. El libro público hace que cualquier incumplimiento sea visible y documentado permanentemente.</p>
+          <p id="a20d"><strong>La realidad transparente:</strong> Como cualquier empresa privada, el programa depende de que DATAONE siga operando. No existe garantía legal absoluta más allá del compromiso documental del fundador. Lo que sí existe es total transparencia — y esa transparencia es la rendición de cuentas más poderosa disponible.</p>
+          <div class="faq-highlight"><p id="a20e">📄 El documento del pacto firmado está disponible públicamente en <strong>thegiveback.org/ledger</strong>. No te pides que confíes en nuestra palabra — te pedimos que leas el documento.</p></div>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</div><!-- /main content -->
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div style="max-width:860px;margin:0 auto;padding:0 24px;position:relative;z-index:1">
+    <span class="eyebrow" style="color:var(--gold-lt);display:block;text-align:center;margin-bottom:16px" id="cta-eyebrow">¿Tienes más preguntas?</span>
+    <h2 id="cta-title">La respuesta más rápida<br><em>es una conversación.</em></h2>
+    <p id="cta-sub">Chris responde personalmente. Sin formularios, sin espera de 48 horas. Solo WhatsApp.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="https://wa.me/15555555555?text=Hola%2C%20tengo%20preguntas%20sobre%20TheGiveback" id="cta-wa">💬 Hablar por WhatsApp →</a>
+      <a class="btn btn-ghost" href="/" id="cta-site">← Volver al sitio</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="faq-footer">
+  <p id="footer-legal">© 2026 TheGiveback · DATAONE · Commerce that gives back.</p>
+  <div style="margin-top:10px">
+    <a href="/" id="footer-home">Inicio</a>
+    <a href="/manifesto" id="footer-manifesto">Manifiesto</a>
+    <a href="/ledger" id="footer-ledger">Libro Público</a>
+    <a href="/story" id="footer-story">Nuestra Historia</a>
+  </div>
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<button class="wa-float" onclick="window.open('https://wa.me/15555555555?text=Hola%2C%20vi%20las%20FAQ%20de%20TheGiveback%20y%20tengo%20una%20pregunta','_blank')" aria-label="WhatsApp">
+  <div class="wa-tooltip" id="wa-tip">💬 WhatsApp</div>
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</button>
+
+<script>
+// ── TRANSLATIONS ─────────────────────────────────────────
+const T = {
+es:{
+  title:'Preguntas Frecuentes — TheGiveback',
+  backLabel:'Volver al sitio',
+  heroEyebrow:'Preguntas Frecuentes',
+  heroTitle:'Tienes preguntas.<br><em>Aquí están las respuestas.</em>',
+  heroSub:'Todo lo que necesitas saber sobre cómo funciona TheGiveback — para comercios, fundaciones, y cualquier persona que quiera entender el modelo.',
+  fAll:'Todo', fMerchants:'🏪 Comercios', fCertified:'✅ Ya certificado', fFoundations:'🏛️ Fundaciones', fGeneral:'🌍 General',
+  s1Title:'Comercios que consideran unirse', s1Sub:'Las preguntas más comunes antes de certificarse.',
+  s2Title:'Comercios ya certificados', s2Sub:'Preguntas sobre el día a día del programa.',
+  s3Title:'Fundaciones', s3Sub:'Preguntas para directores de fundaciones que quieren unirse a la red.',
+  s4Title:'General y prensa', s4Sub:'Para el público en general, periodistas, e inversores.',
+  ctaEyebrow:'¿Tienes más preguntas?',
+  ctaTitle:'La respuesta más rápida<br><em>es una conversación.</em>',
+  ctaSub:'Chris responde personalmente. Sin formularios, sin espera de 48 horas. Solo WhatsApp.',
+  ctaWa:'💬 Hablar por WhatsApp →', ctaSite:'← Volver al sitio',
+  footerLegal:'© 2026 TheGiveback · DATAONE · Commerce that gives back.',
+  footerHome:'Inicio', footerManifesto:'Manifiesto', footerLedger:'Libro Público', footerStory:'Nuestra Historia',
+  waTip:'💬 WhatsApp',
+  q1:'¿Esto me cuesta algo extra?',
+  q2:'¿Tengo que cambiar mi terminal o procesador actual?',
+  q3:'¿Cómo funcionan los precios duales y mis clientes se molestarán?',
+  q4:'¿Cuál es el volumen mínimo para calificar para hardware gratuito?',
+  q5:'¿Cuánto de mis transacciones va realmente a Colombia y Venezuela, y de dónde viene ese dinero?',
+  q6:'¿Puedo elegir qué fundación recibe mi donación?',
+  q7:'¿Cómo sé que el dinero realmente llega a la fundación? ¿Puedo verificarlo?',
+  q8:'¿Qué pasa si quiero cancelar — pierdo el hardware?',
+  q9:'¿Cuánto tiempo toma la configuración y qué tengo que hacer yo?',
+  q10:'¿Está disponible para cualquier tipo de negocio?',
+  q11:'¿Cuándo ocurre mi primer desembolso y cómo lo sabré?',
+  q12:'¿Qué es la insignia Giveback Certified y cómo la uso?',
+  q13:'¿Puedo redirigir mi donación si hay una crisis en Colombia o Venezuela?',
+  q14:'¿Puedo donar mi comisión de referido en vez de quedarme con ella?',
+  q15:'¿Cómo es el proceso de verificación y cuánto tiempo toma?',
+  q16:'¿Cómo se calcula el monto mensual que recibiremos?',
+  q17:'¿Qué reporte tenemos que entregar a cambio de recibir fondos?',
+  q18:'¿Necesitamos ser una 501(c)(3) en EE.UU. o pueden aplicar fundaciones colombianas y venezolanas?',
+  q19:'¿En qué se diferencia TheGiveback de simplemente donar directamente a una fundación?',
+  q20:'¿Qué pasa con la donación si DATAONE deja de operar — el pacto es legalmente vinculante?',
+},
+en:{
+  title:'FAQ — TheGiveback',
+  backLabel:'Back to site',
+  heroEyebrow:'Frequently Asked Questions',
+  heroTitle:'You have questions.<br><em>Here are the answers.</em>',
+  heroSub:'Everything you need to know about how TheGiveback works — for merchants, foundations, and anyone who wants to understand the model.',
+  fAll:'All', fMerchants:'🏪 Merchants', fCertified:'✅ Already certified', fFoundations:'🏛️ Foundations', fGeneral:'🌍 General',
+  s1Title:'Merchants considering joining', s1Sub:'The most common questions before getting certified.',
+  s2Title:'Already certified merchants', s2Sub:'Day-to-day questions about the program.',
+  s3Title:'Foundations', s3Sub:'Questions for foundation directors who want to join the network.',
+  s4Title:'General and press', s4Sub:'For the general public, journalists, and investors.',
+  ctaEyebrow:'Still have questions?',
+  ctaTitle:'The fastest answer<br><em>is a conversation.</em>',
+  ctaSub:'Chris responds personally. No forms, no 48-hour wait. Just WhatsApp.',
+  ctaWa:'💬 Talk on WhatsApp →', ctaSite:'← Back to site',
+  footerLegal:'© 2026 TheGiveback · DATAONE · Commerce that gives back.',
+  footerHome:'Home', footerManifesto:'Manifesto', footerLedger:'Public Ledger', footerStory:'Our Story',
+  waTip:'💬 WhatsApp',
+  q1:'Does this cost me anything extra?',
+  q2:'Do I have to change my current terminal or payment processor?',
+  q3:'How does dual pricing work and will my customers be upset about it?',
+  q4:'What is the minimum processing volume to qualify for free hardware?',
+  q5:'How much of my transactions actually goes to Colombia and Venezuela — and where does that money come from?',
+  q6:'Can I choose which foundation receives my giving?',
+  q7:'How do I know the money actually arrives at the foundation — can I verify it?',
+  q8:'What happens if I want to cancel — do I lose the hardware?',
+  q9:'How long does setup take and what do I have to do?',
+  q10:'Is this available for any type of business?',
+  q11:'When does my first disbursement happen and how will I know?',
+  q12:'What is the Giveback Certified badge and how do I use it?',
+  q13:'Can I redirect my giving if a crisis hits Colombia or Venezuela?',
+  q14:'Can I donate my referral commission instead of keeping it?',
+  q15:'What does the verification process look like and how long does it take?',
+  q16:'How is the monthly disbursement amount calculated?',
+  q17:'What reporting do we have to provide in exchange for receiving funds?',
+  q18:'Do we need to be a US 501(c)(3) or can Colombian and Venezuelan foundations apply?',
+  q19:'How is TheGiveback different from just donating directly to a foundation?',
+  q20:'What happens to the giving if DATAONE goes out of business — is the covenant legally binding?',
+}
+};
+
+function setLang(code) {
+  const d = T[code];
+  document.getElementById('faq-root').lang = code;
+  document.title = d.title;
+  const set = (id, val) => { const el = document.getElementById(id); if(el && val) el.innerHTML = val; };
+  set('back-label', d.backLabel);
+  set('hero-eyebrow', d.heroEyebrow);
+  set('hero-title', d.heroTitle);
+  set('hero-sub', d.heroSub);
+  set('f-all', d.fAll); set('f-merchants', d.fMerchants);
+  set('f-certified', d.fCertified); set('f-foundations', d.fFoundations);
+  set('f-general', d.fGeneral);
+  set('s1-title', d.s1Title); set('s1-sub', d.s1Sub);
+  set('s2-title', d.s2Title); set('s2-sub', d.s2Sub);
+  set('s3-title', d.s3Title); set('s3-sub', d.s3Sub);
+  set('s4-title', d.s4Title); set('s4-sub', d.s4Sub);
+  set('cta-eyebrow', d.ctaEyebrow);
+  set('cta-title', d.ctaTitle); set('cta-sub', d.ctaSub);
+  set('cta-wa', d.ctaWa); set('cta-site', d.ctaSite);
+  set('footer-legal', d.footerLegal);
+  set('footer-home', d.footerHome); set('footer-manifesto', d.footerManifesto);
+  set('footer-ledger', d.footerLedger); set('footer-story', d.footerStory);
+  set('wa-tip', d.waTip);
+  for(let i=1;i<=20;i++) set('q'+i, d['q'+i]);
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === code);
+  });
+  try { localStorage.setItem('tg_faq_lang', code); } catch(e) {}
+}
+
+// ── FAQ ACCORDION ─────────────────────────────────────────
+function toggleFaq(item) {
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ── SECTION FILTER ────────────────────────────────────────
+function filterSection(section) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('f-' + section).classList.add('active');
+  document.querySelectorAll('.faq-section').forEach(s => {
+    if (section === 'all' || s.dataset.section === section) {
+      s.style.display = '';
+    } else {
+      s.style.display = 'none';
+    }
+  });
+}
+
+// ── INIT ──────────────────────────────────────────────────
+(function() {
+  let saved = 'es';
+  try { saved = localStorage.getItem('tg_faq_lang') || 'es'; } catch(e) {}
+  setLang(saved);
+})();
+</script>
+</body>
+</html>

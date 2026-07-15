@@ -25,3 +25,8 @@
   from = "/internal"
   to = "/internal/index.html"
   status = 200
+
+[[redirects]]
+  from = "/faq"
+  to = "/faq/index.html"
+  status = 200
