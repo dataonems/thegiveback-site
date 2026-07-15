@@ -1415,21 +1415,27 @@ section:nth-child(even) {
   background-attachment: fixed;
 }
 
-/* Premium hero stat bars */
+/* Hero proof block — $0 / 30% / 100% (standalone weight, not a footnote) */
 .hero-stats {
-  padding-top: 24px;
-  border-top: 0.5px solid rgba(255,255,255,.12);
-  margin-top: 8px;
+  padding: 22px 28px;
+  background: rgba(255,255,255,.05);
+  border: 0.5px solid rgba(255,255,255,.14);
+  border-radius: var(--rlg);
+  margin-top: 24px;
+  gap: 40px;
 }
 .hero-stat-num {
-  font-size: 30px;
+  font-size: 38px;
   letter-spacing: -0.04em;
+  line-height: 1.1;
 }
 .hero-stat-label {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.4);
+  color: rgba(255,255,255,.55);
+  margin-top: 6px;
+  max-width: 150px;
 }
 
 /* Premium how-band step titles */
