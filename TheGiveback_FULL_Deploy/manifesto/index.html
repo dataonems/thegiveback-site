@@ -44,6 +44,7 @@ body {
   line-height: 1;
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* ── NAV BAR ────────────────────────────────── */
@@ -73,9 +74,9 @@ body {
 }
 .lang-btn {
   font-family: var(--sans); font-size: 11px; font-weight: 700;
-  padding: 4px 10px; border-radius: 16px; border: none;
+  padding: 8px 12px; border-radius: 16px; border: none;
   cursor: pointer; background: transparent; color: var(--muted);
-  transition: all .15s; letter-spacing: .04em;
+  transition: all .15s; letter-spacing: .04em; min-height: 36px;
 }
 .lang-btn.active { background: var(--green); color: #fff; }
 .topbar-back {
@@ -344,11 +345,25 @@ body {
 
 /* ── RESPONSIVE ──────────────────────────────── */
 @media (max-width: 600px) {
-  .doc { padding: 84px 20px 60px; }
-  .covenant-block { padding: 26px 24px; }
-  .pull { padding: 22px 24px; }
-  .share-block { padding: 24px 20px; }
+  .doc { padding: 80px 16px 60px; }
+  .covenant-block { padding: 22px 18px; }
+  .pull { padding: 18px 20px; }
+  .share-block { padding: 20px 16px; }
   .topbar-back span { display: none; }
+  .topbar-inner { padding: 0 14px; }
+  .masthead { margin-bottom: 36px; padding-bottom: 32px; }
+  .manifesto-section { padding: 32px 0; }
+  .belief-section { padding: 32px 0; }
+  .covenant-section { padding: 32px 0; }
+  .ask-section { padding: 40px 0 16px; }
+  .share-buttons { flex-direction: column; align-items: stretch; }
+  .share-btn { justify-content: center; }
+  .doc-footer { flex-direction: column; gap: 6px; text-align: center; }
+  .belief-text { font-size: clamp(18px, 5vw, 26px); }
+  .masthead-title { font-size: clamp(22px, 6vw, 32px); }
+  .ask-text { font-size: clamp(18px, 5vw, 24px); }
+  .prose { font-size: 16px; line-height: 1.8; }
+  .pull p { font-size: 16px; }
 }
 </style>
 </head>
@@ -357,7 +372,7 @@ body {
 <!-- TOPBAR -->
 <nav class="topbar">
   <div class="topbar-inner">
-    <a class="topbar-logo" href="TheGiveback_Site_V4.html" style="flex-direction:column;align-items:flex-start;gap:1px">
+    <a class="topbar-logo" href="/" style="flex-direction:column;align-items:flex-start;gap:1px">
       <span style="display:flex;align-items:center;gap:5px">🇨🇴 The<span class="accent">Giveback</span></span>
       <span style="font-family:var(--sans);font-size:9px;font-weight:500;color:var(--muted);letter-spacing:.06em;text-transform:uppercase">Commerce that gives back.</span>
     </a>
@@ -366,7 +381,7 @@ body {
         <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
         <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
       </div>
-      <a class="topbar-back" href="TheGiveback_Site_V4.html">
+      <a class="topbar-back" href="/">
         ← <span id="back-label">Volver al sitio</span>
       </a>
     </div>
@@ -467,7 +482,7 @@ body {
     <p class="ask-text" id="ask">
       El pacto está escrito. Las fundaciones están esperando. La tubería está construida. <em>Lo único que falta eres tú.</em>
     </p>
-    <a href="TheGiveback_Site_V4.html" class="ask-cta" id="ask-cta">
+    <a href="/" class="ask-cta" id="ask-cta">
       Certifícate en TheGiveback.org →
     </a>
   </div>
