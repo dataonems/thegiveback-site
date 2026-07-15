@@ -515,6 +515,12 @@ p { color: var(--text-muted); line-height: 1.8; }
 .foundation-card-stats { display: flex; gap: 16px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--mist); }
 .fc-stat-num { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--green-lt); }
 .fc-stat-label { font-size: 10px; color: var(--text-muted); }
+/* Named-partner card variant — used by the drop-in template kept in a comment
+   next to the placeholder cards. Photo + person-credit caption follow
+   GiveDirectly's "Leonard & Mercy in Malawi" pattern. */
+.foundation-card-photo { display: block; width: 100%; height: 180px; object-fit: cover; }
+.foundation-card-photo-caption { font-family: var(--sans); font-size: 11px; font-style: italic; color: var(--text-muted); padding: 8px 18px 0; line-height: 1.5; }
+.fc-impact-line { display: flex; align-items: flex-start; gap: 8px; margin-top: 12px; padding: 10px 14px; background: var(--gold-pale); border-radius: var(--r); border: 1px solid rgba(196,135,42,.2); font-size: 13px; font-weight: 600; color: var(--gold-deep); line-height: 1.5; }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    PÁGINA 2 — CÓMO FUNCIONA
@@ -1885,6 +1891,31 @@ section:nth-child(even) {
           </div>
         </div>
 
+        <!-- ═══ NAMED-PARTNER CARD TEMPLATE ═══
+             Drop-in swap for a placeholder card above once a real foundation signs
+             (ASODISVALLE, Rescue + Rise, ...). Uncomment, replace every [BRACKETED]
+             field with verified content, and delete the placeholder card it replaces.
+             Photo caption credits a real person, modeled on GiveDirectly's
+             "Leonard & Mercy in Malawi" pattern. CSS already live:
+             .foundation-card-photo / .foundation-card-photo-caption / .fc-impact-line
+
+        <div class="foundation-card reveal">
+          <img class="foundation-card-photo" src="[assets/foundation-photo.jpg]" alt="[Who is in the photo and what they are doing]">
+          <div class="foundation-card-photo-caption">[First name(s) of real person(s)] · [City], Colombia · [one clause: what the program does for them]</div>
+          <div class="foundation-card-body">
+            <div class="foundation-card-name">[Foundation Name] 🇨🇴</div>
+            <p class="foundation-card-desc">[2 to 3 sentences of real, verified description. What they do, who they serve, since when.]</p>
+            <div class="fc-impact-line">✓ [One real, verifiable impact stat, e.g. "1,240 niños alimentados en 2025"]</div>
+            <div class="foundation-card-stats">
+              <div><div class="fc-stat-num">[N+]</div><div class="fc-stat-label">[Personas atendidas]</div></div>
+              <div><div class="fc-stat-num">[N años]</div><div class="fc-stat-label">En operación</div></div>
+              <div><div class="fc-stat-num">[Ciudad]</div><div class="fc-stat-label">Colombia</div></div>
+            </div>
+          </div>
+        </div>
+
+             ═══ END NAMED-PARTNER TEMPLATE ═══ -->
+
       </div>
       <!-- VENEZUELA FOUNDATION SLOT -->
       <div class="foundation-card reveal" style="background:var(--bg);border-radius:var(--rlg);border:1px solid var(--border);overflow:hidden">
@@ -2574,6 +2605,9 @@ section:nth-child(even) {
         <span class="eyebrow" id="found-network-eyebrow">Nuestra Red</span>
         <h2 id="found-network-h2">Fundaciones actualmente en la red.</h2>
       </div>
+      <!-- DEV NOTE: when a real foundation signs, use the NAMED-PARTNER CARD TEMPLATE
+           kept in a comment in the homepage foundations-preview section (search
+           "NAMED-PARTNER CARD TEMPLATE") — same classes work here. -->
       <div class="foundations-preview">
         <div class="foundation-card reveal">
           <div class="foundation-card-img ph-img"><span>🏛️</span><div>Colombian Foundation<br><small>Solicitar a Jeison / Jorge</small></div></div>
