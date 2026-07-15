@@ -1680,11 +1680,11 @@ section:nth-child(even) {
             </div>
             <div class="clover-strip"></div>
           </div>
-          <!-- ⚠ PLACEHOLDER: Replace with real monthly giving amount -->
+          <!-- DEV NOTE: Live monthly giving badge — replace "—" with the real amount
+               (wired to the ledger) once the first disbursement lands. -->
           <div class="float-badge fb-top">
-            <div class="ph" style="margin-bottom:4px">⚠ Live amount</div>
-            <div class="fb-val">$X,XXX</div>
-            <div class="fb-label">Donado este mes 🇨🇴</div>
+            <div class="fb-val" id="fb-live-val">—</div>
+            <div class="fb-label" id="fb-live-lbl">Se activa con el primer desembolso 🇨🇴</div>
           </div>
           <!-- ⚠ PLACEHOLDER: Replace with first real foundation name -->
           <div class="float-badge fb-bot">
@@ -2925,6 +2925,7 @@ es: {
   heroSub:'Ya estás generando el margen. La pregunta es a dónde va. <strong>Redirectamos el 30% del nuestro a fundaciones colombianas y venezolanas verificadas</strong> — automáticamente, cada mes, sin costo extra para ti.',
   heroCta1:'Únete al pacto →', heroCta2:'Cómo Funciona →', waCta:'💬 Hablar con Chris →',
   hs1Lbl:'Costo extra para ti', hs2Lbl:'De nuestro margen a Colombia y Venezuela', hs3Lbl:'En libro público',
+  fbLiveLbl:'Se activa con el primer desembolso 🇨🇴',
   hw1T:'Tu cliente paga', hw1S:'Nada cambia para ti',
   hw2T:'DATAONE gana margen', hw2S:'Ese es nuestro dinero, no el tuyo',
   hw3T:'El 30% va a Colombia y Venezuela', hw3S:'Automático · Verificado · Permanente',
@@ -3235,6 +3236,7 @@ en: {
   heroSub:'You are already generating the margin. The question is where it goes. <strong>We route 30% of ours to vetted Colombian and Venezuelan foundations</strong> — automatically, every month, at no extra cost to you.',
   heroCta1:'Join the covenant →', heroCta2:'How It Works →', waCta:'💬 Talk to Chris →',
   hs1Lbl:'Extra cost to you', hs2Lbl:'Of our margin to Colombia & Venezuela', hs3Lbl:'On public ledger',
+  fbLiveLbl:'Activates with first disbursement 🇨🇴',
   hw1T:'Your customer pays', hw1S:'Nothing changes for you',
   hw2T:'DATAONE earns margin', hw2S:'That is our money, not yours',
   hw3T:'30% goes to Colombia and Venezuela', hw3S:'Automatic · Verified · Permanent',
@@ -3663,6 +3665,8 @@ function setLang(code) {
     's3-title': false, 's3-p1': false, 's3-p2': false, 's3-cta': false,
     // Card 4 — Venezuelan foundations
     's4-title': false, 's4-p1': false, 's4-cta': false,
+    // Terminal widget floating badges
+    'fb-live-lbl': false,
     // How-band
     'hw1-t': false, 'hw1-s': false,
     'hw2-t': false, 'hw2-s': false,
