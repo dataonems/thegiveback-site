@@ -19,6 +19,7 @@
   --green-lt:  #4A9B6F;
   --gold:      #C4872A;
   --gold-lt:   #E8A94A;
+  --gold-deep: #96651A; /* WCAG AA-compliant gold for text and button fills */
   --terra:     #C4541A;
   --terra-lt:  #E8713A;
   --terra-pale:#FDF0E8;
@@ -113,7 +114,7 @@ p { color: var(--text-muted); line-height: 1.8; }
 .eyebrow {
   font-family: var(--sans); font-size: 11px;
   font-weight: 700; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--gold);
+  text-transform: uppercase; color: var(--gold-deep);
   display: block; margin-bottom: 14px;
 }
 .section-header { text-align: center; margin-bottom: 56px; }
@@ -135,10 +136,10 @@ p { color: var(--text-muted); line-height: 1.8; }
 }
 .btn-primary:hover { background: var(--green-mid); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(27,67,50,.3); }
 .btn-gold {
-  background: var(--gold); color: #fff;
+  background: var(--gold-deep); color: #fff;
   box-shadow: 0 2px 12px rgba(181,130,26,.25);
 }
-.btn-gold:hover { background: var(--gold-lt); transform: translateY(-1px); }
+.btn-gold:hover { background: #A8721F; transform: translateY(-1px); }
 .btn-outline {
   background: transparent; color: var(--green);
   border: 1.5px solid var(--green);
@@ -171,7 +172,7 @@ p { color: var(--text-muted); line-height: 1.8; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.75)} }
 .counter-label { font-family: var(--sans); font-size: 12px; font-weight: 500; color: rgba(255,255,255,.65); }
 .counter-num   { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--gold-lt); }
-.counter-note  { font-family: var(--sans); font-size: 11px; color: rgba(255,255,255,.4); font-style: italic; }
+.counter-note  { font-family: var(--sans); font-size: 11px; color: rgba(255,255,255,.55); font-style: italic; }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    NAV
@@ -352,10 +353,10 @@ p { color: var(--text-muted); line-height: 1.8; }
 .footer-desc { font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.7; max-width: 220px; }
 .footer-col-title { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 14px; }
 .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-.footer-links button { background: none; border: none; font-size: 13px; color: rgba(255,255,255,.55); cursor: pointer; text-align: left; padding: 0; transition: color .15s; }
+.footer-links button { background: none; border: none; font-size: 13px; color: rgba(255,255,255,.55); cursor: pointer; text-align: left; padding: 6px 0; transition: color .15s; }
 .footer-links button:hover { color: #fff; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-.footer-legal { font-size: 11px; color: rgba(255,255,255,.3); }
+.footer-legal { font-size: 11px; color: rgba(255,255,255,.55); }
 .footer-mission { font-family: var(--serif); font-size: 12px; font-style: italic; color: rgba(255,255,255,.35); }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -573,6 +574,8 @@ p { color: var(--text-muted); line-height: 1.8; }
 .story-dedication p { font-family: var(--serif); font-size: clamp(16px,2vw,20px); font-style: italic; color: rgba(255,255,255,.9); line-height: 1.7; margin: 0; }
 .story-dedication strong { color: var(--gold-lt); font-style: normal; }
 .story-sig { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 48px; }
+/* Bilingual story blocks — Spanish is the default; setLang() toggles these */
+.story-en { display: none; }
 .story-sig-name { font-family: var(--serif); font-size: clamp(20px,2.5vw,28px); font-style: italic; color: var(--green); margin-bottom: 5px; }
 .story-sig-title { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
@@ -879,6 +882,39 @@ p { color: var(--text-muted); line-height: 1.8; }
   .role-select-grid{grid-template-columns:1fr}
 }
 
+/* ── ACCESSIBILITY: REDUCED MOTION ───────────────── */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ── PREMIUM RANGE SLIDER (calculator) ───────────── */
+#vol-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+#vol-slider::-webkit-slider-runnable-track {
+  height: 6px; border-radius: 3px; background: var(--green);
+}
+#vol-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--gold); cursor: pointer;
+  margin-top: -11px;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+#vol-slider::-moz-range-track {
+  height: 6px; border-radius: 3px; background: var(--green);
+}
+#vol-slider::-moz-range-thumb {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--gold); cursor: pointer;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+
 /* ═══════════════════════════════════════════
    PREMIUM UPGRADE — Typography, Depth, Texture
 ═══════════════════════════════════════════ */
@@ -948,7 +984,7 @@ body {
   box-shadow: 0 6px 28px rgba(26,58,42,.38);
 }
 .btn-gold {
-  background: linear-gradient(135deg, var(--gold) 0%, #D4962E 100%);
+  background: linear-gradient(135deg, #96651A 0%, #A8721F 100%);
   box-shadow: var(--shadow-gold);
   position: relative;
   overflow: hidden;
@@ -1477,10 +1513,10 @@ section:nth-child(even) {
 <div class="counter-band">
   <div class="counter-band-inner">
     <div class="counter-pulse"></div>
-    <span class="counter-label" data-i18n="counterLabel">Total donado a Colombia y Venezuela</span>
-    <span class="counter-num" id="liveNum">$0</span>
+    <span class="counter-label" data-i18n="counterLabel">Pacto del 30% — firmado y permanente</span>
+    <span class="counter-num" id="liveNum" data-i18n="counterNum">Primer desembolso: en camino</span>
     <span class="counter-label">·</span>
-    <span class="counter-note" data-i18n="counterNote">⚠ En vivo cuando ocurra el primer desembolso</span>
+    <span class="counter-note" data-i18n="counterNote">El contador en vivo se activa con el primer desembolso</span>
   </div>
 </div>
 
@@ -1505,8 +1541,8 @@ section:nth-child(even) {
     </div>
     <div class="nav-actions">
       <div class="lang-toggle" style="display:flex;align-items:center;gap:0;background:var(--mist);border-radius:20px;padding:2px;border:1px solid var(--border)">
-      <button onclick="setLang('es')" data-lang="es" class="lang-btn active" style="font-family:var(--sans);font-size:11px;font-weight:700;padding:4px 10px;border-radius:16px;border:none;cursor:pointer;background:var(--green);color:#fff;transition:all .15s;letter-spacing:.04em">ES</button>
-      <button onclick="setLang('en')" data-lang="en" class="lang-btn" style="font-family:var(--sans);font-size:11px;font-weight:700;padding:4px 10px;border-radius:16px;border:none;cursor:pointer;background:transparent;color:var(--text-muted);transition:all .15s;letter-spacing:.04em">EN</button>
+      <button onclick="setLang('es')" data-lang="es" class="lang-btn active" style="font-family:var(--sans);font-size:11px;font-weight:700;padding:8px 14px;border-radius:16px;border:none;cursor:pointer;background:var(--green);color:#fff;transition:all .15s;letter-spacing:.04em">ES</button>
+      <button onclick="setLang('en')" data-lang="en" class="lang-btn" style="font-family:var(--sans);font-size:11px;font-weight:700;padding:8px 14px;border-radius:16px;border:none;cursor:pointer;background:transparent;color:var(--text-muted);transition:all .15s;letter-spacing:.04em">EN</button>
     </div>
       <button class="btn btn-gold btn-sm" onclick="showPage('start')" style="font-weight:700">Únete →</button>
     </div>
@@ -1525,6 +1561,8 @@ section:nth-child(even) {
   <button class="nav-mobile-link" onclick="showPage('merchants');closeMobileMenu()" data-i18n="navMerchants">Para Comercios</button>
   <button class="nav-mobile-link" onclick="showPage('foundations');closeMobileMenu()" data-i18n="navFoundations">Para Fundaciones</button>
   <button class="nav-mobile-link" onclick="showPage('story');closeMobileMenu()" data-i18n="navStory">Nuestra Historia</button>
+  <button class="nav-mobile-link" onclick="showPage('roadmap');closeMobileMenu()" data-i18n="navRoadmap">Mapa de Ruta</button>
+  <button class="nav-mobile-link" onclick="showPage('join');closeMobileMenu()" data-i18n="navJoin">Únete</button>
   <div style="display:flex;gap:8px;margin-top:16px;margin-bottom:8px">
     <button onclick="setLang('es');closeMobileMenu()" data-lang="es" class="lang-btn active" style="flex:1;padding:10px;border-radius:var(--r);border:1.5px solid var(--green);background:var(--green);color:#fff;font-weight:700;font-size:13px;cursor:pointer">🇨🇴 Español</button>
     <button onclick="setLang('en');closeMobileMenu()" data-lang="en" class="lang-btn" style="flex:1;padding:10px;border-radius:var(--r);border:1.5px solid var(--border);background:transparent;color:var(--green);font-weight:700;font-size:13px;cursor:pointer">🇺🇸 English</button>
@@ -1557,7 +1595,7 @@ section:nth-child(even) {
 
           <!-- TRIBE CTA — Godin: identity not transaction -->
           <div class="hero-ctas">
-            <button class="btn btn-gold" onclick="showPage('start')" data-i18n="heroCta1">Únete a los que construyen Colombia y Venezuela</button>
+            <button class="btn btn-gold" onclick="showPage('start')" data-i18n="heroCta1">Únete al pacto →</button>
             <button class="btn btn-ghost" onclick="showPage('how')" data-i18n="heroCta2">Cómo Funciona →</button>
           </div>
           <div class="hero-stats">
@@ -1724,10 +1762,10 @@ section:nth-child(even) {
         <p style="color:rgba(255,255,255,.6)" data-i18n="impSub">Por décadas, ese margen fue a los procesadores. Por primera vez, una porción va a las comunidades que lo generaron.</p>
       </div>
       <div class="impact-nums">
-        <div class="impact-num-block"><span class="impact-num">$0</span><div class="impact-label" data-i18n-html="imp1Lbl">Costo extra<br>para el comerciante</div></div>
-        <div class="impact-num-block"><span class="impact-num">30%</span><div class="impact-label" data-i18n-html="imp2Lbl">De nuestro margen<br>va a la comunidad siempre</div></div>
-        <div class="impact-num-block"><span class="impact-num">1ro</span><div class="impact-label" data-i18n-html="imp3Lbl">De cada mes<br>el desembolso llega</div></div>
-        <div class="impact-num-block"><span class="impact-num">∞</span><div class="impact-label" data-i18n-html="imp4Lbl">El pacto<br>es permanente</div></div>
+        <div class="impact-num-block"><span class="impact-num" id="imp1-num">$0</span><div class="impact-label" data-i18n-html="imp1Lbl">Costo extra<br>para el comerciante</div></div>
+        <div class="impact-num-block"><span class="impact-num" id="imp2-num">30%</span><div class="impact-label" data-i18n-html="imp2Lbl">De nuestro margen<br>va a la comunidad siempre</div></div>
+        <div class="impact-num-block"><span class="impact-num" id="imp3-num">1ro</span><div class="impact-label" data-i18n-html="imp3Lbl">De cada mes<br>el desembolso llega</div></div>
+        <div class="impact-num-block"><span class="impact-num" id="imp4-num">∞</span><div class="impact-label" data-i18n-html="imp4Lbl">El pacto<br>es permanente</div></div>
       </div>
       <div style="text-align:center;margin-top:28px">
         <p style="font-family:var(--serif);font-size:clamp(16px,2vw,20px);font-style:italic;color:rgba(255,255,255,.75);margin-bottom:24px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.65"><span data-i18n="impQuote">"Llevas años en EE.UU. construyendo algo. Colombia te está esperando."</span></p>
@@ -1740,9 +1778,9 @@ section:nth-child(even) {
   <section class="section" style="background:var(--bg-soft)">
     <div class="wrap">
       <div class="section-header reveal">
-        <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:#FEF3C7;border:1px solid #FCD34D;border-radius:20px;margin-bottom:12px">
-          <span style="font-size:12px">⚠</span>
-          <span style="font-family:var(--sans);font-size:10px;font-weight:700;color:#92400E;letter-spacing:.08em;text-transform:uppercase">Fundaciones piloto — acuerdos pendientes de firma</span>
+        <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(74,155,111,.1);border:1px solid rgba(74,155,111,.3);border-radius:20px;margin-bottom:12px">
+          <span style="font-size:12px">🔍</span>
+          <span style="font-family:var(--sans);font-size:10px;font-weight:700;color:var(--green);letter-spacing:.08em;text-transform:uppercase">Fundaciones piloto — acuerdos pendientes de firma</span>
         </div>
         <span class="eyebrow" data-i18n="foundEyebrow">Las Personas Que Reciben</span>
         <h2 data-i18n-html="foundH2">No son categorías.<br>Son comunidades reales en Colombia y Venezuela.</h2>
@@ -1780,11 +1818,6 @@ section:nth-child(even) {
             <div class="ph">⚠ Confirm foundation details</div>
             <div class="foundation-card-name">Fundación Piloto Colombia 2 🇨🇴</div>
             <p class="foundation-card-desc">Fundación colombiana verificada sirviendo a madres y familias vulnerables. Socio piloto — acuerdo de asociación en proceso de firma.</p>
-            <div class="foundation-card-stats">
-              <div><div class="fc-stat-num">—</div><div class="fc-stat-label">Beneficiarias</div></div>
-              <div><div class="fc-stat-num">—</div><div class="fc-stat-label">Impacto</div></div>
-              <div><div class="fc-stat-num">—</div><div class="fc-stat-label">Alcance</div></div>
-            </div>
           </div>
         </div>
 
@@ -2129,7 +2162,7 @@ section:nth-child(even) {
       <div class="merchant-hero-grid">
         <div>
           <span class="eyebrow" style="color:var(--gold-lt)" id="m-eyebrow">Para Comercios en EE.UU.</span>
-          <h1 data-i18n-html="merchantH1">Sin comisiones.<br>Hardware gratis.<br><em>Colombia financiada.</em></h1>
+          <h1 id="m-h1" data-i18n-html="merchantH1">Sin comisiones.<br>Hardware gratis.<br><em>Colombia financiada.</em></h1>
           <p id="m-sub">Procesas pagos cada día. Pagas comisiones cada mes. Y Colombia y Venezuela esperan. TheGiveback cambia las tres cosas al mismo tiempo — sin que cambies nada en tu operación.</p>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
             <button class="btn btn-gold" onclick="showPage('start')">Únete a los que construyen Colombia y Venezuela →</button>
@@ -2195,7 +2228,7 @@ section:nth-child(even) {
             <h3 style="font-size:clamp(20px,2.5vw,28px);color:var(--green);margin-bottom:12px"><span id="merch-p2-h3">Lo que pagas hoy<br>en comisiones desaparece.</span></h3>
             <p id="m-p2-body" style="font-size:15px;line-height:1.8;margin-bottom:20px">Cada mes le pagas miles a tu procesador. Los precios duales transfieren ese costo transparentemente — el cliente que paga con tarjeta cubre la comisión, el cliente en efectivo recibe un descuento. Tu costo efectivo cae a casi cero. Ese dinero vuelve a tu negocio.</p>
             <div style="background:white;border-radius:var(--r);border:1px solid var(--border);padding:18px;margin-top:4px">
-              <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px"><span id="m-compare-title">Antes vs Después de Precios Duales</span></div>
+              <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px"><span id="m-compare-title">Antes vs Después de Precios Duales</span></div>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
                 <div style="text-align:center;padding:14px;background:#FEF2F2;border-radius:8px;border:1px solid #FECACA">
                   <div style="font-size:11px;font-weight:600;color:#991B1B;margin-bottom:6px"><span id="m-trad-label">Procesamiento Tradicional</span></div>
@@ -2324,7 +2357,7 @@ section:nth-child(even) {
           <!-- Remittance complement -->
           <div style="margin-top:12px;padding:16px 20px;background:rgba(255,255,255,.06);border-radius:var(--r);border:1px solid rgba(255,255,255,.1)">
             <div style="font-family:var(--sans);font-size:11px;font-weight:700;color:var(--gold-lt);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px"><span id="m-remit-title">Funciona junto a las remesas</span></div>
-            <p style="font-family:var(--sans);font-size:12px;color:rgba(255,255,255,.65);line-height:1.65;margin:0">Las remesas van a tu familia. TheGiveback va a las fundaciones de Colombia. Dos canales. Dos propósitos. Ninguno reemplaza al otro — y este no te cuesta nada.</p>
+            <p id="m-remit-body" style="font-family:var(--sans);font-size:12px;color:rgba(255,255,255,.65);line-height:1.65;margin:0">Las remesas van a tu familia. TheGiveback va a las fundaciones de Colombia y Venezuela. Dos canales. Dos propósitos. Ninguno reemplaza al otro — y este no te cuesta nada.</p>
           </div>
         </div>
       </div>
@@ -2498,7 +2531,6 @@ section:nth-child(even) {
             <p class="foundation-card-desc" id="found-net2-desc">Fundación verificada sirviendo a madres vulnerables y sus bebés en Colombia. Rescatando vidas, alimentando a los hambrientos. Socio piloto pendiente de firma de acuerdo.</p>
             <div class="foundation-card-stats">
               <div><div class="fc-stat-num">300+</div><div class="fc-stat-label" id="found-net2-stat1">Madres</div></div>
-              <div><div class="fc-stat-num">—</div><div class="fc-stat-label" id="found-net2-stat2">Impacto</div></div>
             </div>
           </div>
         </div>
@@ -2537,7 +2569,7 @@ section:nth-child(even) {
 
   <div class="story-article wrap-sm">
 
-    <div class="story-chapter">
+    <div class="story-chapter story-en">
       <h2>An American Who Chose to Stay</h2>
       <p>I am an American who came to Colombia seven years ago and never left.</p>
       <p>Not because I had to stay. Because I chose to. Because something happened here that I didn't expect and couldn't explain for a long time — I fell in love. With the people. With the culture. With the warmth that lives in this country that no statistic or news story has ever been able to capture. With my daughter Mia, who was born here in Medellín, who is Colombian, who will grow up in this city and call it home the way I now call it home.</p>
@@ -2545,7 +2577,7 @@ section:nth-child(even) {
       <div class="story-pull"><p>That is when the thing I had been carrying for twenty years stopped being a dream and became a calling.</p></div>
     </div>
 
-    <div class="story-chapter">
+    <div class="story-chapter story-en">
       <h2>Twenty Years of Wanting to Do Something</h2>
       <p>I have been in financial services for over fifteen years. I know how money moves. Every time a small business runs a card, a few cents flow through a processing network. I've watched them accumulate into margins, residuals, and profits — including mine.</p>
       <p>For a long time I accepted that as just how it works. But for twenty years, underneath the daily work of building a business, there was a question I couldn't shake: <em>what if the pipes could point somewhere else?</em></p>
@@ -2553,7 +2585,7 @@ section:nth-child(even) {
       <div class="story-scripture"><cite>"Faithful in little, faithful in much."</cite><div class="ref">— Luke 16:10</div></div>
     </div>
 
-    <div class="story-chapter">
+    <div class="story-chapter story-en">
       <h2>What Colombia Gave Me</h2>
       <p>Colombia gave me both — the clarity and the courage.</p>
       <p>I have watched Medellín transform itself through the sheer determination of its people. Built cable cars into hillside communities nobody else thought worth connecting. Turned its most difficult streets into libraries and parks. Not because the government fixed it — because the people refused to give up on themselves.</p>
@@ -2562,7 +2594,7 @@ section:nth-child(even) {
     </div>
 
     
-    <div class="story-chapter">
+    <div class="story-chapter story-es">
       <h2>Los Espacios Que Me Cambiaron</h2>
       <p>Pero Colombia no solo me dio una hija. Me dio una comunidad. Hace seis años ayudé a cofundar <strong>The 12 Medellín</strong> — un grupo de empresarios cristianos que se reúne cada semana para hacer algo deceptivamente simple: ayudarse mutuamente a liderar mejor, vivir con más integridad, y generar impacto real en esta ciudad.</p>
       <p>El nombre es intencional. Jesús no construyó su movimiento a través de instituciones. Eligió a doce personas, caminó con ellas, las desafió, y les confió algo más grande que ellos mismos para llevarlo al mundo. The 12 Medellín está construido sobre esa misma convicción — que la transformación ocurre en la relación, no en los programas. Cada semana hablamos de lo que realmente significa operar un negocio como seguidor de Cristo en Medellín. No en lo abstracto. En lo específico.</p>
@@ -2571,7 +2603,7 @@ section:nth-child(even) {
       <p>Dos espacios. Dos tipos de responsabilidad. Uno pregunta: ¿estás construyendo con integridad ante Dios? El otro pregunta: ¿estás construyendo con el rigor que esto merece? TheGiveback es mi intento de responder ambas preguntas — con el mismo negocio, cada mes.</p>
     </div>
 
-<div class="story-chapter">
+<div class="story-chapter story-en">
       <h2>Why Now. Why This. Why Me.</h2>
       <p>I am not a hero. I am a businessman who has spent fifteen years in financial services, who moved to Colombia seven years ago and fell in love with a country that changed him, and who has a daughter named Mia who deserves to grow up in a city and a country that gets better, not worse, over time.</p>
       <p>My faith in Jesus Christ is the root of this. Not as a slogan. As the actual reason. I have waited long enough to follow it fully. The time is now — with what I have, through what everyone already does, which is everyday commerce. But now instead of keeping all the profits, redirecting a real portion toward change.</p>
@@ -2579,7 +2611,7 @@ section:nth-child(even) {
     </div>
 
     
-    <div class="story-chapter">
+    <div class="story-chapter story-es">
       <h2>La Pregunta Que Nadie Hace</h2>
       <p>He estado en espacios con algunos de los empresarios más exitosos del mundo. Y en casi todas esas conversaciones, debajo de la estrategia y las métricas, hay una pregunta que corre como una corriente bajo la superficie: <em>¿Qué hay en esto para mí?</em> WIIFM. Es el sistema operativo del comercio moderno.</p>
       <p>Entiendo ese mundo. Construí un negocio dentro de él. No estoy aquí para condenarlo.</p>
@@ -2593,7 +2625,7 @@ section:nth-child(even) {
       <div class="story-scripture"><cite>«Honra a Jehová con tus bienes y con las primicias de todos tus frutos.»</cite><div class="ref">— Proverbios 3:9–10</div></div>
     </div>
 
-<div class="story-dedication">
+<div class="story-dedication story-en">
       <p>To the people and children of Colombia —<br>to the foundations doing the work nobody sees —<br>to the diaspora who never stopped loving home —<br>and to <strong>Mia</strong>, who made all of this make sense.</p>
       <p style="margin-top:16px;font-size:15px;color:rgba(255,255,255,.6)">This is my little difference. I hope it becomes a big one.</p>
     </div>
@@ -2611,15 +2643,11 @@ section:nth-child(even) {
       <p class="story-sig-title">Founder — DATAONE & TheGiveback.org<br>Medellín, Colombia · Seven years and counting.</p>
     </div>
 
-    <div class="story-scripture" style="margin-top:40px">
+    <div class="story-scripture story-en" style="margin-top:40px">
       <cite>"Every good and perfect gift is from above."</cite>
       <div class="ref">— James 1:17</div>
     </div>
 
-    <!-- ⚠ GAP: Spanish version link -->
-    <div class="ph-block">
-      <p>Language toggle: "Leer en español →" links to TheGiveback_Story_Page_ES.html. Add once both are deployed to Netlify under same domain.</p>
-    </div>
   </div>
 
 </div><!-- /page-story -->
@@ -2647,9 +2675,12 @@ section:nth-child(even) {
           <p id="gs-form-sub">Comercios · Socios Referentes · Fundaciones Colombianas y Venezolanas</p>
         </div>
         <div class="gs-form-body" id="gs-form-body">
+          <form id="gs-form" name="contact" method="POST" data-netlify="true" netlify netlify-honeypot="bot-field" onsubmit="event.preventDefault();submitForm()">
+          <input type="hidden" name="form-name" value="contact">
+          <p style="display:none"><label>No llenar: <input name="bot-field"></label></p>
           <div class="field">
             <label id="gs-label-role">Soy...</label>
-            <select>
+            <select name="role">
               <option value="" id="gs-opt-placeholder">Selecciona una opción</option>
               <option id="gs-opt-merchant-have">Comercio en EE.UU. — tengo terminal existente</option>
               <option id="gs-opt-merchant-need">Comercio en EE.UU. — necesito terminal</option>
@@ -2659,15 +2690,15 @@ section:nth-child(even) {
             </select>
           </div>
           <div class="field-row">
-            <div class="field"><label id="gs-label-first">Nombre</label><input type="text" placeholder="Rosa" id="gs-first"></div>
-            <div class="field"><label id="gs-label-last">Apellido</label><input type="text" placeholder="Martínez"></div>
+            <div class="field"><label id="gs-label-first">Nombre</label><input type="text" name="first_name" placeholder="Rosa" id="gs-first"></div>
+            <div class="field"><label id="gs-label-last">Apellido</label><input type="text" name="last_name" placeholder="Martínez"></div>
           </div>
-          <div class="field"><label id="gs-label-biz">Nombre del negocio / organización</label><input type="text" placeholder="Rosa's Colombian Kitchen" id="gs-biz"></div>
-          <div class="field"><label id="gs-label-phone">Teléfono (WhatsApp preferido)</label><input type="tel" placeholder="+1 (305) 555-0100"></div>
-          <div class="field"><label id="gs-label-email">Correo electrónico</label><input type="email" placeholder="rosa@example.com" id="gs-email"></div>
+          <div class="field"><label id="gs-label-biz">Nombre del negocio / organización</label><input type="text" name="business_name" placeholder="Rosa's Colombian Kitchen" id="gs-biz"></div>
+          <div class="field"><label id="gs-label-phone">Teléfono (WhatsApp preferido)</label><input type="tel" name="phone" placeholder="+1 (305) 555-0100"></div>
+          <div class="field"><label id="gs-label-email">Correo electrónico</label><input type="email" name="email" placeholder="rosa@example.com" id="gs-email"></div>
           <div class="field">
             <label id="gs-label-volume">Volumen mensual de procesamiento (estimado)</label>
-            <select>
+            <select name="monthly_volume">
               <option value="" id="gs-vol-placeholder">Selecciona un rango</option>
               <option>Menos de $50,000</option>
               <option>$50K – $250K</option>
@@ -2676,13 +2707,10 @@ section:nth-child(even) {
               <option>Más de $5M</option>
             </select>
           </div>
-          <div class="field"><label id="gs-label-foundation">Fundación colombiana o venezolana que deseas apoyar (opcional)</label><input type="text" placeholder="Déjalo en blanco — te asignaremos una" id="gs-foundation-input"></div>
-          <!-- ⚠ GAP: Wire form to backend -->
-          <div class="ph-block" style="margin-bottom:10px">
-            <p>DEV: Wire form submission to backend. Options: Netlify Forms (simplest — add name="contact" and netlify attribute to form tag), Airtable API, or Zapier webhook → CRM. Add honeypot field for spam protection.</p>
-          </div>
-          <button class="gs-submit" onclick="submitForm()" data-i18n="gsSubmitBtn">Empezar — Te Llamamos en 24 Horas</button>
+          <div class="field"><label id="gs-label-foundation">Fundación colombiana o venezolana que deseas apoyar (opcional)</label><input type="text" name="preferred_foundation" placeholder="Déjalo en blanco — te asignaremos una" id="gs-foundation-input"></div>
+          <button type="submit" class="gs-submit" data-i18n="gsSubmitBtn">Empezar — Te Llamamos en 24 Horas</button>
           <p class="gs-note" id="gs-submit-note">Sin contratos hoy. Sin tarjeta de crédito. Te guiaremos en todo durante la llamada.</p>
+          </form>
         </div>
         <div class="gs-success" id="gs-success">
           <div class="gs-success-flag">🇨🇴🇻🇪</div>
@@ -2792,10 +2820,10 @@ es: {
   navHome:'Inicio', navHow:'Cómo Funciona', navMerchants:'Para Comercios',
   navFoundations:'Para Fundaciones', navStory:'Nuestra Historia',
   navRoadmap:'Mapa de Ruta', navJoin:'Únete', navStart:'Empezar', navManifesto:'Manifiesto',
-  counterLabel:'Total donado a Colombia y Venezuela', counterNote:'⚠ En vivo cuando ocurra el primer desembolso',
+  counterLabel:'Pacto del 30% — firmado y permanente', counterNum:'Primer desembolso: en camino', counterNote:'El contador en vivo se activa con el primer desembolso',
   heroH1:'Tienes Latinoamérica<br>en el corazón.<br><em>Tu terminal ya genera el dinero.</em>',
   heroSub:'Ya estás generando el margen. La pregunta es a dónde va. <strong>Redirectamos el 30% del nuestro a fundaciones colombianas y venezolanas verificadas</strong> — automáticamente, cada mes, sin costo extra para ti.',
-  heroCta1:'Únete a los que construyen Colombia y Venezuela', heroCta2:'Cómo Funciona →',
+  heroCta1:'Únete al pacto →', heroCta2:'Cómo Funciona →',
   hs1Lbl:'Costo extra para ti', hs2Lbl:'De nuestro margen a Colombia y Venezuela', hs3Lbl:'En libro público',
   hw1T:'Tu cliente paga', hw1S:'Nada cambia para ti',
   hw2T:'DATAONE gana margen', hw2S:'Ese es nuestro dinero, no el tuyo',
@@ -2839,7 +2867,6 @@ es: {
   s1P1:'Ya estás generando el margen. La pregunta es a dónde va. Con TheGiveback, el 30% de lo que DATAONE gana en tu procesamiento va a Colombia — automáticamente, sin que cambies nada en tu operación.',
   s1P2:'El primero de cada mes: un reporte de impacto específico. Qué fundación. Qué monto. Qué financió. Un toque para compartirlo.',
   s1Cta:'Lo que ganas →',
-  s3Cta:'Para fundaciones colombianas →',
   s4Title:'Fundaciones Venezolanas', s4P1:'La crisis humanitaria en Venezuela es una de las más graves del hemisferio. Estamos incorporando fundaciones verificadas que sirven a las comunidades venezolanas más vulnerables.', s4Cta:'Conectar una fundación →',
   s2Title:'Diáspora Latinoamericana', s2Sub:'Colombia · Venezuela · Latinoamérica',
   s2P1:'Enviaste remesas este mes — a Colombia, a Venezuela, a donde están los tuyos. Tu negocio puede hacer lo mismo — automáticamente, todos los meses, sin que tengas que recordarlo ni decidirlo. La conexión que ya sientes en el corazón, ahora también en el comercio.',
@@ -2968,7 +2995,7 @@ es: {
   foundNet1Stat1:'Jóvenes atendidos',
   foundNet2Name:'Fundación Piloto Colombia 2 🇨🇴',
   foundNet2Desc:'Fundación verificada sirviendo a madres vulnerables y sus bebés en Colombia. Rescatando vidas, alimentando a los hambrientos. Socio piloto pendiente de firma de acuerdo.',
-  foundNet2Stat1:'Madres', foundNet2Stat2:'Impacto',
+  foundNet2Stat1:'Madres',
   // JOIN PAGE
   joinEyebrow:'Únete al Movimiento',
   joinP1:'No buscamos empleados. Buscamos personas que ya sientan lo que estamos construyendo antes de que se lo expliquemos. Si leíste el manifiesto y algo se apretó en tu pecho — eso es suficiente para empezar.',
@@ -3018,7 +3045,7 @@ es: {
   joinFormH2:'Da el primer paso.<br><em>Chris responde personalmente.</em>',
   joinFormSub:'Ningún filtro automático. Ningún rechazo masivo. Una respuesta real en 48 horas.',
   joinFormTitle:'Cuéntanos quién eres',
-  joinFormCardsub:'Cuéntanos quién eres y cómo quieres contribuir',
+  joinFormCardsub:'Cuéntanos cómo quieres contribuir',
   joinRoleLabel:'Mejor describe tu interés:',
   role1Label:'Co-fundador / Líder', role1Sub:'Quiero construir esto contigo',
   role2Label:'Socio Referente', role2Sub:'Conozco comercios que deberían unirse',
@@ -3099,10 +3126,10 @@ en: {
   navHome:'Home', navHow:'How It Works', navMerchants:'For Merchants',
   navFoundations:'For Foundations', navStory:'Our Story',
   navRoadmap:'Roadmap', navJoin:'Join Us', navStart:'Get Started', navManifesto:'Manifesto',
-  counterLabel:'Total given to Colombia and Venezuela', counterNote:'⚠ Live when first disbursement occurs',
+  counterLabel:'30% Covenant — signed and permanent', counterNum:'First disbursement: incoming', counterNote:'Live counter activates with the first disbursement',
   heroH1:'You have Latin America<br>in your heart.<br><em>Your terminal already generates the money.</em>',
   heroSub:'You are already generating the margin. The question is where it goes. <strong>We route 30% of ours to vetted Colombian and Venezuelan foundations</strong> — automatically, every month, at no extra cost to you.',
-  heroCta1:'Join those building Colombia &amp; Venezuela', heroCta2:'How It Works →',
+  heroCta1:'Join the covenant →', heroCta2:'How It Works →',
   hs1Lbl:'Extra cost to you', hs2Lbl:'Of our margin to Colombia &amp; Venezuela', hs3Lbl:'On public ledger',
   hw1T:'Your customer pays', hw1S:'Nothing changes for you',
   hw2T:'DATAONE earns margin', hw2S:'That is our money, not yours',
@@ -3146,7 +3173,6 @@ en: {
   s1P1:'You are already generating the margin. The question is where it goes. With TheGiveback, 30% of what DATAONE earns on your processing goes to Colombia — automatically, without changing anything in your operation.',
   s1P2:'First of every month: a specific impact report. Which foundation. What amount. What it funded. Shareable in one tap.',
   s1Cta:'What you get →',
-  s3Cta:'For Colombian foundations →',
   s4Title:'Venezuelan Foundations', s4P1:'The humanitarian crisis in Venezuela is one of the most severe in the western hemisphere. We are incorporating verified foundations serving the most vulnerable Venezuelan communities.', s4Cta:'Connect a foundation →',
   s2Title:'Latin American Diaspora', s2Sub:'Colombia · Venezuela · Latin America',
   s2P1:'You sent remittances this month — to Colombia, to Venezuela, to wherever your people are. Your business can do the same — automatically, every month, without you having to remember or decide. The connection you already feel in your heart, now also in your commerce.',
@@ -3275,7 +3301,7 @@ en: {
   foundNet1Stat1:'Youth served',
   foundNet2Name:'Pilot Foundation Colombia 2 🇨🇴',
   foundNet2Desc:'Verified foundation serving vulnerable mothers and their babies in Colombia. Rescuing lives, feeding the hungry. Pilot partner pending agreement signature.',
-  foundNet2Stat1:'Mothers', foundNet2Stat2:'Impact',
+  foundNet2Stat1:'Mothers',
   // JOIN PAGE
   joinEyebrow:'Join the Movement',
   joinP1:'We are not looking for employees. We are looking for people who already feel what we are building before we explain it. If you read the manifesto and something tightened in your chest — that is enough to start.',
@@ -3325,7 +3351,7 @@ en: {
   joinFormH2:'Take the first step.<br><em>Chris responds personally.</em>',
   joinFormSub:'No automatic filters. No mass rejections. A real response in 48 hours.',
   joinFormTitle:'Tell us who you are',
-  joinFormCardsub:'Tell us who you are and how you want to contribute',
+  joinFormCardsub:'Tell us how you want to contribute',
   joinRoleLabel:'Best describes your interest:',
   role1Label:'Co-Founder / Leader', role1Sub:'I want to build this with you',
   role2Label:'Referral Partner', role2Sub:'I know merchants who should join',
@@ -3530,6 +3556,8 @@ function setLang(code) {
     'hw2-t': false, 'hw2-s': false,
     'hw3-t': false, 'hw3-s': false,
     'hw4-t': false, 'hw4-s': false,
+    // Impact metrics ("1ro" → "1st" in EN)
+    'imp1-num': false, 'imp2-num': false, 'imp3-num': false, 'imp4-num': false,
   };
   Object.keys(homeIds).forEach(function(key) {
     const langKey = key.replace(/-([a-z])/g, function(m, c) { return c.toUpperCase(); });
@@ -3594,7 +3622,7 @@ function setLang(code) {
     'gh-tagline': false, 'gh-partner-badge': true,
     'found-network-eyebrow': false, 'found-network-h2': false,
     'found-net1-name': false, 'found-net1-desc': false, 'found-net1-stat1': false,
-    'found-net2-name': false, 'found-net2-desc': false, 'found-net2-stat1': false, 'found-net2-stat2': false,
+    'found-net2-name': false, 'found-net2-desc': false, 'found-net2-stat1': false,
   });
 
   // Join page
@@ -3701,6 +3729,10 @@ function setLang(code) {
     'footer-partner-foundations': false, 'footer-venezuela': false, 'footer-givehub': false,
   });
 
+  // Story page — bilingual blocks: show the active language's chapters, hide the other's
+  document.querySelectorAll('.story-en').forEach(function(el) { el.style.display = (code === 'en') ? 'block' : 'none'; });
+  document.querySelectorAll('.story-es').forEach(function(el) { el.style.display = (code === 'es') ? 'block' : 'none'; });
+
   // Update document title
   if (code === 'es') {
     document.title = 'TheGiveback — Cada transacción construye Colombia y Venezuela';
@@ -3772,6 +3804,15 @@ function submitForm() {
   if (!first || !email || !biz) {
     alert(currentLang === 'es' ? 'Por favor completa tu nombre, negocio y correo electrónico.' : 'Please fill in your name, business, and email to continue.');
     return;
+  }
+  // POST to Netlify Forms (captures the lead in the Netlify dashboard)
+  const form = document.getElementById('gs-form');
+  if (form) {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    }).catch(function(){ /* show success regardless — lead validation happens on the follow-up call */ });
   }
   document.getElementById('gs-form-body').style.display = 'none';
   document.getElementById('gs-success').style.display   = 'block';
@@ -4129,7 +4170,7 @@ function submitJoin() {
         <div class="join-form-card reveal">
           <div class="join-form-hd">
             <h3 id="join-form-title">Cuéntanos quién eres</h3>
-            <p id="join-form-cardsub">Cuéntanos quién eres y cómo quieres contribuir</p>
+            <p id="join-form-cardsub">Cuéntanos cómo quieres contribuir</p>
           </div>
           <div class="join-form-body" id="join-form-body">
 
