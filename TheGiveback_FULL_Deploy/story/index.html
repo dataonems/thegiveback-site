@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" translate="no">
+<html lang="es" id="html-root" translate="no">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Our Story — TheGiveback</title>
+<title id="doc-title">Nuestra Historia — TheGiveback</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --green:#1A3A2A;--green-mid:#2E6B4A;--green-lt:#4A9B6F;
@@ -37,6 +37,19 @@ nav{
 }
 .nav-logo{font-size:17px;font-weight:700;color:var(--green);text-decoration:none;cursor:pointer}
 .nav-logo span{color:var(--gold)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.lang-toggle{
+  display:flex;gap:0;background:#EEECEA;
+  border-radius:20px;padding:2px;
+  border:1px solid var(--border);
+}
+.lang-btn{
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:700;
+  padding:8px 12px;border-radius:16px;border:none;
+  cursor:pointer;background:transparent;color:var(--muted);
+  transition:all .15s;letter-spacing:.04em;min-height:36px;
+}
+.lang-btn.active{background:var(--green);color:#fff}
 .nav-cta{
   font-family:'Inter',sans-serif;
   background:var(--green);color:var(--white);
@@ -256,7 +269,13 @@ strong{font-weight:600;color:#111111}
 <nav>
   <div class="nav-inner">
     <span class="nav-logo">The<span>Giveback</span> 🇨🇴</span>
-    <button class="nav-cta">Get Certified</button>
+    <div class="nav-actions">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <button class="nav-cta" id="nav-cta">Certifícate</button>
+    </div>
   </div>
 </nav>
 
@@ -264,15 +283,15 @@ strong{font-weight:600;color:#111111}
 
 <!-- Hero -->
 <div class="story-hero">
-  <div class="story-flag">🇨🇴</div>
-  <div class="story-hero-eyebrow">The Founder's Story</div>
-  <h1>For Mia.<br>For Colombia.<br><em>For everyone this could reach.</em></h1>
-  <p class="story-hero-sub">Why an American spent twenty years carrying an idea — and finally found the calling to build it.</p>
+  <div class="story-flag">🇨🇴🇻🇪</div>
+  <div class="story-hero-eyebrow" id="hero-eyebrow">La Historia del Fundador</div>
+  <h1 id="hero-title">Para Mia.<br>Para Colombia.<br><em>Para todos los que esto pueda alcanzar.</em></h1>
+  <p class="story-hero-sub" id="hero-sub">Por qué un estadounidense pasó veinte años cargando una idea — y finalmente encontró el llamado para construirla.</p>
   <div class="story-byline">
-    <span>Written by</span>
+    <span id="byline-written-by">Escrito por</span>
     <span class="story-byline-name">Chris Humphrey</span>
     <span>·</span>
-    <span>Medellín, Colombia · 2026</span>
+    <span id="byline-location">Medellín, Colombia · 2026</span>
   </div>
 </div>
 
@@ -281,235 +300,564 @@ strong{font-weight:600;color:#111111}
 
   <!-- Chapter 1 -->
   <div class="chapter">
-    <div class="chapter-title">An American Who Chose to Stay</div>
+    <div class="chapter-title" id="ch1-title">Un Estadounidense Que Eligió Quedarse</div>
 
-    <p>I am an American who came to Colombia seven years ago and never left.</p>
+    <p id="ch1-p1">Soy un estadounidense que llegó a Colombia hace siete años y nunca se fue.</p>
 
-    <p>Not because I had to stay. Because I chose to. Because something happened here that I didn't expect and couldn't explain for a long time — I fell in love. With the people. With the culture. With the warmth that lives in this country that no statistic or news story has ever been able to capture. With a woman who became my family. And then with my daughter Mia, who was born here in Medellín, who is Colombian, who will grow up in this city and call it home the way I now call it home.</p>
+    <p id="ch1-p2">No porque tuviera que quedarme. Porque elegí hacerlo. Porque aquí pasó algo que no esperaba y que tardé mucho tiempo en poder explicar — me enamoré. De la gente. De la cultura. De la calidez que vive en este país y que ninguna estadística ni ningún titular de periódico ha podido capturar jamás. De una mujer que se convirtió en mi familia. Y luego de mi hija Mia, que nació aquí en Medellín, que es colombiana, que va a crecer en esta ciudad y va a llamarla hogar de la misma manera en que yo ahora la llamo hogar.</p>
 
-    <p>When you become a father, the world gets smaller and larger at the same time. Smaller because suddenly there is one person whose life matters to you more than any abstraction. Larger because you start seeing every child differently — every kid on the street corner, every family in every neighborhood, every little girl who is someone's Mia — and you understand that what you do with your life is no longer just your business.</p>
+    <p id="ch1-p3">Cuando uno se convierte en padre, el mundo se vuelve más pequeño y más grande al mismo tiempo. Más pequeño porque de repente hay una sola persona cuya vida importa más que cualquier abstracción. Más grande porque uno empieza a ver a cada niño de manera diferente — cada niño en la esquina, cada familia en cada barrio, cada niña que es la Mia de alguien — y entiende que lo que uno hace con su vida ya no es solamente su asunto.</p>
 
     <div class="pull">
-      <p>That is when the thing I had been carrying for twenty years stopped being a dream and became a calling.</p>
+      <p id="ch1-pull">Fue entonces cuando lo que había cargado durante veinte años dejó de ser un sueño y se convirtió en un llamado.</p>
     </div>
   </div>
 
   <!-- Chapter 2 -->
   <div class="chapter">
-    <div class="chapter-title">Twenty Years of Wanting to Do Something</div>
+    <div class="chapter-title" id="ch2-title">Veinte Años Queriendo Hacer Algo</div>
 
-    <p>I have been in financial services for over fifteen years. I know how money moves. I know that every time a small business runs a card — a restaurant, a salon, a hardware store, a food truck — a few cents of every dollar flow through a processing network. I know where those cents go. I have watched them accumulate into margins, residuals, and profits for processors, agents, and owners — including me.</p>
+    <p id="ch2-p1">Llevo más de quince años en el sector de servicios financieros. Sé cómo se mueve el dinero. Sé que cada vez que un negocio pequeño pasa una tarjeta — un restaurante, una peluquería, una ferretería, un food truck — unos centavos de cada dólar fluyen a través de una red de procesamiento. Sé adónde van esos centavos. Los he visto acumularse en márgenes, residuales y ganancias para procesadores, agentes y dueños — incluyéndome a mí.</p>
 
-    <p>For a long time I accepted that as just how it works. The infrastructure was what it was. Money flows where the pipes point.</p>
+    <p id="ch2-p2">Durante mucho tiempo acepté eso como parte del funcionamiento normal. La infraestructura era lo que era. El dinero fluye hacia donde apuntan los tubos.</p>
 
-    <p>But for twenty years, underneath the daily work of building a business in financial services, there was a question I couldn't shake: <em>what if the pipes could point somewhere else?</em></p>
+    <p id="ch2-p3">Pero durante veinte años, debajo del trabajo diario de construir un negocio en servicios financieros, había una pregunta que no me podía sacudir de encima: <em>¿y si los tubos pudieran apuntar hacia otro lado?</em></p>
 
-    <p>Not all of it. Not the portion that belongs to the agents who built their books of business and deserve every cent of it. Not the merchant's money — they're already working hard enough. But our portion. The company's retained margin. The earnings that accumulate on the other side of the waterfall.</p>
+    <p id="ch2-p4">No todo. No la porción que les pertenece a los agentes que construyeron sus carteras y que se merecen cada centavo. No el dinero del comerciante — ya trabajan suficientemente duro. Sino nuestra porción. El margen retenido de la empresa. Las ganancias que se acumulan al otro lado del flujo.</p>
 
-    <p>What if, instead of keeping all of that, we committed a meaningful portion — permanently, in writing, before the first disbursement — to the people and communities that need it most?</p>
+    <p id="ch2-p5">¿Y si, en lugar de quedarnos con todo eso, comprometiéramos una porción significativa — permanentemente, por escrito, antes del primer desembolso — a la gente y las comunidades que más lo necesitan?</p>
 
-    <p>I knew how to do it technically. I had the infrastructure. What I didn't have for twenty years was the clarity about where. And the courage to begin.</p>
+    <p id="ch2-p6">Técnicamente sabía cómo hacerlo. Tenía la infraestructura. Lo que no tuve durante veinte años fue la claridad sobre el dónde. Y el valor para empezar.</p>
 
     <div class="scripture">
-      <cite>"Faithful in little, faithful in much."</cite>
-      <span class="ref">— Luke 16:10</span>
+      <cite id="ch2-scripture-cite">«El que es fiel en lo poco, también en lo mucho es fiel.»</cite>
+      <span class="ref" id="ch2-scripture-ref">— Lucas 16:10</span>
     </div>
   </div>
 
   <!-- Chapter 3 -->
   <div class="chapter">
-    <div class="chapter-title">What Colombia Gave Me</div>
+    <div class="chapter-title" id="ch3-title">Lo Que Colombia Me Dio</div>
 
-    <p>Colombia gave me both — the clarity and the courage.</p>
+    <p id="ch3-p1">Colombia me dio las dos cosas — la claridad y el valor.</p>
 
-    <p>I have lived in Medellín for seven years. I have watched this city — which the world spent decades fearing and misunderstanding — transform itself through the sheer determination of its people. Medellín was named the world's most innovative city. It built cable cars into hillside communities that nobody else thought were worth connecting. It turned its most difficult streets into libraries and parks. It did this not because the government fixed it and not because foreign investment saved it but because <em>the people here refused to give up on themselves.</em></p>
+    <p id="ch3-p2">He vivido en Medellín durante siete años. He visto esta ciudad — que el mundo pasó décadas temiendo y malinterpretando — transformarse a sí misma gracias a la determinación pura de su gente. Medellín fue nombrada la ciudad más innovadora del mundo. Construyó cables aéreos hacia comunidades en las laderas que nadie más creyó que valía la pena conectar. Convirtió sus calles más difíciles en bibliotecas y parques. Lo logró no porque el gobierno lo arreglara ni porque la inversión extranjera la salvara, sino porque <em>la gente de aquí se negó a rendirse con ellos mismos.</em></p>
 
-    <p>I have seen the same spirit in the families I have gotten to know. In the small business owners who work six days a week and still find a way to sponsor the neighborhood kid's soccer uniform. In the mothers who stand in line before dawn at community kitchens because they are going to feed their children today regardless of what yesterday looked like. In the young men and women building careers and businesses and futures in a city that is rising, visibly, in real time.</p>
+    <p id="ch3-p3">He visto ese mismo espíritu en las familias que he llegado a conocer. En los dueños de negocios que trabajan seis días a la semana y aun así encuentran la manera de patrocinar el uniforme de fútbol del niño del barrio. En las mamás que hacen fila antes del amanecer en las ollas comunitarias porque hoy van a alimentar a sus hijos sin importar cómo fue ayer. En los jóvenes que construyen carreras, negocios y futuros en una ciudad que está creciendo, visiblemente, en tiempo real.</p>
 
-    <p>I have also seen the gaps. The foundations doing extraordinary work with almost nothing. The programs that help real people and then run out of money six months before they were supposed to end. The organizations led by people of genuine faith and genuine competence who spend half their time writing grant applications instead of serving their communities — because the funding system requires them to justify their existence every year to people who have never been to their neighborhood.</p>
+    <p id="ch3-p4">También he visto las brechas. Las fundaciones que hacen un trabajo extraordinario con casi nada. Los programas que ayudan a gente real y luego se quedan sin dinero seis meses antes de lo previsto. Las organizaciones lideradas por personas de fe genuina y competencia genuina que pasan la mitad de su tiempo escribiendo solicitudes de subsidios en lugar de servir a sus comunidades — porque el sistema de financiación les exige justificar su existencia cada año ante personas que nunca han pisado su barrio.</p>
 
     <div class="pull">
-      <p>That gap — between the work being done and the resources available to sustain it — is what TheGiveback is designed to close.</p>
+      <p id="ch3-pull">Esa brecha — entre el trabajo que se hace y los recursos disponibles para sostenerlo — es lo que TheGiveback está diseñado para cerrar.</p>
     </div>
   </div>
 
 
-  <!-- Chapter 3b — The Communities That Shaped the Calling -->
+  <!-- Chapter 3b — The Rooms That Changed Me -->
   <div class="chapter">
-    <div class="chapter-title">The Rooms That Changed Me</div>
+    <div class="chapter-title" id="ch3b-title">Los Espacios Que Me Cambiaron</div>
 
-    <p>But Colombia didn't just give me a daughter. It gave me a community. Two of them, in fact — and together they are the reason TheGiveback exists in the form it does.</p>
+    <p id="ch3b-p1">Pero Colombia no solo me dio una hija. Me dio una comunidad. Dos de ellas, en realidad — y juntas son la razón por la que TheGiveback existe en la forma en que existe.</p>
 
-    <p>Six years ago I helped co-found <strong>The 12 Medellín</strong> — a gathering of Christian entrepreneurs who meet every week to do something deceptively simple: help each other lead better, live truer, and drive real impact in this city. The name is intentional. Jesus didn't build his movement through institutions or platforms. He chose twelve people, walked with them, ate with them, challenged them, and trusted them to carry something larger than themselves into the world. The 12 Medellín is built on that same conviction — that transformation happens in relationship, not in programs.</p>
+    <p id="ch3b-p2">Hace seis años ayudé a cofundar <strong>The 12 Medellín</strong> — un grupo de empresarios cristianos que se reúne cada semana para hacer algo engañosamente simple: ayudarse mutuamente a liderar mejor, a vivir con más integridad, y a generar impacto real en esta ciudad. El nombre es intencional. Jesús no construyó su movimiento a través de instituciones ni plataformas. Eligió a doce personas, caminó con ellas, comió con ellas, las desafió, y les confió algo más grande que ellos mismos para llevarlo al mundo. The 12 Medellín está construido sobre esa misma convicción — que la transformación ocurre en la relación, no en los programas.</p>
 
-    <p>Every Saturday we sit together — business owners, builders, founders — and we talk about what it actually means to operate a business as a follower of Christ in a city like Medellín. Not in the abstract. In the specific. What does integrity look like when a supplier offers you a shortcut? How do you lead a team through a hard season without losing their trust? What does success mean when your faith tells you that profit is not the point? These conversations sharpened the question I had been carrying for years — <em>what is all of this for?</em> — and gave it an answer I could no longer defer: it is for the people around you, in the city where you live, right now.</p>
+    <p id="ch3b-p3">Cada semana nos sentamos juntos — dueños de negocios, constructores, fundadores — y hablamos de lo que realmente significa operar una empresa como seguidor de Cristo en una ciudad como Medellín. No en lo abstracto. En lo concreto. ¿Cómo se ve la integridad cuando un proveedor te ofrece un atajo? ¿Cómo lideras un equipo en una temporada difícil sin perder su confianza? ¿Qué significa el éxito cuando tu fe te dice que la ganancia no es el punto? Estas conversaciones afinaron la pregunta que había estado cargando durante años — <em>¿para qué es todo esto?</em> — y le dieron una respuesta que ya no pude diferir: es para las personas que te rodean, en la ciudad donde vives, ahora mismo.</p>
 
-    <p>TheGiveback was born out of that table. Not as a business plan, but as a conviction that had been forming for years among people who had chosen, like me, to believe that commerce and discipleship are not separate callings.</p>
+    <p id="ch3b-p4">TheGiveback nació de esa mesa. No como un plan de negocios, sino como una convicción que se había estado formando durante años entre personas que habían elegido, como yo, creer que el comercio y el discipulado no son llamados separados.</p>
 
     <div class="pull">
-      <p>Twelve disciples changed the world. Not through power or position — through relationship, purpose, and the willingness to walk toward something larger than themselves.</p>
+      <p id="ch3b-pull">Doce discípulos cambiaron el mundo. No a través del poder ni la posición — sino a través de la relación, el propósito, y la disposición de caminar hacia algo más grande que ellos mismos.</p>
     </div>
 
-    <p>The other room is different in character but not in importance. I am a member of <strong>Entrepreneur House</strong> — one of the most selective founder communities in Latin America, a private network of operators who have built real businesses at scale across Medellín, Mexico City, and beyond. Membership is by application and vetting only. The community is built around founders generating millions in revenue annually — people who have built and exited companies, who are particular about the rooms they enter and more particular about the people they keep.</p>
+    <p id="ch3b-p5">El otro espacio es diferente en carácter pero no en importancia. Soy miembro de <strong>Entrepreneur House</strong> — una de las comunidades de fundadores más selectivas de América Latina, una red privada de operadores que han construido negocios reales a escala en Medellín, Ciudad de México y más allá. La membresía es solo por solicitud y verificación. La comunidad está construida alrededor de fundadores que generan millones en ingresos anuales — personas que han construido y salido de empresas, que son selectivas con los espacios a los que entran y más selectivas aún con las personas que frecuentan.</p>
 
-    <p>I mention this not to impress but to give you an honest picture of the context in which TheGiveback was conceived. For years I have sat at tables with some of the most capable entrepreneurs in Latin America — people who understand business at scale, who ask hard questions about leverage and sustainability and what a company is actually worth. And in every one of those conversations, underneath the strategy and the metrics and the talk of growth, the same question has been running like a current beneath the surface: <em>what does it mean to build something that actually matters?</em></p>
+    <p id="ch3b-p6">Lo menciono no para impresionar, sino para darte una imagen honesta del contexto en el que se concibió TheGiveback. Durante años he estado sentado en mesas con algunos de los empresarios más capaces de América Latina — personas que entienden los negocios a escala, que hacen preguntas difíciles sobre apalancamiento, sostenibilidad y lo que realmente vale una empresa. Y en cada una de esas conversaciones, debajo de la estrategia, las métricas y el hablar de crecimiento, ha habido la misma pregunta corriendo como una corriente bajo la superficie: <em>¿qué significa construir algo que realmente importa?</em></p>
 
-    <p>Two rooms. Two different kinds of accountability. One asking: are you building with integrity before God? The other asking: are you building with the rigor this opportunity deserves? TheGiveback is my attempt to answer both questions at the same time — with the same business, through the same infrastructure, every month.</p>
+    <p id="ch3b-p7">Dos espacios. Dos tipos diferentes de responsabilidad. Uno pregunta: ¿estás construyendo con integridad ante Dios? El otro pregunta: ¿estás construyendo con el rigor que esta oportunidad merece? TheGiveback es mi intento de responder ambas preguntas al mismo tiempo — con el mismo negocio, a través de la misma infraestructura, cada mes.</p>
   </div>
 
   <!-- Chapter 4 -->
   <div class="chapter">
-    <div class="chapter-title">Why Now. Why This. Why Me.</div>
+    <div class="chapter-title" id="ch4-title">Por Qué Ahora. Por Qué Esto. Por Qué Yo.</div>
 
-    <p>I want to be honest about something.</p>
+    <p id="ch4-p1">Quiero ser honesto sobre algo.</p>
 
-    <p>I am not a hero. I am not a philanthropist in the traditional sense. I am a businessman who has spent fifteen years learning how money moves through financial services, who moved to Colombia seven years ago and fell in love with a country that changed him, and who has a daughter named Mia who was born in Medellín and who deserves to grow up in a city and a country that gets better, not worse, over time.</p>
+    <p id="ch4-p2">No soy un héroe. No soy un filántropo en el sentido tradicional. Soy un empresario que ha pasado quince años aprendiendo cómo se mueve el dinero en los servicios financieros, que se mudó a Colombia hace siete años y se enamoró de un país que lo cambió, y que tiene una hija llamada Mia que nació en Medellín y que merece crecer en una ciudad y un país que mejore, no que empeore, con el tiempo.</p>
 
-    <p>The calling I feel is not complicated. It is simply this: I have the knowledge, the infrastructure, and the position to do something that most people in my industry have never thought to do — and I believe I am supposed to do it.</p>
+    <p id="ch4-p3">El llamado que siento no es complicado. Es simplemente este: tengo el conocimiento, la infraestructura y la posición para hacer algo que la mayoría de las personas en mi industria nunca han pensado en hacer — y creo que se supone que debo hacerlo.</p>
 
-    <p>My faith in Jesus Christ is the root of that belief. Not as a slogan or a branding decision. As the actual reason. The principle that what you accumulate is not yours to hoard, that the measure of a life is what you gave rather than what you kept, that faithfulness in the small things is what leads to faithfulness in the large ones — these are not abstractions to me. They are the operating instructions I have been given, and I have waited long enough to follow them fully.</p>
+    <p id="ch4-p4">Mi fe en Jesucristo es la raíz de esa convicción. No como un eslogan ni como una decisión de marca. Como la razón real. El principio de que lo que uno acumula no es suyo para atesorarlo, que la medida de una vida es lo que dio y no lo que conservó, que la fidelidad en las cosas pequeñas es lo que lleva a la fidelidad en las grandes — estas no son abstracciones para mí. Son las instrucciones de operación que me han dado, y he esperado suficiente tiempo para seguirlas plenamente.</p>
 
-    <p>I have spent over two decades in this industry watching how much can accumulate from everyday transactions. I have seen it up close — the margins, the volume, the way it compounds quietly over years. And I have sat with a question the whole time: <em>what is all of this for?</em></p>
+    <p id="ch4-p5">He pasado más de dos décadas en esta industria viendo cuánto puede acumularse a partir de transacciones cotidianas. Lo he visto de cerca — los márgenes, el volumen, la manera en que se compone en silencio año tras año. Y he estado sentado con una pregunta todo ese tiempo: <em>¿para qué es todo esto?</em></p>
 
-    <p>I have my answer now. My daughter gave it to me. Colombia gave it to me. And my Savior made it clear that the time is now — not someday, not when conditions are perfect, not when I am more ready. Now. With what I have. Through what everyone already does, which is everyday commerce. But now instead of keeping the profits, redirecting a real portion of them toward change.</p>
+    <p id="ch4-p6">Ya tengo mi respuesta. Mi hija me la dio. Colombia me la dio. Y mi Salvador dejó claro que el momento es ahora — no algún día, no cuando las condiciones sean perfectas, no cuando esté más listo. Ahora. Con lo que tengo. A través de lo que todos ya hacen, que es el comercio cotidiano. Pero ahora, en lugar de quedarse con las ganancias, redirigiendo una porción real de ellas hacia el cambio.</p>
 
     <div class="scripture">
-      <cite>"What you do for the least of these, you do for me."</cite>
-      <span class="ref">— Matthew 25:40</span>
+      <cite id="ch4-scripture-cite">«En cuanto lo hicisteis a uno de estos mis hermanos más pequeños, a mí lo hicisteis.»</cite>
+      <span class="ref" id="ch4-scripture-ref">— Mateo 25:40</span>
     </div>
   </div>
 
   <!-- Chapter 5 -->
   <div class="chapter">
-    <div class="chapter-title">What This Actually Is</div>
+    <div class="chapter-title" id="ch5-title">Lo Que Esto Realmente Es</div>
 
-    <p>TheGiveback is not charity.</p>
+    <p id="ch5-p1">TheGiveback no es caridad.</p>
 
-    <p>It is not a fundraising campaign with a matching period and a year-end deadline. It is not a corporate social responsibility program designed by a marketing team to make a company look good. It is not a one-time initiative or a passion project that fades when life gets busy.</p>
+    <p id="ch5-p2">No es una campaña de recaudación de fondos con un período de igualación y una fecha límite de fin de año. No es un programa de responsabilidad social corporativa diseñado por un equipo de mercadeo para hacer quedar bien a una empresa. No es una iniciativa puntual ni un proyecto de pasión que se desvanece cuando la vida se pone ocupada.</p>
 
-    <p>It is a covenant.</p>
+    <p id="ch5-p3">Es un pacto.</p>
 
-    <p>I have written it into the operating structure of my company, DATAONE, before a single dollar is disbursed. Thirty percent of our retained margin — the portion that belongs to the company — routes automatically to vetted Colombian foundations every month. Not when we feel like it. Not when it's a good quarter. Every month. As long as merchants are processing. As long as the business is running. As long as there is revenue.</p>
+    <p id="ch5-p4">Lo he escrito en la estructura operativa de mi empresa, DATAONE, antes de que se desembolse un solo dólar. El treinta por ciento de nuestro margen retenido — la porción que le pertenece a la empresa — se dirige automáticamente a fundaciones colombianas verificadas cada mes. No cuando tengamos ganas. No cuando sea un buen trimestre. Cada mes. Mientras los comerciantes estén procesando. Mientras el negocio esté funcionando. Mientras haya ingresos.</p>
 
-    <p>The giving is permanent. The infrastructure is already built. Every dollar is traceable on a public ledger that anyone can verify. No black boxes. No "trust us." The receipts are public because the credibility of this entire effort depends on the evidence being undeniable.</p>
+    <p id="ch5-p5">La donación es permanente. La infraestructura ya está construida. Cada dólar es rastreable en un libro mayor público que cualquiera puede verificar. Sin cajas negras. Sin "confíen en nosotros". Los recibos son públicos porque la credibilidad de todo este esfuerzo depende de que la evidencia sea irrefutable.</p>
 
     <div class="aside">
-      <div class="aside-label">How it works for merchants</div>
-      <p>Small businesses join by processing their payments through DATAONE on a dual pricing model. <strong>They pay nothing extra.</strong> They change nothing about how they operate. They simply process payments the way they always have — and a portion of what we earn from that processing flows to Colombia automatically.</p>
-      <p>Every $1 million in monthly processing generates roughly $5,400 to Colombian foundations. At $5 million monthly: $27,000. At $10 million: $54,000. Every dollar documented. Every disbursement public. This is ongoing revenue that continues for as long as merchants are processing — not a campaign, not a quarter, but a permanent stream tied to real commerce.</p>
+      <div class="aside-label" id="ch5-aside-label">Cómo funciona para los comerciantes</div>
+      <p id="ch5-aside-p1">Los negocios pequeños se unen procesando sus pagos a través de DATAONE con un modelo de precios duales. <strong>No pagan nada adicional.</strong> No cambian nada en su operación. Simplemente procesan pagos como siempre lo han hecho — y una porción de lo que nosotros ganamos con ese procesamiento fluye automáticamente a Colombia.</p>
+      <p id="ch5-aside-p2">Cada millón de dólares en procesamiento mensual genera aproximadamente $5.400 para fundaciones colombianas. A $5 millones mensuales: $27.000. A $10 millones: $54.000. Cada dólar documentado. Cada desembolso público. Estos son ingresos continuos que se mantienen mientras los comerciantes estén procesando — no una campaña, no un trimestre, sino una corriente permanente vinculada al comercio real.</p>
     </div>
 
-    <p>This is coming from me and my company — and from the small businesses who join us. Together we can change a lot of lives. Not by asking people to sacrifice. By redirecting what already flows.</p>
+    <p id="ch5-p6">Esto viene de mí y de mi empresa — y de los negocios pequeños que se nos unen. Juntos podemos cambiar muchas vidas. No pidiéndole a la gente que sacrifique. Redirigiendo lo que ya fluye.</p>
   </div>
 
 
   <!-- Chapter 5b — The Question Nobody Asks -->
   <div class="chapter">
-    <div class="chapter-title">The Question Nobody Asks</div>
+    <div class="chapter-title" id="ch5b-title">La Pregunta Que Nadie Hace</div>
 
-    <p>I have been in rooms with some of the most accomplished entrepreneurs in the world. Founders who have built companies to nine figures, who have exited and started again, who have optimized every variable of their business life with extraordinary precision. And in almost every one of those conversations, underneath the strategy and the metrics and the talk of scale, there is a question running like a current beneath the surface:</p>
+    <p id="ch5b-p1">He estado en espacios con algunos de los empresarios más exitosos del mundo. Fundadores que han construido empresas a nueve cifras, que han salido y comenzado de nuevo, que han optimizado cada variable de su vida empresarial con extraordinaria precisión. Y en casi todas esas conversaciones, debajo de la estrategia, las métricas y el hablar de escala, hay una pregunta que corre como una corriente bajo la superficie:</p>
 
-    <p><em>What's in it for me?</em></p>
+    <p id="ch5b-p2"><em>¿Qué hay en esto para mí?</em></p>
 
-    <p>WIIFM. It is the operating system of modern commerce. Not because entrepreneurs are selfish — most of the ones I know are generous, community-minded, genuinely good people. But because the entire architecture of business thinking trains us to ask it. Every decision filtered through the lens of return. Every relationship evaluated for its leverage. Every opportunity measured by what comes back.</p>
+    <p id="ch5b-p3">WIIFM — "What's In It For Me" — es el sistema operativo del comercio moderno. No porque los empresarios sean egoístas — la mayoría de los que conozco son generosos, comprometidos con su comunidad, genuinamente buenas personas. Sino porque toda la arquitectura del pensamiento empresarial nos entrena a preguntarlo. Cada decisión filtrada por el lente del retorno. Cada relación evaluada por su apalancamiento. Cada oportunidad medida por lo que regresa.</p>
 
-    <p>I understand that world. I built a business inside it. I am not here to condemn it.</p>
+    <p id="ch5b-p4">Entiendo ese mundo. Construí un negocio dentro de él. No estoy aquí para condenarlo.</p>
 
-    <p>But I want to tell you something that took me forty-something years and seven years in Colombia to learn fully — something I now believe with the same certainty I believe anything:</p>
-
-    <div class="pull">
-      <p>The most powerful force in a human life is not what you accumulate. It is what you release.</p>
-    </div>
-
-    <p>There is a version of giving that is still WIIFM in disguise. The tax deduction. The reputation benefit. The customer loyalty data point. The feeling of being the kind of person who gives. I have seen all of it and I have done some of it. None of it is wrong — but none of it is what I am talking about.</p>
-
-    <p>What I am talking about is something rarer and more demanding: giving with no expectation of return. Giving because the need exists and you have the means. Giving not as a strategy but as a way of being — a posture toward the world that says <em>what I have is not ultimately mine, and the measure of my life is not what I kept.</em></p>
-
-    <p>Most people never experience this. Not because they are bad people. Because the world never stops asking WIIFM long enough for them to find out what lies on the other side of that question.</p>
-
-    <p>I have found out. And what lies on the other side is the most unexpectedly practical thing I have ever encountered in business or in life:</p>
-
-    <p><em>God multiplies what you give.</em></p>
-
-    <p>I do not say this as a motivational slogan. I say it as a man who has watched it happen — in his own finances and in the lives of the people around him — consistently enough that I no longer treat it as coincidence or sentiment. The biblical principle is not poetry dressed up as economics. It is a description of how generosity actually functions in the world when you stop holding everything so tightly.</p>
-
-    <p>The merchants who join TheGiveback will almost certainly be asked by someone in their lives what's in it for them. I want them to have a real answer — not the processing savings, not the customer loyalty statistics, not the tax considerations, though all of those are real. The real answer is harder to say and worth saying anyway:</p>
+    <p id="ch5b-p5">Pero quiero contarte algo que me tomó cuarenta y tantos años y siete años en Colombia aprender completamente — algo que ahora creo con la misma certeza con la que creo cualquier cosa:</p>
 
     <div class="pull">
-      <p>There is a kind of wealth that only moves when you stop trying to keep it.</p>
+      <p id="ch5b-pull1">La fuerza más poderosa en la vida de un ser humano no es lo que acumulas. Es lo que liberas.</p>
     </div>
 
-    <p>Work done with purpose — genuinely, in service of something larger than your own return — produces a quality of life that no income statement captures. I have watched people discover this and watched it change the texture of everything: how they show up at work, how they treat their teams, what they feel when they lie down at night. Not because giving made them poorer. Because it made them more alive.</p>
+    <p id="ch5b-p6">Existe una versión de dar que sigue siendo WIIFM disfrazado. La deducción fiscal. El beneficio reputacional. El dato de lealtad del cliente. La sensación de ser el tipo de persona que da. Lo he visto todo y he hecho parte de ello. Ninguno está mal — pero ninguno es de lo que estoy hablando.</p>
 
-    <p>TheGiveback is built for merchants who have started to feel the weight of WIIFM. Who run good businesses and have begun to sense that something is missing — not in their revenue model, but in what the revenue is for. Who are ready, even tentatively, to point their commerce at something larger than themselves.</p>
+    <p id="ch5b-p7">De lo que estoy hablando es de algo más raro y más exigente: dar sin expectativa de retorno. Dar porque la necesidad existe y tienes los medios. Dar no como una estrategia sino como una manera de ser — una postura ante el mundo que dice <em>lo que tengo no es en última instancia mío, y la medida de mi vida no es lo que conservé.</em></p>
 
-    <p>The infrastructure will handle the rest. That is what we built. But the decision to give — genuinely, without demanding it return — that is yours. And it is the most powerful business decision most people never make.</p>
+    <p id="ch5b-p8">La mayoría de las personas nunca experimentan esto. No porque sean malas personas. Porque el mundo nunca deja de preguntar WIIFM el tiempo suficiente para que descubran qué hay al otro lado de esa pregunta.</p>
+
+    <p id="ch5b-p9">Yo lo he descubierto. Y lo que hay al otro lado es la cosa más inesperadamente práctica que he encontrado en los negocios o en la vida:</p>
+
+    <p id="ch5b-p10"><em>Dios multiplica lo que das.</em></p>
+
+    <p id="ch5b-p11">No lo digo como un eslogan motivacional. Lo digo como un hombre que lo ha visto suceder — en sus propias finanzas y en la vida de las personas que lo rodean — con suficiente consistencia como para que ya no lo trate como coincidencia o sentimiento. El principio bíblico no es poesía disfrazada de economía. Es una descripción de cómo funciona realmente la generosidad en el mundo cuando dejas de aferrarte a todo con tanta fuerza.</p>
+
+    <p id="ch5b-p12">Los comerciantes que se unan a TheGiveback casi con certeza serán preguntados por alguien en su vida qué hay en esto para ellos. Quiero que tengan una respuesta real — no los ahorros en procesamiento, no las estadísticas de lealtad del cliente, no las consideraciones fiscales, aunque todas esas son reales. La respuesta real es más difícil de decir y vale la pena decirla de todos modos:</p>
+
+    <div class="pull">
+      <p id="ch5b-pull2">Hay un tipo de riqueza que solo se mueve cuando dejas de intentar conservarla.</p>
+    </div>
+
+    <p id="ch5b-p13">El trabajo hecho con propósito — genuinamente, al servicio de algo más grande que tu propio retorno — produce una calidad de vida que ningún estado de resultados captura. He visto a personas descubrir esto y he visto cómo cambia la textura de todo: cómo se presentan en el trabajo, cómo tratan a sus equipos, lo que sienten cuando se acuestan por la noche. No porque dar los hizo más pobres. Porque los hizo más vivos.</p>
+
+    <p id="ch5b-p14">TheGiveback está construido para comerciantes que han empezado a sentir el peso de WIIFM. Que tienen buenos negocios y han comenzado a percibir que algo falta — no en su modelo de ingresos, sino en para qué son esos ingresos. Que están listos, incluso tentativamente, para apuntar su comercio hacia algo más grande que ellos mismos.</p>
+
+    <p id="ch5b-p15">La infraestructura se encargará del resto. Eso es lo que construimos. Pero la decisión de dar — genuinamente, sin exigir que regrese — esa es tuya. Y es la decisión empresarial más poderosa que la mayoría de las personas nunca toma.</p>
 
     <div class="scripture">
-      <cite>"Give, and it will be given to you. A good measure, pressed down, shaken together and running over, will be poured into your lap."</cite>
-      <span class="ref">— Luke 6:38</span>
+      <cite id="ch5b-scripture1-cite">«Dad, y se os dará; medida buena, apretada, remecida y rebosando darán en vuestro regazo.»</cite>
+      <span class="ref" id="ch5b-scripture1-ref">— Lucas 6:38 (Reina-Valera)</span>
     </div>
 
     <div class="scripture" style="margin-top:0;padding-top:0">
-      <cite>"Honor the Lord with your wealth, with the firstfruits of all your crops; then your barns will be filled to overflowing."</cite>
-      <span class="ref">— Proverbs 3:9–10</span>
+      <cite id="ch5b-scripture2-cite">«Honra a Jehová con tus bienes, y con las primicias de todos tus frutos; y serán llenos tus graneros con abundancia.»</cite>
+      <span class="ref" id="ch5b-scripture2-ref">— Proverbios 3:9–10 (Reina-Valera)</span>
     </div>
   </div>
 
   <!-- Chapter 6 -->
   <div class="chapter">
-    <div class="chapter-title">The Part That Moves Me Most</div>
+    <div class="chapter-title" id="ch6-title">Lo Que Más Me Conmueve</div>
 
-    <p>It is not the technology. It is not the public ledger or the dual pricing model or the disbursement infrastructure — though all of those things matter and I believe in them.</p>
+    <p id="ch6-p1">No es la tecnología. No es el libro mayor público ni el modelo de precios duales ni la infraestructura de desembolso — aunque todo eso importa y creo en ello.</p>
 
-    <p>What moves me is this: an ordinary small business owner, working six days a week, barely taking a day off, serving their customers and paying their people and keeping the lights on — that person's daily commerce is now funding a youth development program in Medellín. They may never visit Colombia. They may not speak Spanish. They may simply be someone who wanted their business to mean something more than the sum of its transactions.</p>
+    <p id="ch6-p2">Lo que me conmueve es esto: un dueño de negocio ordinario, trabajando seis días a la semana, casi sin tomarse un día libre, atendiendo a sus clientes y pagando a su gente y manteniendo las luces encendidas — el comercio diario de esa persona ahora financia un programa de desarrollo juvenil en Medellín. Puede que nunca visiten Colombia. Puede que no hablen español. Puede que simplemente sean alguien que quería que su negocio significara algo más que la suma de sus transacciones.</p>
 
-    <p>TheGiveback gives that meaning a mechanism. It makes the desire to give back — which I have found in almost every small business owner I have ever met — as automatic and effortless as the transaction itself.</p>
+    <p id="ch6-p3">TheGiveback le da a ese deseo un mecanismo. Hace que el deseo de devolver — que he encontrado en casi todos los dueños de negocios pequeños que he conocido — sea tan automático y sin esfuerzo como la transacción misma.</p>
 
-    <p>Every swipe. Every tap. Every card payment that runs through a Clover, PAX, or Dejavoo terminal at a certified merchant. The commerce continues. And underneath it, now, something different flows.</p>
+    <p id="ch6-p4">Cada pasada. Cada toque. Cada pago con tarjeta que pasa por un terminal Clover, PAX o Dejavoo en un comerciante certificado. El comercio continúa. Y debajo de él, ahora, algo diferente fluye.</p>
 
     <div class="pull">
-      <p>I have wanted to do this my whole life. I have life in me still. And I intend to use every bit of it making this as large and as real and as lasting as it can be.</p>
+      <p id="ch6-pull">He querido hacer esto toda mi vida. Todavía me queda vida. Y tengo la intención de usar cada parte de ella haciendo esto tan grande, tan real y tan duradero como pueda ser.</p>
     </div>
   </div>
 
   <!-- Dedication -->
   <div class="dedication">
     <div class="dedication-flag">🇨🇴</div>
-    <p>To the people and children of Colombia —<br>to the foundations doing the work that nobody sees —<br>to the diaspora who never stopped loving home —<br>and to <strong>Mia</strong>, who made all of this make sense:</p>
-    <p style="margin-top:20px;font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,.65)">This is my little difference. I hope it becomes a big one.</p>
+    <p id="dedication-p1">A la gente y los niños de Colombia —<br>a las fundaciones que hacen el trabajo que nadie ve —<br>a la diáspora que nunca dejó de amar su hogar —<br>y a <strong>Mia</strong>, quien le dio sentido a todo esto:</p>
+    <p id="dedication-p2" style="margin-top:20px;font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,.65)">Esta es mi pequeña diferencia. Espero que se convierta en una grande.</p>
   </div>
 
   <!-- Signature -->
   <div class="signature">
     <div class="signature-name">Chris Humphrey</div>
-    <p class="signature-title">
-      Founder — DATAONE & TheGiveback.org<br>
-      Medellín, Colombia · Seven years and counting.
+    <p class="signature-title" id="sig-title">
+      Fundador — DATAONE & TheGiveback.org<br>
+      Medellín, Colombia · Siete años y contando.
     </p>
   </div>
 
   <div class="scripture" style="margin-top:48px">
-    <cite>"Every good and perfect gift is from above."</cite>
-    <span class="ref">— James 1:17</span>
+    <cite id="final-scripture-cite">«Toda buena dádiva y todo don perfecto desciende de lo alto.»</cite>
+    <span class="ref" id="final-scripture-ref">— Santiago 1:17</span>
   </div>
 
   <!-- Covenant box -->
   <div class="covenant">
-    <div class="covenant-label">The Covenant — Written Before the First Dollar Moves</div>
-    <p><strong>30% of DATAONE's retained margin</strong> routes to vetted Colombian foundations every month — automatically, from every certified merchant's transactions, as long as the business runs.</p>
-    <p>This is not a campaign. It is permanent. It is documented. Every disbursement is on a public ledger that anyone can verify. The transparency is the point — because trust earned is worth more than trust assumed.</p>
-    <p>If you are a merchant who wants your everyday commerce to build Colombia — <strong>get certified. It costs you nothing.</strong></p>
-    <p>If you are a Colombian foundation doing work that deserves sustainable funding — <strong>apply. We want to know you.</strong></p>
+    <div class="covenant-label" id="covenant-label">El Pacto — Escrito Antes de Que Se Mueva el Primer Dólar</div>
+    <p id="covenant-p1"><strong>El 30% del margen retenido de DATAONE</strong> va a fundaciones colombianas verificadas cada mes — automáticamente, desde las transacciones de cada comerciante certificado, mientras el negocio funcione.</p>
+    <p id="covenant-p2">Esto no es una campaña. Es permanente. Está documentado. Cada desembolso está en un libro mayor público que cualquiera puede verificar. La transparencia es el punto — porque la confianza que se gana vale más que la confianza que se asume.</p>
+    <p id="covenant-p3">Si eres un comerciante que quiere que tu comercio cotidiano construya Colombia — <strong>certifícate. No te cuesta nada.</strong></p>
+    <p id="covenant-p4">Si eres una fundación colombiana haciendo un trabajo que merece financiación sostenible — <strong>aplica. Queremos conocerte.</strong></p>
     <div class="covenant-ctas">
-      <button class="cov-btn cov-btn-gold">Get Certified — It's Free</button>
-      <button class="cov-btn cov-btn-outline">Apply as a Foundation</button>
+      <button class="cov-btn cov-btn-gold" id="covenant-cta1">Certifícate — Es Gratis</button>
+      <button class="cov-btn cov-btn-outline" id="covenant-cta2">Aplica como Fundación</button>
     </div>
   </div>
 
 </div>
 
 <script>
+/* ── TRANSLATIONS ─────────────────────────── */
+const T = {
+es: {
+  htmlLang: 'es',
+  docTitle: 'Nuestra Historia — TheGiveback',
+  navCta: 'Certifícate',
+  heroEyebrow: 'La Historia del Fundador',
+  heroTitle: 'Para Mia.<br>Para Colombia.<br><em>Para todos los que esto pueda alcanzar.</em>',
+  heroSub: 'Por qué un estadounidense pasó veinte años cargando una idea — y finalmente encontró el llamado para construirla.',
+  bylineWrittenBy: 'Escrito por',
+  bylineLocation: 'Medellín, Colombia · 2026',
+  ch1Title: 'Un Estadounidense Que Eligió Quedarse',
+  ch1P1: 'Soy un estadounidense que llegó a Colombia hace siete años y nunca se fue.',
+  ch1P2: 'No porque tuviera que quedarme. Porque elegí hacerlo. Porque aquí pasó algo que no esperaba y que tardé mucho tiempo en poder explicar — me enamoré. De la gente. De la cultura. De la calidez que vive en este país y que ninguna estadística ni ningún titular de periódico ha podido capturar jamás. De una mujer que se convirtió en mi familia. Y luego de mi hija Mia, que nació aquí en Medellín, que es colombiana, que va a crecer en esta ciudad y va a llamarla hogar de la misma manera en que yo ahora la llamo hogar.',
+  ch1P3: 'Cuando uno se convierte en padre, el mundo se vuelve más pequeño y más grande al mismo tiempo. Más pequeño porque de repente hay una sola persona cuya vida importa más que cualquier abstracción. Más grande porque uno empieza a ver a cada niño de manera diferente — cada niño en la esquina, cada familia en cada barrio, cada niña que es la Mia de alguien — y entiende que lo que uno hace con su vida ya no es solamente su asunto.',
+  ch1Pull: 'Fue entonces cuando lo que había cargado durante veinte años dejó de ser un sueño y se convirtió en un llamado.',
+  ch2Title: 'Veinte Años Queriendo Hacer Algo',
+  ch2P1: 'Llevo más de quince años en el sector de servicios financieros. Sé cómo se mueve el dinero. Sé que cada vez que un negocio pequeño pasa una tarjeta — un restaurante, una peluquería, una ferretería, un food truck — unos centavos de cada dólar fluyen a través de una red de procesamiento. Sé adónde van esos centavos. Los he visto acumularse en márgenes, residuales y ganancias para procesadores, agentes y dueños — incluyéndome a mí.',
+  ch2P2: 'Durante mucho tiempo acepté eso como parte del funcionamiento normal. La infraestructura era lo que era. El dinero fluye hacia donde apuntan los tubos.',
+  ch2P3: 'Pero durante veinte años, debajo del trabajo diario de construir un negocio en servicios financieros, había una pregunta que no me podía sacudir de encima: <em>¿y si los tubos pudieran apuntar hacia otro lado?</em>',
+  ch2P4: 'No todo. No la porción que les pertenece a los agentes que construyeron sus carteras y que se merecen cada centavo. No el dinero del comerciante — ya trabajan suficientemente duro. Sino nuestra porción. El margen retenido de la empresa. Las ganancias que se acumulan al otro lado del flujo.',
+  ch2P5: '¿Y si, en lugar de quedarnos con todo eso, comprometiéramos una porción significativa — permanentemente, por escrito, antes del primer desembolso — a la gente y las comunidades que más lo necesitan?',
+  ch2P6: 'Técnicamente sabía cómo hacerlo. Tenía la infraestructura. Lo que no tuve durante veinte años fue la claridad sobre el dónde. Y el valor para empezar.',
+  ch2ScriptureCite: '«El que es fiel en lo poco, también en lo mucho es fiel.»',
+  ch2ScriptureRef: '— Lucas 16:10',
+  ch3Title: 'Lo Que Colombia Me Dio',
+  ch3P1: 'Colombia me dio las dos cosas — la claridad y el valor.',
+  ch3P2: 'He vivido en Medellín durante siete años. He visto esta ciudad — que el mundo pasó décadas temiendo y malinterpretando — transformarse a sí misma gracias a la determinación pura de su gente. Medellín fue nombrada la ciudad más innovadora del mundo. Construyó cables aéreos hacia comunidades en las laderas que nadie más creyó que valía la pena conectar. Convirtió sus calles más difíciles en bibliotecas y parques. Lo logró no porque el gobierno lo arreglara ni porque la inversión extranjera la salvara, sino porque <em>la gente de aquí se negó a rendirse con ellos mismos.</em>',
+  ch3P3: 'He visto ese mismo espíritu en las familias que he llegado a conocer. En los dueños de negocios que trabajan seis días a la semana y aun así encuentran la manera de patrocinar el uniforme de fútbol del niño del barrio. En las mamás que hacen fila antes del amanecer en las ollas comunitarias porque hoy van a alimentar a sus hijos sin importar cómo fue ayer. En los jóvenes que construyen carreras, negocios y futuros en una ciudad que está creciendo, visiblemente, en tiempo real.',
+  ch3P4: 'También he visto las brechas. Las fundaciones que hacen un trabajo extraordinario con casi nada. Los programas que ayudan a gente real y luego se quedan sin dinero seis meses antes de lo previsto. Las organizaciones lideradas por personas de fe genuina y competencia genuina que pasan la mitad de su tiempo escribiendo solicitudes de subsidios en lugar de servir a sus comunidades — porque el sistema de financiación les exige justificar su existencia cada año ante personas que nunca han pisado su barrio.',
+  ch3Pull: 'Esa brecha — entre el trabajo que se hace y los recursos disponibles para sostenerlo — es lo que TheGiveback está diseñado para cerrar.',
+  ch3bTitle: 'Los Espacios Que Me Cambiaron',
+  ch3bP1: 'Pero Colombia no solo me dio una hija. Me dio una comunidad. Dos de ellas, en realidad — y juntas son la razón por la que TheGiveback existe en la forma en que existe.',
+  ch3bP2: 'Hace seis años ayudé a cofundar <strong>The 12 Medellín</strong> — un grupo de empresarios cristianos que se reúne cada semana para hacer algo engañosamente simple: ayudarse mutuamente a liderar mejor, a vivir con más integridad, y a generar impacto real en esta ciudad. El nombre es intencional. Jesús no construyó su movimiento a través de instituciones ni plataformas. Eligió a doce personas, caminó con ellas, comió con ellas, las desafió, y les confió algo más grande que ellos mismos para llevarlo al mundo. The 12 Medellín está construido sobre esa misma convicción — que la transformación ocurre en la relación, no en los programas.',
+  ch3bP3: 'Cada semana nos sentamos juntos — dueños de negocios, constructores, fundadores — y hablamos de lo que realmente significa operar una empresa como seguidor de Cristo en una ciudad como Medellín. No en lo abstracto. En lo concreto. ¿Cómo se ve la integridad cuando un proveedor te ofrece un atajo? ¿Cómo lideras un equipo en una temporada difícil sin perder su confianza? ¿Qué significa el éxito cuando tu fe te dice que la ganancia no es el punto? Estas conversaciones afinaron la pregunta que había estado cargando durante años — <em>¿para qué es todo esto?</em> — y le dieron una respuesta que ya no pude diferir: es para las personas que te rodean, en la ciudad donde vives, ahora mismo.',
+  ch3bP4: 'TheGiveback nació de esa mesa. No como un plan de negocios, sino como una convicción que se había estado formando durante años entre personas que habían elegido, como yo, creer que el comercio y el discipulado no son llamados separados.',
+  ch3bPull: 'Doce discípulos cambiaron el mundo. No a través del poder ni la posición — sino a través de la relación, el propósito, y la disposición de caminar hacia algo más grande que ellos mismos.',
+  ch3bP5: 'El otro espacio es diferente en carácter pero no en importancia. Soy miembro de <strong>Entrepreneur House</strong> — una de las comunidades de fundadores más selectivas de América Latina, una red privada de operadores que han construido negocios reales a escala en Medellín, Ciudad de México y más allá. La membresía es solo por solicitud y verificación. La comunidad está construida alrededor de fundadores que generan millones en ingresos anuales — personas que han construido y salido de empresas, que son selectivas con los espacios a los que entran y más selectivas aún con las personas que frecuentan.',
+  ch3bP6: 'Lo menciono no para impresionar, sino para darte una imagen honesta del contexto en el que se concibió TheGiveback. Durante años he estado sentado en mesas con algunos de los empresarios más capaces de América Latina — personas que entienden los negocios a escala, que hacen preguntas difíciles sobre apalancamiento, sostenibilidad y lo que realmente vale una empresa. Y en cada una de esas conversaciones, debajo de la estrategia, las métricas y el hablar de crecimiento, ha habido la misma pregunta corriendo como una corriente bajo la superficie: <em>¿qué significa construir algo que realmente importa?</em>',
+  ch3bP7: 'Dos espacios. Dos tipos diferentes de responsabilidad. Uno pregunta: ¿estás construyendo con integridad ante Dios? El otro pregunta: ¿estás construyendo con el rigor que esta oportunidad merece? TheGiveback es mi intento de responder ambas preguntas al mismo tiempo — con el mismo negocio, a través de la misma infraestructura, cada mes.',
+  ch4Title: 'Por Qué Ahora. Por Qué Esto. Por Qué Yo.',
+  ch4P1: 'Quiero ser honesto sobre algo.',
+  ch4P2: 'No soy un héroe. No soy un filántropo en el sentido tradicional. Soy un empresario que ha pasado quince años aprendiendo cómo se mueve el dinero en los servicios financieros, que se mudó a Colombia hace siete años y se enamoró de un país que lo cambió, y que tiene una hija llamada Mia que nació en Medellín y que merece crecer en una ciudad y un país que mejore, no que empeore, con el tiempo.',
+  ch4P3: 'El llamado que siento no es complicado. Es simplemente este: tengo el conocimiento, la infraestructura y la posición para hacer algo que la mayoría de las personas en mi industria nunca han pensado en hacer — y creo que se supone que debo hacerlo.',
+  ch4P4: 'Mi fe en Jesucristo es la raíz de esa convicción. No como un eslogan ni como una decisión de marca. Como la razón real. El principio de que lo que uno acumula no es suyo para atesorarlo, que la medida de una vida es lo que dio y no lo que conservó, que la fidelidad en las cosas pequeñas es lo que lleva a la fidelidad en las grandes — estas no son abstracciones para mí. Son las instrucciones de operación que me han dado, y he esperado suficiente tiempo para seguirlas plenamente.',
+  ch4P5: 'He pasado más de dos décadas en esta industria viendo cuánto puede acumularse a partir de transacciones cotidianas. Lo he visto de cerca — los márgenes, el volumen, la manera en que se compone en silencio año tras año. Y he estado sentado con una pregunta todo ese tiempo: <em>¿para qué es todo esto?</em>',
+  ch4P6: 'Ya tengo mi respuesta. Mi hija me la dio. Colombia me la dio. Y mi Salvador dejó claro que el momento es ahora — no algún día, no cuando las condiciones sean perfectas, no cuando esté más listo. Ahora. Con lo que tengo. A través de lo que todos ya hacen, que es el comercio cotidiano. Pero ahora, en lugar de quedarse con las ganancias, redirigiendo una porción real de ellas hacia el cambio.',
+  ch4ScriptureCite: '«En cuanto lo hicisteis a uno de estos mis hermanos más pequeños, a mí lo hicisteis.»',
+  ch4ScriptureRef: '— Mateo 25:40',
+  ch5Title: 'Lo Que Esto Realmente Es',
+  ch5P1: 'TheGiveback no es caridad.',
+  ch5P2: 'No es una campaña de recaudación de fondos con un período de igualación y una fecha límite de fin de año. No es un programa de responsabilidad social corporativa diseñado por un equipo de mercadeo para hacer quedar bien a una empresa. No es una iniciativa puntual ni un proyecto de pasión que se desvanece cuando la vida se pone ocupada.',
+  ch5P3: 'Es un pacto.',
+  ch5P4: 'Lo he escrito en la estructura operativa de mi empresa, DATAONE, antes de que se desembolse un solo dólar. El treinta por ciento de nuestro margen retenido — la porción que le pertenece a la empresa — se dirige automáticamente a fundaciones colombianas verificadas cada mes. No cuando tengamos ganas. No cuando sea un buen trimestre. Cada mes. Mientras los comerciantes estén procesando. Mientras el negocio esté funcionando. Mientras haya ingresos.',
+  ch5P5: 'La donación es permanente. La infraestructura ya está construida. Cada dólar es rastreable en un libro mayor público que cualquiera puede verificar. Sin cajas negras. Sin "confíen en nosotros". Los recibos son públicos porque la credibilidad de todo este esfuerzo depende de que la evidencia sea irrefutable.',
+  ch5AsideLabel: 'Cómo funciona para los comerciantes',
+  ch5AsideP1: 'Los negocios pequeños se unen procesando sus pagos a través de DATAONE con un modelo de precios duales. <strong>No pagan nada adicional.</strong> No cambian nada en su operación. Simplemente procesan pagos como siempre lo han hecho — y una porción de lo que nosotros ganamos con ese procesamiento fluye automáticamente a Colombia.',
+  ch5AsideP2: 'Cada millón de dólares en procesamiento mensual genera aproximadamente $5.400 para fundaciones colombianas. A $5 millones mensuales: $27.000. A $10 millones: $54.000. Cada dólar documentado. Cada desembolso público. Estos son ingresos continuos que se mantienen mientras los comerciantes estén procesando — no una campaña, no un trimestre, sino una corriente permanente vinculada al comercio real.',
+  ch5P6: 'Esto viene de mí y de mi empresa — y de los negocios pequeños que se nos unen. Juntos podemos cambiar muchas vidas. No pidiéndole a la gente que sacrifique. Redirigiendo lo que ya fluye.',
+  ch5bTitle: 'La Pregunta Que Nadie Hace',
+  ch5bP1: 'He estado en espacios con algunos de los empresarios más exitosos del mundo. Fundadores que han construido empresas a nueve cifras, que han salido y comenzado de nuevo, que han optimizado cada variable de su vida empresarial con extraordinaria precisión. Y en casi todas esas conversaciones, debajo de la estrategia, las métricas y el hablar de escala, hay una pregunta que corre como una corriente bajo la superficie:',
+  ch5bP2: '<em>¿Qué hay en esto para mí?</em>',
+  ch5bP3: 'WIIFM — "What\'s In It For Me" — es el sistema operativo del comercio moderno. No porque los empresarios sean egoístas — la mayoría de los que conozco son generosos, comprometidos con su comunidad, genuinamente buenas personas. Sino porque toda la arquitectura del pensamiento empresarial nos entrena a preguntarlo. Cada decisión filtrada por el lente del retorno. Cada relación evaluada por su apalancamiento. Cada oportunidad medida por lo que regresa.',
+  ch5bP4: 'Entiendo ese mundo. Construí un negocio dentro de él. No estoy aquí para condenarlo.',
+  ch5bP5: 'Pero quiero contarte algo que me tomó cuarenta y tantos años y siete años en Colombia aprender completamente — algo que ahora creo con la misma certeza con la que creo cualquier cosa:',
+  ch5bPull1: 'La fuerza más poderosa en la vida de un ser humano no es lo que acumulas. Es lo que liberas.',
+  ch5bP6: 'Existe una versión de dar que sigue siendo WIIFM disfrazado. La deducción fiscal. El beneficio reputacional. El dato de lealtad del cliente. La sensación de ser el tipo de persona que da. Lo he visto todo y he hecho parte de ello. Ninguno está mal — pero ninguno es de lo que estoy hablando.',
+  ch5bP7: 'De lo que estoy hablando es de algo más raro y más exigente: dar sin expectativa de retorno. Dar porque la necesidad existe y tienes los medios. Dar no como una estrategia sino como una manera de ser — una postura ante el mundo que dice <em>lo que tengo no es en última instancia mío, y la medida de mi vida no es lo que conservé.</em>',
+  ch5bP8: 'La mayoría de las personas nunca experimentan esto. No porque sean malas personas. Porque el mundo nunca deja de preguntar WIIFM el tiempo suficiente para que descubran qué hay al otro lado de esa pregunta.',
+  ch5bP9: 'Yo lo he descubierto. Y lo que hay al otro lado es la cosa más inesperadamente práctica que he encontrado en los negocios o en la vida:',
+  ch5bP10: '<em>Dios multiplica lo que das.</em>',
+  ch5bP11: 'No lo digo como un eslogan motivacional. Lo digo como un hombre que lo ha visto suceder — en sus propias finanzas y en la vida de las personas que lo rodean — con suficiente consistencia como para que ya no lo trate como coincidencia o sentimiento. El principio bíblico no es poesía disfrazada de economía. Es una descripción de cómo funciona realmente la generosidad en el mundo cuando dejas de aferrarte a todo con tanta fuerza.',
+  ch5bP12: 'Los comerciantes que se unan a TheGiveback casi con certeza serán preguntados por alguien en su vida qué hay en esto para ellos. Quiero que tengan una respuesta real — no los ahorros en procesamiento, no las estadísticas de lealtad del cliente, no las consideraciones fiscales, aunque todas esas son reales. La respuesta real es más difícil de decir y vale la pena decirla de todos modos:',
+  ch5bPull2: 'Hay un tipo de riqueza que solo se mueve cuando dejas de intentar conservarla.',
+  ch5bP13: 'El trabajo hecho con propósito — genuinamente, al servicio de algo más grande que tu propio retorno — produce una calidad de vida que ningún estado de resultados captura. He visto a personas descubrir esto y he visto cómo cambia la textura de todo: cómo se presentan en el trabajo, cómo tratan a sus equipos, lo que sienten cuando se acuestan por la noche. No porque dar los hizo más pobres. Porque los hizo más vivos.',
+  ch5bP14: 'TheGiveback está construido para comerciantes que han empezado a sentir el peso de WIIFM. Que tienen buenos negocios y han comenzado a percibir que algo falta — no en su modelo de ingresos, sino en para qué son esos ingresos. Que están listos, incluso tentativamente, para apuntar su comercio hacia algo más grande que ellos mismos.',
+  ch5bP15: 'La infraestructura se encargará del resto. Eso es lo que construimos. Pero la decisión de dar — genuinamente, sin exigir que regrese — esa es tuya. Y es la decisión empresarial más poderosa que la mayoría de las personas nunca toma.',
+  ch5bScripture1Cite: '«Dad, y se os dará; medida buena, apretada, remecida y rebosando darán en vuestro regazo.»',
+  ch5bScripture1Ref: '— Lucas 6:38 (Reina-Valera)',
+  ch5bScripture2Cite: '«Honra a Jehová con tus bienes, y con las primicias de todos tus frutos; y serán llenos tus graneros con abundancia.»',
+  ch5bScripture2Ref: '— Proverbios 3:9–10 (Reina-Valera)',
+  ch6Title: 'Lo Que Más Me Conmueve',
+  ch6P1: 'No es la tecnología. No es el libro mayor público ni el modelo de precios duales ni la infraestructura de desembolso — aunque todo eso importa y creo en ello.',
+  ch6P2: 'Lo que me conmueve es esto: un dueño de negocio ordinario, trabajando seis días a la semana, casi sin tomarse un día libre, atendiendo a sus clientes y pagando a su gente y manteniendo las luces encendidas — el comercio diario de esa persona ahora financia un programa de desarrollo juvenil en Medellín. Puede que nunca visiten Colombia. Puede que no hablen español. Puede que simplemente sean alguien que quería que su negocio significara algo más que la suma de sus transacciones.',
+  ch6P3: 'TheGiveback le da a ese deseo un mecanismo. Hace que el deseo de devolver — que he encontrado en casi todos los dueños de negocios pequeños que he conocido — sea tan automático y sin esfuerzo como la transacción misma.',
+  ch6P4: 'Cada pasada. Cada toque. Cada pago con tarjeta que pasa por un terminal Clover, PAX o Dejavoo en un comerciante certificado. El comercio continúa. Y debajo de él, ahora, algo diferente fluye.',
+  ch6Pull: 'He querido hacer esto toda mi vida. Todavía me queda vida. Y tengo la intención de usar cada parte de ella haciendo esto tan grande, tan real y tan duradero como pueda ser.',
+  dedicationP1: 'A la gente y los niños de Colombia —<br>a las fundaciones que hacen el trabajo que nadie ve —<br>a la diáspora que nunca dejó de amar su hogar —<br>y a <strong>Mia</strong>, quien le dio sentido a todo esto:',
+  dedicationP2: 'Esta es mi pequeña diferencia. Espero que se convierta en una grande.',
+  sigTitle: 'Fundador — DATAONE & TheGiveback.org<br>Medellín, Colombia · Siete años y contando.',
+  finalScriptureCite: '«Toda buena dádiva y todo don perfecto desciende de lo alto.»',
+  finalScriptureRef: '— Santiago 1:17',
+  covenantLabel: 'El Pacto — Escrito Antes de Que Se Mueva el Primer Dólar',
+  covenantP1: '<strong>El 30% del margen retenido de DATAONE</strong> va a fundaciones colombianas verificadas cada mes — automáticamente, desde las transacciones de cada comerciante certificado, mientras el negocio funcione.',
+  covenantP2: 'Esto no es una campaña. Es permanente. Está documentado. Cada desembolso está en un libro mayor público que cualquiera puede verificar. La transparencia es el punto — porque la confianza que se gana vale más que la confianza que se asume.',
+  covenantP3: 'Si eres un comerciante que quiere que tu comercio cotidiano construya Colombia — <strong>certifícate. No te cuesta nada.</strong>',
+  covenantP4: 'Si eres una fundación colombiana haciendo un trabajo que merece financiación sostenible — <strong>aplica. Queremos conocerte.</strong>',
+  covenantCta1: 'Certifícate — Es Gratis',
+  covenantCta2: 'Aplica como Fundación'
+},
+en: {
+  htmlLang: 'en',
+  docTitle: 'Our Story — TheGiveback',
+  navCta: 'Get Certified',
+  heroEyebrow: 'The Founder\'s Story',
+  heroTitle: 'For Mia.<br>For Colombia.<br><em>For everyone this could reach.</em>',
+  heroSub: 'Why an American spent twenty years carrying an idea — and finally found the calling to build it.',
+  bylineWrittenBy: 'Written by',
+  bylineLocation: 'Medellín, Colombia · 2026',
+  ch1Title: 'An American Who Chose to Stay',
+  ch1P1: 'I am an American who came to Colombia seven years ago and never left.',
+  ch1P2: 'Not because I had to stay. Because I chose to. Because something happened here that I didn\'t expect and couldn\'t explain for a long time — I fell in love. With the people. With the culture. With the warmth that lives in this country that no statistic or news story has ever been able to capture. With a woman who became my family. And then with my daughter Mia, who was born here in Medellín, who is Colombian, who will grow up in this city and call it home the way I now call it home.',
+  ch1P3: 'When you become a father, the world gets smaller and larger at the same time. Smaller because suddenly there is one person whose life matters to you more than any abstraction. Larger because you start seeing every child differently — every kid on the street corner, every family in every neighborhood, every little girl who is someone\'s Mia — and you understand that what you do with your life is no longer just your business.',
+  ch1Pull: 'That is when the thing I had been carrying for twenty years stopped being a dream and became a calling.',
+  ch2Title: 'Twenty Years of Wanting to Do Something',
+  ch2P1: 'I have been in financial services for over fifteen years. I know how money moves. I know that every time a small business runs a card — a restaurant, a salon, a hardware store, a food truck — a few cents of every dollar flow through a processing network. I know where those cents go. I have watched them accumulate into margins, residuals, and profits for processors, agents, and owners — including me.',
+  ch2P2: 'For a long time I accepted that as just how it works. The infrastructure was what it was. Money flows where the pipes point.',
+  ch2P3: 'But for twenty years, underneath the daily work of building a business in financial services, there was a question I couldn\'t shake: <em>what if the pipes could point somewhere else?</em>',
+  ch2P4: 'Not all of it. Not the portion that belongs to the agents who built their books of business and deserve every cent of it. Not the merchant\'s money — they\'re already working hard enough. But our portion. The company\'s retained margin. The earnings that accumulate on the other side of the waterfall.',
+  ch2P5: 'What if, instead of keeping all of that, we committed a meaningful portion — permanently, in writing, before the first disbursement — to the people and communities that need it most?',
+  ch2P6: 'I knew how to do it technically. I had the infrastructure. What I didn\'t have for twenty years was the clarity about where. And the courage to begin.',
+  ch2ScriptureCite: '"Faithful in little, faithful in much."',
+  ch2ScriptureRef: '— Luke 16:10',
+  ch3Title: 'What Colombia Gave Me',
+  ch3P1: 'Colombia gave me both — the clarity and the courage.',
+  ch3P2: 'I have lived in Medellín for seven years. I have watched this city — which the world spent decades fearing and misunderstanding — transform itself through the sheer determination of its people. Medellín was named the world\'s most innovative city. It built cable cars into hillside communities that nobody else thought were worth connecting. It turned its most difficult streets into libraries and parks. It did this not because the government fixed it and not because foreign investment saved it but because <em>the people here refused to give up on themselves.</em>',
+  ch3P3: 'I have seen the same spirit in the families I have gotten to know. In the small business owners who work six days a week and still find a way to sponsor the neighborhood kid\'s soccer uniform. In the mothers who stand in line before dawn at community kitchens because they are going to feed their children today regardless of what yesterday looked like. In the young men and women building careers and businesses and futures in a city that is rising, visibly, in real time.',
+  ch3P4: 'I have also seen the gaps. The foundations doing extraordinary work with almost nothing. The programs that help real people and then run out of money six months before they were supposed to end. The organizations led by people of genuine faith and genuine competence who spend half their time writing grant applications instead of serving their communities — because the funding system requires them to justify their existence every year to people who have never been to their neighborhood.',
+  ch3Pull: 'That gap — between the work being done and the resources available to sustain it — is what TheGiveback is designed to close.',
+  ch3bTitle: 'The Rooms That Changed Me',
+  ch3bP1: 'But Colombia didn\'t just give me a daughter. It gave me a community. Two of them, in fact — and together they are the reason TheGiveback exists in the form it does.',
+  ch3bP2: 'Six years ago I helped co-found <strong>The 12 Medellín</strong> — a gathering of Christian entrepreneurs who meet every week to do something deceptively simple: help each other lead better, live truer, and drive real impact in this city. The name is intentional. Jesus didn\'t build his movement through institutions or platforms. He chose twelve people, walked with them, ate with them, challenged them, and trusted them to carry something larger than themselves into the world. The 12 Medellín is built on that same conviction — that transformation happens in relationship, not in programs.',
+  ch3bP3: 'Every Saturday we sit together — business owners, builders, founders — and we talk about what it actually means to operate a business as a follower of Christ in a city like Medellín. Not in the abstract. In the specific. What does integrity look like when a supplier offers you a shortcut? How do you lead a team through a hard season without losing their trust? What does success mean when your faith tells you that profit is not the point? These conversations sharpened the question I had been carrying for years — <em>what is all of this for?</em> — and gave it an answer I could no longer defer: it is for the people around you, in the city where you live, right now.',
+  ch3bP4: 'TheGiveback was born out of that table. Not as a business plan, but as a conviction that had been forming for years among people who had chosen, like me, to believe that commerce and discipleship are not separate callings.',
+  ch3bPull: 'Twelve disciples changed the world. Not through power or position — through relationship, purpose, and the willingness to walk toward something larger than themselves.',
+  ch3bP5: 'The other room is different in character but not in importance. I am a member of <strong>Entrepreneur House</strong> — one of the most selective founder communities in Latin America, a private network of operators who have built real businesses at scale across Medellín, Mexico City, and beyond. Membership is by application and vetting only. The community is built around founders generating millions in revenue annually — people who have built and exited companies, who are particular about the rooms they enter and more particular about the people they keep.',
+  ch3bP6: 'I mention this not to impress but to give you an honest picture of the context in which TheGiveback was conceived. For years I have sat at tables with some of the most capable entrepreneurs in Latin America — people who understand business at scale, who ask hard questions about leverage and sustainability and what a company is actually worth. And in every one of those conversations, underneath the strategy and the metrics and the talk of growth, the same question has been running like a current beneath the surface: <em>what does it mean to build something that actually matters?</em>',
+  ch3bP7: 'Two rooms. Two different kinds of accountability. One asking: are you building with integrity before God? The other asking: are you building with the rigor this opportunity deserves? TheGiveback is my attempt to answer both questions at the same time — with the same business, through the same infrastructure, every month.',
+  ch4Title: 'Why Now. Why This. Why Me.',
+  ch4P1: 'I want to be honest about something.',
+  ch4P2: 'I am not a hero. I am not a philanthropist in the traditional sense. I am a businessman who has spent fifteen years learning how money moves through financial services, who moved to Colombia seven years ago and fell in love with a country that changed him, and who has a daughter named Mia who was born in Medellín and who deserves to grow up in a city and a country that gets better, not worse, over time.',
+  ch4P3: 'The calling I feel is not complicated. It is simply this: I have the knowledge, the infrastructure, and the position to do something that most people in my industry have never thought to do — and I believe I am supposed to do it.',
+  ch4P4: 'My faith in Jesus Christ is the root of that belief. Not as a slogan or a branding decision. As the actual reason. The principle that what you accumulate is not yours to hoard, that the measure of a life is what you gave rather than what you kept, that faithfulness in the small things is what leads to faithfulness in the large ones — these are not abstractions to me. They are the operating instructions I have been given, and I have waited long enough to follow them fully.',
+  ch4P5: 'I have spent over two decades in this industry watching how much can accumulate from everyday transactions. I have seen it up close — the margins, the volume, the way it compounds quietly over years. And I have sat with a question the whole time: <em>what is all of this for?</em>',
+  ch4P6: 'I have my answer now. My daughter gave it to me. Colombia gave it to me. And my Savior made it clear that the time is now — not someday, not when conditions are perfect, not when I am more ready. Now. With what I have. Through what everyone already does, which is everyday commerce. But now instead of keeping the profits, redirecting a real portion of them toward change.',
+  ch4ScriptureCite: '"What you do for the least of these, you do for me."',
+  ch4ScriptureRef: '— Matthew 25:40',
+  ch5Title: 'What This Actually Is',
+  ch5P1: 'TheGiveback is not charity.',
+  ch5P2: 'It is not a fundraising campaign with a matching period and a year-end deadline. It is not a corporate social responsibility program designed by a marketing team to make a company look good. It is not a one-time initiative or a passion project that fades when life gets busy.',
+  ch5P3: 'It is a covenant.',
+  ch5P4: 'I have written it into the operating structure of my company, DATAONE, before a single dollar is disbursed. Thirty percent of our retained margin — the portion that belongs to the company — routes automatically to vetted Colombian foundations every month. Not when we feel like it. Not when it\'s a good quarter. Every month. As long as merchants are processing. As long as the business is running. As long as there is revenue.',
+  ch5P5: 'The giving is permanent. The infrastructure is already built. Every dollar is traceable on a public ledger that anyone can verify. No black boxes. No "trust us." The receipts are public because the credibility of this entire effort depends on the evidence being undeniable.',
+  ch5AsideLabel: 'How it works for merchants',
+  ch5AsideP1: 'Small businesses join by processing their payments through DATAONE on a dual pricing model. <strong>They pay nothing extra.</strong> They change nothing about how they operate. They simply process payments the way they always have — and a portion of what we earn from that processing flows to Colombia automatically.',
+  ch5AsideP2: 'Every $1 million in monthly processing generates roughly $5,400 to Colombian foundations. At $5 million monthly: $27,000. At $10 million: $54,000. Every dollar documented. Every disbursement public. This is ongoing revenue that continues for as long as merchants are processing — not a campaign, not a quarter, but a permanent stream tied to real commerce.',
+  ch5P6: 'This is coming from me and my company — and from the small businesses who join us. Together we can change a lot of lives. Not by asking people to sacrifice. By redirecting what already flows.',
+  ch5bTitle: 'The Question Nobody Asks',
+  ch5bP1: 'I have been in rooms with some of the most accomplished entrepreneurs in the world. Founders who have built companies to nine figures, who have exited and started again, who have optimized every variable of their business life with extraordinary precision. And in almost every one of those conversations, underneath the strategy and the metrics and the talk of scale, there is a question running like a current beneath the surface:',
+  ch5bP2: '<em>What\'s in it for me?</em>',
+  ch5bP3: 'WIIFM. It is the operating system of modern commerce. Not because entrepreneurs are selfish — most of the ones I know are generous, community-minded, genuinely good people. But because the entire architecture of business thinking trains us to ask it. Every decision filtered through the lens of return. Every relationship evaluated for its leverage. Every opportunity measured by what comes back.',
+  ch5bP4: 'I understand that world. I built a business inside it. I am not here to condemn it.',
+  ch5bP5: 'But I want to tell you something that took me forty-something years and seven years in Colombia to learn fully — something I now believe with the same certainty I believe anything:',
+  ch5bPull1: 'The most powerful force in a human life is not what you accumulate. It is what you release.',
+  ch5bP6: 'There is a version of giving that is still WIIFM in disguise. The tax deduction. The reputation benefit. The customer loyalty data point. The feeling of being the kind of person who gives. I have seen all of it and I have done some of it. None of it is wrong — but none of it is what I am talking about.',
+  ch5bP7: 'What I am talking about is something rarer and more demanding: giving with no expectation of return. Giving because the need exists and you have the means. Giving not as a strategy but as a way of being — a posture toward the world that says <em>what I have is not ultimately mine, and the measure of my life is not what I kept.</em>',
+  ch5bP8: 'Most people never experience this. Not because they are bad people. Because the world never stops asking WIIFM long enough for them to find out what lies on the other side of that question.',
+  ch5bP9: 'I have found out. And what lies on the other side is the most unexpectedly practical thing I have ever encountered in business or in life:',
+  ch5bP10: '<em>God multiplies what you give.</em>',
+  ch5bP11: 'I do not say this as a motivational slogan. I say it as a man who has watched it happen — in his own finances and in the lives of the people around him — consistently enough that I no longer treat it as coincidence or sentiment. The biblical principle is not poetry dressed up as economics. It is a description of how generosity actually functions in the world when you stop holding everything so tightly.',
+  ch5bP12: 'The merchants who join TheGiveback will almost certainly be asked by someone in their lives what\'s in it for them. I want them to have a real answer — not the processing savings, not the customer loyalty statistics, not the tax considerations, though all of those are real. The real answer is harder to say and worth saying anyway:',
+  ch5bPull2: 'There is a kind of wealth that only moves when you stop trying to keep it.',
+  ch5bP13: 'Work done with purpose — genuinely, in service of something larger than your own return — produces a quality of life that no income statement captures. I have watched people discover this and watched it change the texture of everything: how they show up at work, how they treat their teams, what they feel when they lie down at night. Not because giving made them poorer. Because it made them more alive.',
+  ch5bP14: 'TheGiveback is built for merchants who have started to feel the weight of WIIFM. Who run good businesses and have begun to sense that something is missing — not in their revenue model, but in what the revenue is for. Who are ready, even tentatively, to point their commerce at something larger than themselves.',
+  ch5bP15: 'The infrastructure will handle the rest. That is what we built. But the decision to give — genuinely, without demanding it return — that is yours. And it is the most powerful business decision most people never make.',
+  ch5bScripture1Cite: '"Give, and it will be given to you. A good measure, pressed down, shaken together and running over, will be poured into your lap."',
+  ch5bScripture1Ref: '— Luke 6:38',
+  ch5bScripture2Cite: '"Honor the Lord with your wealth, with the firstfruits of all your crops; then your barns will be filled to overflowing."',
+  ch5bScripture2Ref: '— Proverbs 3:9–10',
+  ch6Title: 'The Part That Moves Me Most',
+  ch6P1: 'It is not the technology. It is not the public ledger or the dual pricing model or the disbursement infrastructure — though all of those things matter and I believe in them.',
+  ch6P2: 'What moves me is this: an ordinary small business owner, working six days a week, barely taking a day off, serving their customers and paying their people and keeping the lights on — that person\'s daily commerce is now funding a youth development program in Medellín. They may never visit Colombia. They may not speak Spanish. They may simply be someone who wanted their business to mean something more than the sum of its transactions.',
+  ch6P3: 'TheGiveback gives that meaning a mechanism. It makes the desire to give back — which I have found in almost every small business owner I have ever met — as automatic and effortless as the transaction itself.',
+  ch6P4: 'Every swipe. Every tap. Every card payment that runs through a Clover, PAX, or Dejavoo terminal at a certified merchant. The commerce continues. And underneath it, now, something different flows.',
+  ch6Pull: 'I have wanted to do this my whole life. I have life in me still. And I intend to use every bit of it making this as large and as real and as lasting as it can be.',
+  dedicationP1: 'To the people and children of Colombia —<br>to the foundations doing the work that nobody sees —<br>to the diaspora who never stopped loving home —<br>and to <strong>Mia</strong>, who made all of this make sense:',
+  dedicationP2: 'This is my little difference. I hope it becomes a big one.',
+  sigTitle: 'Founder — DATAONE & TheGiveback.org<br>Medellín, Colombia · Seven years and counting.',
+  finalScriptureCite: '"Every good and perfect gift is from above."',
+  finalScriptureRef: '— James 1:17',
+  covenantLabel: 'The Covenant — Written Before the First Dollar Moves',
+  covenantP1: '<strong>30% of DATAONE\'s retained margin</strong> routes to vetted Colombian foundations every month — automatically, from every certified merchant\'s transactions, as long as the business runs.',
+  covenantP2: 'This is not a campaign. It is permanent. It is documented. Every disbursement is on a public ledger that anyone can verify. The transparency is the point — because trust earned is worth more than trust assumed.',
+  covenantP3: 'If you are a merchant who wants your everyday commerce to build Colombia — <strong>get certified. It costs you nothing.</strong>',
+  covenantP4: 'If you are a Colombian foundation doing work that deserves sustainable funding — <strong>apply. We want to know you.</strong>',
+  covenantCta1: 'Get Certified — It\'s Free',
+  covenantCta2: 'Apply as a Foundation'
+}
+};
+
+let currentLang = 'es';
+
+function setLang(code) {
+  currentLang = code;
+  const d = T[code];
+  document.getElementById('html-root').lang = d.htmlLang;
+  document.title = d.docTitle;
+
+  const setText = (id, val) => {
+    const el = document.getElementById(id);
+    if (el && val !== undefined) el.textContent = val;
+  };
+  const setHTML = (id, val) => {
+    const el = document.getElementById(id);
+    if (el && val !== undefined) el.innerHTML = val;
+  };
+
+  setText('nav-cta', d.navCta);
+  setText('hero-eyebrow', d.heroEyebrow);
+  setHTML('hero-title', d.heroTitle);
+  setText('hero-sub', d.heroSub);
+  setText('byline-written-by', d.bylineWrittenBy);
+  setText('byline-location', d.bylineLocation);
+
+  setText('ch1-title', d.ch1Title);
+  setText('ch1-p1', d.ch1P1);
+  setText('ch1-p2', d.ch1P2);
+  setText('ch1-p3', d.ch1P3);
+  setText('ch1-pull', d.ch1Pull);
+
+  setText('ch2-title', d.ch2Title);
+  setText('ch2-p1', d.ch2P1);
+  setText('ch2-p2', d.ch2P2);
+  setHTML('ch2-p3', d.ch2P3);
+  setText('ch2-p4', d.ch2P4);
+  setText('ch2-p5', d.ch2P5);
+  setText('ch2-p6', d.ch2P6);
+  setText('ch2-scripture-cite', d.ch2ScriptureCite);
+  setText('ch2-scripture-ref', d.ch2ScriptureRef);
+
+  setText('ch3-title', d.ch3Title);
+  setText('ch3-p1', d.ch3P1);
+  setHTML('ch3-p2', d.ch3P2);
+  setText('ch3-p3', d.ch3P3);
+  setText('ch3-p4', d.ch3P4);
+  setText('ch3-pull', d.ch3Pull);
+
+  setText('ch3b-title', d.ch3bTitle);
+  setText('ch3b-p1', d.ch3bP1);
+  setHTML('ch3b-p2', d.ch3bP2);
+  setHTML('ch3b-p3', d.ch3bP3);
+  setText('ch3b-p4', d.ch3bP4);
+  setText('ch3b-pull', d.ch3bPull);
+  setHTML('ch3b-p5', d.ch3bP5);
+  setHTML('ch3b-p6', d.ch3bP6);
+  setText('ch3b-p7', d.ch3bP7);
+
+  setText('ch4-title', d.ch4Title);
+  setText('ch4-p1', d.ch4P1);
+  setText('ch4-p2', d.ch4P2);
+  setText('ch4-p3', d.ch4P3);
+  setText('ch4-p4', d.ch4P4);
+  setHTML('ch4-p5', d.ch4P5);
+  setText('ch4-p6', d.ch4P6);
+  setText('ch4-scripture-cite', d.ch4ScriptureCite);
+  setText('ch4-scripture-ref', d.ch4ScriptureRef);
+
+  setText('ch5-title', d.ch5Title);
+  setText('ch5-p1', d.ch5P1);
+  setText('ch5-p2', d.ch5P2);
+  setText('ch5-p3', d.ch5P3);
+  setText('ch5-p4', d.ch5P4);
+  setText('ch5-p5', d.ch5P5);
+  setText('ch5-aside-label', d.ch5AsideLabel);
+  setHTML('ch5-aside-p1', d.ch5AsideP1);
+  setText('ch5-aside-p2', d.ch5AsideP2);
+  setText('ch5-p6', d.ch5P6);
+
+  setText('ch5b-title', d.ch5bTitle);
+  setText('ch5b-p1', d.ch5bP1);
+  setHTML('ch5b-p2', d.ch5bP2);
+  setText('ch5b-p3', d.ch5bP3);
+  setText('ch5b-p4', d.ch5bP4);
+  setText('ch5b-p5', d.ch5bP5);
+  setText('ch5b-pull1', d.ch5bPull1);
+  setText('ch5b-p6', d.ch5bP6);
+  setHTML('ch5b-p7', d.ch5bP7);
+  setText('ch5b-p8', d.ch5bP8);
+  setText('ch5b-p9', d.ch5bP9);
+  setHTML('ch5b-p10', d.ch5bP10);
+  setText('ch5b-p11', d.ch5bP11);
+  setText('ch5b-p12', d.ch5bP12);
+  setText('ch5b-pull2', d.ch5bPull2);
+  setText('ch5b-p13', d.ch5bP13);
+  setText('ch5b-p14', d.ch5bP14);
+  setText('ch5b-p15', d.ch5bP15);
+  setText('ch5b-scripture1-cite', d.ch5bScripture1Cite);
+  setText('ch5b-scripture1-ref', d.ch5bScripture1Ref);
+  setText('ch5b-scripture2-cite', d.ch5bScripture2Cite);
+  setText('ch5b-scripture2-ref', d.ch5bScripture2Ref);
+
+  setText('ch6-title', d.ch6Title);
+  setText('ch6-p1', d.ch6P1);
+  setText('ch6-p2', d.ch6P2);
+  setText('ch6-p3', d.ch6P3);
+  setText('ch6-p4', d.ch6P4);
+  setText('ch6-pull', d.ch6Pull);
+
+  setHTML('dedication-p1', d.dedicationP1);
+  setText('dedication-p2', d.dedicationP2);
+  setHTML('sig-title', d.sigTitle);
+  setText('final-scripture-cite', d.finalScriptureCite);
+  setText('final-scripture-ref', d.finalScriptureRef);
+
+  setHTML('covenant-label', d.covenantLabel);
+  setHTML('covenant-p1', d.covenantP1);
+  setText('covenant-p2', d.covenantP2);
+  setHTML('covenant-p3', d.covenantP3);
+  setHTML('covenant-p4', d.covenantP4);
+  setText('covenant-cta1', d.covenantCta1);
+  setText('covenant-cta2', d.covenantCta2);
+
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === code);
+  });
+
+  try { localStorage.setItem('tg_story_lang', code); } catch(e){}
+}
+
 // Reading progress bar
 window.addEventListener('scroll', () => {
   const doc = document.documentElement;
@@ -518,6 +866,13 @@ window.addEventListener('scroll', () => {
   const pct = total > 0 ? (scrolled / total) * 100 : 0;
   document.getElementById('progress').style.width = pct + '%';
 });
+
+/* ── INIT ──────────────────────────────── */
+(function() {
+  let saved = 'es';
+  try { saved = localStorage.getItem('tg_story_lang') || 'es'; } catch(e){}
+  setLang(saved);
+})();
 </script>
 </body>
 </html>

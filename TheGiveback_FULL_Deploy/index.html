@@ -1974,7 +1974,7 @@ section:nth-child(even) {
         <div style="font-size:32px;flex-shrink:0">💡</div>
         <div style="flex:1;min-width:200px">
           <div style="font-family:var(--serif);font-size:15px;font-weight:600;color:#fff;margin-bottom:6px" id="how-clarity-title">El margen de procesamiento financia la donación — no es una tarifa que pagas.</div>
-          <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;margin:0" id="how-clarity-body">Con precios duales, el cliente que paga con tarjeta cubre el costo de procesamiento. Tu costo efectivo es cercano a cero. DATAONE gana un margen de procesamiento — y el 30% de ese margen va a Colombia. Tus tarifas se acuerdan individualmente al inscribirte.</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;margin:0" id="how-clarity-body">Con precios duales, el cliente que paga con tarjeta cubre el costo de procesamiento. Tu costo efectivo es cercano a cero. DATAONE gana un margen de procesamiento — y el 30% de ese margen va a Colombia y Venezuela. Tus tarifas se acuerdan individualmente al inscribirte.</p>
         </div>
         <button class="btn btn-gold btn-sm" onclick="showPage('start')" style="flex-shrink:0;white-space:nowrap">Certifícate →</button>
       </div>
@@ -2010,19 +2010,19 @@ section:nth-child(even) {
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-bottom:28px">
             <div style="text-align:center;padding:16px;background:rgba(37,99,235,.06);border-radius:var(--r);border:1px solid rgba(37,99,235,.15)">
               <div id="calc-margin" style="font-family:var(--serif);font-size:clamp(16px,2vw,22px);font-weight:700;color:#2563EB;margin-bottom:4px">$9,000</div>
-              <div style="font-size:10px;color:var(--text-muted);line-height:1.4">Margen DATAONE<br>(1.8%)</div>
+              <div style="font-size:10px;color:var(--text-muted);line-height:1.4" id="calc-margin-lbl">Margen DATAONE<br>(1.8%)</div>
             </div>
             <div style="text-align:center;padding:16px;background:rgba(26,58,42,.08);border-radius:var(--r);border:1px solid rgba(26,58,42,.15)">
               <div id="calc-colombia" style="font-family:var(--serif);font-size:clamp(16px,2vw,22px);font-weight:700;color:var(--green-lt);margin-bottom:4px">$2,700</div>
-              <div style="font-size:10px;color:var(--text-muted);line-height:1.4">Colombia recibe<br>(30%)</div>
+              <div style="font-size:10px;color:var(--text-muted);line-height:1.4" id="calc-colombia-lbl">Colombia recibe<br>(30%)</div>
             </div>
             <div style="text-align:center;padding:16px;background:var(--gold-pale);border-radius:var(--r);border:1px solid rgba(196,135,42,.2)">
               <div id="calc-partner" style="font-family:var(--serif);font-size:clamp(16px,2vw,22px);font-weight:700;color:var(--gold);margin-bottom:4px">$1,800</div>
-              <div style="font-size:10px;color:var(--text-muted);line-height:1.4">Socio referente<br>(20%)</div>
+              <div style="font-size:10px;color:var(--text-muted);line-height:1.4" id="calc-partner-lbl">Socio referente<br>(20%)</div>
             </div>
             <div style="text-align:center;padding:16px;background:var(--mist);border-radius:var(--r);border:1px solid var(--border)">
               <div id="calc-dataone" style="font-family:var(--serif);font-size:clamp(16px,2vw,22px);font-weight:700;color:var(--text-muted);margin-bottom:4px">$4,500</div>
-              <div style="font-size:10px;color:var(--text-muted);line-height:1.4">DATAONE retiene<br>(operaciones)</div>
+              <div style="font-size:10px;color:var(--text-muted);line-height:1.4" id="calc-dataone-lbl">DATAONE retiene<br>(operaciones)</div>
             </div>
           </div>
 
@@ -2045,11 +2045,11 @@ section:nth-child(even) {
           <div class="math-table" style="margin-top:20px">
             <div class="math-hd">
               <div class="math-hd-dot"></div>
-              <span class="math-hd-label">Flujo mensual detallado — <span id="calc-vol-label">$500,000</span> en volumen</span>
+              <span class="math-hd-label"><span id="wf-hd-prefix">Flujo mensual detallado —</span> <span id="calc-vol-label">$500,000</span> <span id="wf-hd-suffix">en volumen</span></span>
             </div>
             <div class="math-row"><span class="math-lbl" id="wf-lbl-vol">Volumen procesado</span><span class="math-val mv-blue" id="wf-vol">$500,000</span></div>
             <div class="math-row indent"><span class="math-lbl" id="wf-lbl-margin">→ Margen de procesamiento DATAONE (~1.8% aprox.)</span><span class="math-val mv-blue" id="wf-margin">$9,000</span></div>
-            <div class="math-row indent"><span class="math-lbl" id="wf-lbl-colombia">→ Pacto 30% → tu fundación colombiana</span><span class="math-val mv-green" id="wf-colombia">$2,700</span></div>
+            <div class="math-row indent"><span class="math-lbl" id="wf-lbl-colombia">→ Pacto 30% → tu fundación colombiana o venezolana</span><span class="math-val mv-green" id="wf-colombia">$2,700</span></div>
             <div class="math-row indent"><span class="math-lbl" id="wf-lbl-partner">→ Comisión socio referente (20%)</span><span class="math-val mv-gold" id="wf-partner">$1,800</span></div>
             <div class="math-row indent"><span class="math-lbl" id="wf-lbl-dataone">→ DATAONE retiene (operaciones)</span><span class="math-val mv-muted" id="wf-dataone">$4,500</span></div>
             <div class="math-row indent"><span class="math-lbl" id="wf-lbl-cost">→ Tu costo de procesamiento</span><span class="math-val mv-green" style="color:#22c55e">~$0</span></div>
@@ -2221,7 +2221,7 @@ section:nth-child(even) {
         <div class="merchant-stats">
           <div class="ms-card"><div class="ms-num">$0</div><div class="ms-label">Costos de procesamiento</div></div>
           <div class="ms-card"><div class="ms-num">Gratis</div><div class="ms-label">Hardware para calificados</div></div>
-          <div class="ms-card"><div class="ms-num">30%</div><div class="ms-label">De nuestro margen a Colombia</div></div>
+          <div class="ms-card"><div class="ms-num">30%</div><div class="ms-label" id="m-margin-lbl">De nuestro margen a Colombia</div></div>
           <div class="ms-card"><div class="ms-num">88%</div><div class="ms-label">Clientes leales a marcas con propósito</div></div>
         </div>
       </div>
@@ -2858,8 +2858,6 @@ section:nth-child(even) {
         <div style="font-family:var(--sans);font-size:11px;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px">Commerce that gives back.</div>
         <div style="font-family:var(--serif);font-size:11px;font-style:italic;color:rgba(255,255,255,.35);margin-bottom:10px">Dignity through Opportunity.</div>
         <p class="footer-desc" id="footer-desc">Comercio en EE.UU. Fundaciones colombianas y venezolanas. Donación automática desde transacciones cotidianas. Impulsado por DATAONE + Clover.</p>
-        <!-- ⚠ PLACEHOLDER: Social links -->
-        <div class="ph" style="margin-top:14px">⚠ Add social links</div>
       </div>
       <div>
         <div class="footer-col-title" id="footer-col1-title">Plataforma</div>
@@ -2891,8 +2889,6 @@ section:nth-child(even) {
           <li><button>Fundación Colombia 2 (en verificación)</button></li>
           <li><button style="color:rgba(255,255,255,.4)" id="footer-venezuela">🇻🇪 Venezuela (incorporándose)</button></li>
           <li><a href="https://www.givehub.com" target="_blank" style="font-size:13px;color:rgba(255,255,255,.55);font-weight:500" id="footer-givehub">Plataforma GiveHub →</a></li>
-          <!-- ⚠ PLACEHOLDER: Add more foundations as network grows -->
-          <li><div class="ph">⚠ More foundations</div></li>
         </ul>
       </div>
     </div>
@@ -2931,7 +2927,7 @@ es: {
   hw4T:'Tú ves el impacto', hw4S:'Reporte el primero de cada mes',
   // PÁGINA COMERCIOS
   'merchantH1': 'Sin comisiones.<br>Hardware gratis.<br><em>Colombia y Venezuela financiadas.</em>',
-  mEyebrow: 'Para Comercios en EE.UU.',
+  mEyebrow: 'Para Comercios en EE.UU.', mMarginLbl: 'De nuestro margen a Colombia y Venezuela',
   mSub: 'Procesas pagos cada día. Pagas comisiones cada mes. Y Colombia y Venezuela esperan. TheGiveback cambia las tres cosas al mismo tiempo — sin que cambies nada en tu operación.',
   mPillarsEyebrow: 'Por Qué Funciona',
   mPillarsH2: 'Dejas de pagar comisiones.<br>Colombia y Venezuela empiezan a recibir.<br><em>Y tus clientes se quedan.</em>',
@@ -3005,12 +3001,15 @@ es: {
   'how-step3-title':'Tú ves la prueba', 'how-step3-body':'El primero de cada mes: tu reporte de impacto. Monto exacto, fundación, qué financió ese mes. Enlace al libro público. Compartible en un toque.',
   'how-step3-tag':'Tu identidad: ID anónimo por defecto',
   'how-clarity-title':'El margen de procesamiento financia la donación — no es una tarifa que pagas.',
-  'how-clarity-body':'Con precios duales, el cliente que paga con tarjeta cubre el costo de procesamiento. Tu costo efectivo es cercano a cero. DATAONE gana un margen — y el 30% de eso va a Colombia. Tus tarifas se acuerdan al inscribirte.',
+  'how-clarity-body':'Con precios duales, el cliente que paga con tarjeta cubre el costo de procesamiento. Tu costo efectivo es cercano a cero. DATAONE gana un margen — y el 30% de eso va a Colombia y Venezuela. Tus tarifas se acuerdan al inscribirte.',
   'how-calc-eyebrow':'Tu Número Real', 'how-calc-h2':'¿Cuánto generaría<br><em>tu comercio para Colombia?</em>',
   'how-calc-sub':'Mueve el slider al volumen mensual de tu negocio y ve exactamente a dónde va cada dólar — en tiempo real.',
   'how-vol-label':'Volumen mensual de procesamiento',
+  'calc-margin-lbl':'Margen DATAONE<br>(1.8%)', 'calc-colombia-lbl':'Colombia recibe<br>(30%)',
+  'calc-partner-lbl':'Socio referente<br>(20%)', 'calc-dataone-lbl':'DATAONE retiene<br>(operaciones)',
+  'wf-hd-prefix':'Flujo mensual detallado —', 'wf-hd-suffix':'en volumen',
   'wf-lbl-vol':'Volumen procesado', 'wf-lbl-margin':'→ Margen de procesamiento DATAONE (~1.8% aprox.)',
-  'wf-lbl-colombia':'→ Pacto 30% → tu fundación colombiana', 'wf-lbl-partner':'→ Comisión socio referente (20%)',
+  'wf-lbl-colombia':'→ Pacto 30% → tu fundación colombiana o venezolana', 'wf-lbl-partner':'→ Comisión socio referente (20%)',
   'wf-lbl-dataone':'→ DATAONE retiene (operaciones)', 'wf-lbl-cost':'→ Tu costo de procesamiento',
   'wf-lbl-month':'Colombia recibe este mes', 'wf-lbl-year':'Colombia recibe este año',
   'how-annual-lbl':'🇨🇴 Colombia recibe anualmente', 'how-cost-lbl':'Tu costo efectivo de procesamiento',
@@ -3238,7 +3237,7 @@ en: {
   hw4T:'You see the impact', hw4S:'Report on the first of every month',
   // MERCHANTS PAGE
   'merchantH1': 'Stop paying fees.<br>Free hardware.<br><em>Colombia & Venezuela funded.</em>',
-  mEyebrow: 'For US Merchants',
+  mEyebrow: 'For US Merchants', mMarginLbl: 'From our margin to Colombia & Venezuela',
   mSub: 'You process payments every day. You pay fees every month. And Colombia and Venezuela are waiting. TheGiveback changes all three at once — without changing how you operate.',
   mPillarsEyebrow: 'Why It Works',
   mPillarsH2: 'You stop paying fees.<br>Colombia and Venezuela start receiving.<br><em>And your customers stay.</em>',
@@ -3312,12 +3311,15 @@ en: {
   'how-step3-title':'You see the proof', 'how-step3-body':'First of every month: your impact report. Exact dollar amount, foundation, what it funded. Link to your public ledger entry. Shareable in one tap.',
   'how-step3-tag':'Your identity: anonymous ID by default',
   'how-clarity-title':'The processing margin funds the giving — not a fee you pay.',
-  'how-clarity-body':'With dual pricing, the card-paying customer covers the processing cost. Your effective cost is near zero. DATAONE earns a margin — and 30% of that goes to Colombia. Your rates are confirmed when you sign up.',
+  'how-clarity-body':'With dual pricing, the card-paying customer covers the processing cost. Your effective cost is near zero. DATAONE earns a margin — and 30% of that goes to Colombia and Venezuela. Your rates are confirmed when you sign up.',
   'how-calc-eyebrow':'Your Real Number', 'how-calc-h2':'How much would your business<br><em>generate for Colombia?</em>',
   'how-calc-sub':'Move the slider to your monthly volume and see exactly where every dollar goes — in real time.',
   'how-vol-label':'Monthly processing volume',
+  'calc-margin-lbl':'DATAONE margin<br>(1.8%)', 'calc-colombia-lbl':'Colombia & Venezuela receive<br>(30%)',
+  'calc-partner-lbl':'Referral partner<br>(20%)', 'calc-dataone-lbl':'DATAONE operations<br>(50%)',
+  'wf-hd-prefix':'Monthly detail —', 'wf-hd-suffix':'in volume',
   'wf-lbl-vol':'Volume processed', 'wf-lbl-margin':'→ DATAONE processing margin (~1.8% blended est.)',
-  'wf-lbl-colombia':'→ 30% covenant → your Colombian foundation', 'wf-lbl-partner':'→ Referral partner commission (20%)',
+  'wf-lbl-colombia':'→ 30% covenant → your Colombian or Venezuelan foundation', 'wf-lbl-partner':'→ Referral partner commission (20%)',
   'wf-lbl-dataone':'→ DATAONE retains (operations)', 'wf-lbl-cost':'→ Your processing cost',
   'wf-lbl-month':'Colombia receives this month', 'wf-lbl-year':'Colombia receives this year',
   'how-annual-lbl':'🇨🇴 Colombia receives annually', 'how-cost-lbl':'Your effective processing cost',
@@ -3568,6 +3570,8 @@ function setLang(code) {
     'how-step3-title','how-step3-body','how-step3-tag',
     'how-clarity-title','how-clarity-body',
     'how-calc-eyebrow','how-calc-h2','how-calc-sub','how-vol-label',
+    'calc-margin-lbl','calc-colombia-lbl','calc-partner-lbl','calc-dataone-lbl',
+    'wf-hd-prefix','wf-hd-suffix',
     'wf-lbl-vol','wf-lbl-margin','wf-lbl-colombia','wf-lbl-partner',
     'wf-lbl-dataone','wf-lbl-cost','wf-lbl-month','wf-lbl-year',
     'how-annual-lbl','how-cost-lbl',
@@ -3580,7 +3584,8 @@ function setLang(code) {
   ];
   const htmlIds = [
     'how-h1','how-s1-h2','how-step2-body','how-clarity-body',
-    'how-calc-h2','how-sus-h2','how-hw-h2','how-rem-h2','how-cta-h2'
+    'how-calc-h2','how-sus-h2','how-hw-h2','how-rem-h2','how-cta-h2',
+    'calc-margin-lbl','calc-colombia-lbl','calc-partner-lbl','calc-dataone-lbl'
   ];
   // Other pages
   const otherIds = [
@@ -3607,7 +3612,7 @@ function setLang(code) {
 
   // Merchants page
   const merchantIds = {
-    'm-eyebrow': false, 'm-h1': true, 'm-sub': false,
+    'm-eyebrow': false, 'm-h1': true, 'm-sub': false, 'm-margin-lbl': false,
     'm-pillars-eyebrow': false, 'm-pillars-h2': true, 'm-pillars-sub': false,
     'm-p1-eyebrow': false, 'm-p1-body': false,
     'm-p2-eyebrow': false, 'm-p2-body': false,
