@@ -7,7 +7,17 @@
   status = 200
 
 [[redirects]]
+  from = "/manifesto/"
+  to = "/manifesto/index.html"
+  status = 200
+
+[[redirects]]
   from = "/story"
+  to = "/story/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/story/"
   to = "/story/index.html"
   status = 200
 
@@ -17,7 +27,17 @@
   status = 200
 
 [[redirects]]
+  from = "/historia/"
+  to = "/historia/index.html"
+  status = 200
+
+[[redirects]]
   from = "/ledger"
+  to = "/ledger/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/ledger/"
   to = "/ledger/index.html"
   status = 200
 
@@ -27,7 +47,17 @@
   status = 200
 
 [[redirects]]
+  from = "/internal/"
+  to = "/internal/index.html"
+  status = 200
+
+[[redirects]]
   from = "/faq"
+  to = "/faq/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/faq/"
   to = "/faq/index.html"
   status = 200
 
@@ -37,6 +67,16 @@
   status = 200
 
 [[redirects]]
+  from = "/privacy/"
+  to = "/privacy/index.html"
+  status = 200
+
+[[redirects]]
   from = "/terms"
+  to = "/terms/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms/"
   to = "/terms/index.html"
   status = 200
