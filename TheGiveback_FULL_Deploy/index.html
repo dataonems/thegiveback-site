@@ -485,6 +485,14 @@ p { color: var(--text-muted); line-height: 1.8; }
 .how-step-sub { font-size: 11px; color: var(--text-muted); }
 .how-arrow { font-size: 18px; color: var(--border); flex-shrink: 0; }
 
+/* Credibility band — who's behind this */
+.cred-band { background: var(--bg); padding: 40px 0; }
+.cred-card { display: flex; align-items: center; gap: 18px; max-width: 780px; margin: 0 auto; background: var(--bg-soft); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: var(--rlg); padding: 24px 30px; }
+.cred-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.cred-text { font-family: var(--serif); font-size: clamp(15px, 1.9vw, 19px); font-weight: 600; color: var(--green); line-height: 1.6; overflow-wrap: break-word; min-width: 0; }
+.cred-text a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 640px) { .cred-card { flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px; } }
+
 /* Three sides */
 .sides-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
 .side-card { border-radius: var(--rlg); border: 1px solid var(--border); overflow: hidden; transition: transform .2s, box-shadow .2s; }
@@ -1741,6 +1749,16 @@ section:nth-child(even) {
     </div>
   </div>
 
+  <!-- WHO'S BEHIND THIS — credibility band (EN text final; ES is a placeholder LANGS key for the copywriter) -->
+  <section class="cred-band">
+    <div class="wrap">
+      <div class="cred-card reveal">
+        <div class="cred-icon" aria-hidden="true">✓</div>
+        <p class="cred-text"><span data-i18n-html="credLine">[ES: pending native copy]</span></p>
+      </div>
+    </div>
+  </section>
+
   <!-- Three sides -->
   <section class="section" style="background:var(--bg)">
     <div class="wrap">
@@ -2169,6 +2187,16 @@ section:nth-child(even) {
       <div class="reveal" style="margin-top:20px;padding:22px 28px;background:var(--bg-soft);border-radius:var(--r);border:1px solid var(--border);border-left:3px solid var(--green-lt)">
         <p style="font-size:14px;line-height:1.8;color:var(--text-mid);margin-bottom:8px">Los procesadores tradicionales pagan el 50–80% de su margen a agentes de ventas. Nosotros pagamos el 20% a socios referentes. La diferencia es lo que hace posible un pacto permanente del 30% a Colombia — sin comprometer la sostenibilidad del negocio.</p>
         <p style="font-size:13px;color:var(--text-muted);font-style:italic;margin:0">Este modelo fue diseñado por alguien que pasó quince años dentro del procesamiento de pagos. Los números siempre estuvieron ahí. Nadie los había apuntado hacia Colombia antes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO'S BEHIND THIS — credibility band (EN text final; ES is a placeholder LANGS key for the copywriter) -->
+  <section class="cred-band" style="border-top:1px solid var(--border)">
+    <div class="wrap">
+      <div class="cred-card reveal">
+        <div class="cred-icon" aria-hidden="true">✓</div>
+        <p class="cred-text"><span data-i18n-html="credLine">[ES: pending native copy]</span></p>
       </div>
     </div>
   </section>
@@ -2976,6 +3004,8 @@ es: {
   counterLabel:'Pacto del 30% — firmado y permanente', counterNum:'Primer desembolso: en camino', counterNote:'El contador en vivo se activa con el primer desembolso',
   heroH1:'Tienes Latinoamérica<br>en el corazón.<br><em>Tu terminal ya genera el dinero.</em>',
   heroSub:'Ya estás generando el margen. La pregunta es a dónde va. <strong>Redirectamos el 30% del nuestro a fundaciones colombianas y venezolanas verificadas</strong> — automáticamente, cada mes, sin costo extra para ti.',
+  // ⚠ PLACEHOLDER — copywriter to write the native Spanish version of the DataOne credibility line (do not machine-translate; see EN credLine)
+  credLine:'[ES: pending native copy]',
   heroCta1:'Únete al pacto →', heroCta2:'Cómo Funciona →', waCta:'💬 Hablar con Chris →',
   hs1Lbl:'Costo extra para ti', hs2Lbl:'De nuestro margen a Colombia y Venezuela', hs3Lbl:'En libro público',
   fbLiveLbl:'Se activa con el primer desembolso 🇨🇴',
@@ -3288,6 +3318,7 @@ en: {
   counterLabel:'30% Covenant — signed and permanent', counterNum:'First disbursement: incoming', counterNote:'Live counter activates with the first disbursement',
   heroH1:'You have Latin America<br>in your heart.<br><em>Your terminal already generates the money.</em>',
   heroSub:'You are already generating the margin. The question is where it goes. <strong>We route 30% of ours to vetted Colombian and Venezuelan foundations</strong> — automatically, every month, at no extra cost to you.',
+  credLine:'<a href="https://dataonems.com" target="_blank" rel="noopener">DataOne</a>. 15 years in payments. Serving businesses of every kind, nationwide. Over $300M processed every year.',
   heroCta1:'Join the covenant →', heroCta2:'How It Works →', waCta:'💬 Talk to Chris →',
   hs1Lbl:'Extra cost to you', hs2Lbl:'Of our margin to Colombia & Venezuela', hs3Lbl:'On public ledger',
   fbLiveLbl:'Activates with first disbursement 🇨🇴',
