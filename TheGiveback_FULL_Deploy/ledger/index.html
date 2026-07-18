@@ -281,7 +281,7 @@ p{color:var(--text-muted);line-height:1.8}
       <div class="total-lbl" id="total-mer-lbl">Comercios<br>certificados</div>
     </div>
     <div class="total-card">
-      <div class="total-num" id="total-foundations">2</div>
+      <div class="total-num" id="total-foundations">1</div>
       <div class="total-lbl" id="total-found-lbl">Fundaciones<br>en la red</div>
     </div>
   </div>
@@ -295,7 +295,7 @@ p{color:var(--text-muted);line-height:1.8}
     <div class="ledger-empty">
       <div class="ledger-empty-flag">🇨🇴</div>
       <h3 id="empty-title">El primer desembolso está en camino.</h3>
-      <p id="empty-body">Estamos incorporando los primeros comercios certificados y finalizando las alianzas con ASODISVALLE y Rescue + Rise Foundation. En el momento en que se realice el primer desembolso real — aunque sea $500 de tres comercios en 30 días — esta tabla se activa y el ledger se vuelve público.</p>
+      <p id="empty-body">Estamos incorporando los primeros comercios certificados y finalizando la alianza con ASODISVALLE. En el momento en que se realice el primer desembolso real — aunque sea $500 de tres comercios en 30 días — esta tabla se activa y el ledger se vuelve público.</p>
       <span class="ledger-empty-date" id="empty-date">Primera entrada estimada: 2026</span>
     </div>
 
@@ -344,15 +344,8 @@ p{color:var(--text-muted);line-height:1.8}
         <div class="foundation-status" id="f1-status">⚠ Pendiente confirmación NIT</div>
       </div>
 
-      <div class="foundation-card">
-        <div class="foundation-name">Rescue + Rise Foundation</div>
-        <p class="foundation-desc" id="f2-desc">Un refugio de seguridad, dignidad y esperanza para madres vulnerables y sus bebés. Rescatando vidas, alimentando a los hambrientos. Medellín, Colombia. Desde 2019.</p>
-        <div class="foundation-stat">
-          <div><div class="fs-num">300+</div><div class="fs-lbl" id="f2-stat1">Madres rescatadas</div></div>
-          <div><div class="fs-num">15K+</div><div class="fs-lbl" id="f2-stat2">Comidas servidas</div></div>
-        </div>
-        <div class="foundation-status" id="f2-status">⚠ Pendiente confirmación estructura legal</div>
-      </div>
+      <!-- FOUNDATION REMOVED (Rescue + Rise) — network focus is Colombia + Venezuela only.
+           Second grid slot intentionally open for the first verified Venezuelan foundation. -->
 
     </div>
   </div>
@@ -410,20 +403,17 @@ es:{
   totalGiven:'$0', totalGivenLbl:'Total donado<br>a Colombia',
   totalDis:'0', totalDisLbl:'Desembolsos<br>realizados',
   totalMer:'0', totalMerLbl:'Comercios<br>certificados',
-  totalFound:'2', totalFoundLbl:'Fundaciones<br>en la red',
+  totalFound:'1', totalFoundLbl:'Fundaciones<br>en la red',
   ledgerTitle:'Registro de Desembolsos',
   ledgerSub:'Cada fila representa un desembolso mensual real. Verificable. Permanente.',
   emptyTitle:'El primer desembolso está en camino.',
-  emptyBody:'Estamos incorporando los primeros comercios certificados y finalizando las alianzas con ASODISVALLE y Rescue + Rise Foundation. En el momento en que se realice el primer desembolso real — aunque sea $500 de tres comercios en 30 días — esta tabla se activa y el ledger se vuelve público.',
+  emptyBody:'Estamos incorporando los primeros comercios certificados y finalizando la alianza con ASODISVALLE. En el momento en que se realice el primer desembolso real — aunque sea $500 de tres comercios en 30 días — esta tabla se activa y el ledger se vuelve público.',
   emptyDate:'Primera entrada estimada: 2026',
   foundTitle:'Fundaciones en la Red',
   foundSub:'Cada fundación es verificada antes de recibir su primer desembolso.',
   f1Desc:'Educación, terapia, comidas, y la primera universidad para jóvenes con discapacidad en América Latina. Fundada por Jeison Aristizábal, CNN Hero of the Year 2016. Cali, Colombia.',
   f1Stat1:'Jóvenes atendidos', f1Stat2:'En operación',
   f1Status:'⚠ Pendiente confirmación NIT',
-  f2Desc:'Un refugio de seguridad, dignidad y esperanza para madres vulnerables y sus bebés. Rescatando vidas, alimentando a los hambrientos. Medellín, Colombia. Desde 2019.',
-  f2Stat1:'Madres rescatadas', f2Stat2:'Comidas servidas',
-  f2Status:'⚠ Pendiente confirmación estructura legal',
   howTitle:'Cómo funciona este ledger',
   how1Title:'El primero de cada mes',
   how1Body:'DATAONE procesa los desembolsos del mes anterior. Cada fundación recibe su transferencia. Cada comercio recibe su reporte de impacto.',
@@ -452,20 +442,17 @@ en:{
   totalGiven:'$0', totalGivenLbl:'Total given<br>to Colombia',
   totalDis:'0', totalDisLbl:'Disbursements<br>made',
   totalMer:'0', totalMerLbl:'Certified<br>merchants',
-  totalFound:'2', totalFoundLbl:'Foundations<br>in network',
+  totalFound:'1', totalFoundLbl:'Foundations<br>in network',
   ledgerTitle:'Disbursement Register',
   ledgerSub:'Each row represents a real monthly disbursement. Verifiable. Permanent.',
   emptyTitle:'The first disbursement is coming.',
-  emptyBody:"We're onboarding our first certified merchants and finalizing partnerships with ASODISVALLE and Rescue + Rise Foundation. The moment the first real disbursement occurs — even $500 from three merchants over 30 days — this table activates and the ledger goes public.",
+  emptyBody:"We're onboarding our first certified merchants and finalizing the partnership with ASODISVALLE. The moment the first real disbursement occurs — even $500 from three merchants over 30 days — this table activates and the ledger goes public.",
   emptyDate:'First entry estimated: 2026',
   foundTitle:'Foundations in the Network',
   foundSub:'Every foundation is verified before receiving its first disbursement.',
   f1Desc:'Education, therapy, meals, and the first university for disabled youth in Latin America. Founded by Jeison Aristizábal, CNN Hero of the Year 2016. Cali, Colombia.',
   f1Stat1:'Youth served', f1Stat2:'In operation',
   f1Status:'⚠ Pending NIT confirmation',
-  f2Desc:'A refuge of safety, dignity, and hope for vulnerable mothers and their babies. Rescuing lives, feeding the hungry. Medellín, Colombia. Since 2019.',
-  f2Stat1:'Mothers rescued', f2Stat2:'Meals served',
-  f2Status:'⚠ Pending legal structure confirmation',
   howTitle:'How this ledger works',
   how1Title:'First of every month',
   how1Body:'DATAONE processes disbursements from the prior month. Each foundation receives its transfer. Each merchant receives their impact report.',
@@ -518,9 +505,6 @@ function setLang(code) {
   setText('f1-desc', d.f1Desc);
   setText('f1-stat1', d.f1Stat1); setText('f1-stat2', d.f1Stat2);
   setText('f1-status', d.f1Status);
-  setText('f2-desc', d.f2Desc);
-  setText('f2-stat1', d.f2Stat1); setText('f2-stat2', d.f2Stat2);
-  setText('f2-status', d.f2Status);
   setText('how-title', d.howTitle);
   setText('how1-title', d.how1Title); setHTML('how1-body', d.how1Body);
   setText('how2-title', d.how2Title); setHTML('how2-body', d.how2Body);
